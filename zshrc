@@ -78,7 +78,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-unalias sl
+# unalias sl
 
 alias gvim="gvim 2>/dev/null"
 
