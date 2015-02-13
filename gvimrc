@@ -24,6 +24,14 @@ vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 
+"This is for the pathogen which is located in ./vim/autoload
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
+"YouCompleteMe
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+
 "Some code from the laptop vim config..
 let g:html_indent_inctags = "html,body,head,tbody" "Makes the smart indent for html indent these tags aswell.
 
