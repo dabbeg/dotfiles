@@ -14,5 +14,5 @@ And to setup the symlinks for the dotfiles run the script:
 
 @./makeSymLinks.sh@
 
-## How to manage what dotfiles are moved into the dotfiles directory and symlinked
+## How to manage what dotfiles are used
 Simply open the script in an editor and add the filename in the files list in line 11.
