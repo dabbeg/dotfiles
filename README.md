@@ -4,7 +4,7 @@ This repository contains all important dot files that I keep track with and a ha
 ## Setup
 To install it is required to clone the repository recursively because of oh-my-zsh is a submodule.
 
-`git clone --recursive https://github.com/dabbeg/Dotfiles.git`
+`git clone --recursive https://github.com/dabbeg/dotfiles.git`
 
 Then make makeSymLinks.sh executable:
 
