@@ -53,7 +53,7 @@ install_zsh() {
   fi
   
   echo "Cloning zsh-syntax-highlighting into oh-my-zsh custom plugins..."
-  git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/dotfiles/oh-my-zsh/custom/plugins
+  git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/dotfiles/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
   echo "done"
 
   echo "Installing YouCompleteMe for autocompletion"
