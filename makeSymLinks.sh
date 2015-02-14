@@ -52,13 +52,11 @@ install_zsh() {
     fi
   fi
   
-  echo "Cloning zsh-syntax-highlighting into oh-my-zsh custom plugins..."
-  git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/dotfiles/oh-my-zsh/custom/plugins
-  echo "done"
-
-  echo "Installing YouCompleteMe for autocompletion"
-  ./vim/bundle/YouCompleteMe/install.sh --clang-completer
-  echo "done"
+  if [ ! -d "./oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
+      echo "Cloning zsh-syntax-highlighting into oh-my-zsh custom plugins..."
+      git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/dotfiles/oh-my-zsh/custom/plugins
+      echo "done"
+  fi
 }
 
 
