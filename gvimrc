@@ -1,7 +1,8 @@
 set wrap linebreak nolist "If a line is longer than width of window it drops down to next line.
 
 color molokai "Colortheme
-set guifont=Inconsolata\ 12 "Font
+""set guifont=Inconsolata\ 12 "Font
+set guifont=Inconsolata\ for\ Powerline\ 15 "Special font for powerline
 let g:NERDTreeWinPos = "right" "NERDTree position
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
@@ -28,6 +29,22 @@ vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
+
+"NERDTree mapping to let nerdtree always display current directory of the
+"document selected.
+map <leader>r :NERDTreeFind<cr>
+autocmd BufEnter * lcd %:p:h
+
+"Mapping keys for building and running with make from vim
+nnoremap <F5> :make<cr>
+nnoremap <F6> :make run<cr>
+nnoremap <F7> :make runInput<cr>
+
+"At start open NERDTree
+NERDTree
+
+"Close vim if NERDTree is the only buffer open.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 "This is for the pathogen which is located in ./vim/autoload
 execute pathogen#infect()
@@ -62,6 +79,12 @@ highlight ColorColumn ctermbg=darkgray
 set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
-""let g:Powerline_symbols = 'unicode'
+let g:Powerline_symbols = 'fancy'
+
+let g:Powerline_dividers_override = ['', '', '', '']
+let g:Powerline_symbols_override = { 'BRANCH': '', 'LINE': '', 'RO': '' }
+
+
+
 
 Helptags
