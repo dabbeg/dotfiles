@@ -56,3 +56,12 @@ set secure
 "Highlight the column of the 110 line too see if your lines are too long
 set colorcolumn=110
 highlight ColorColumn ctermbg=darkgray
+
+
+"Powerline settings for vim
+set nocompatible   " Disable vi-compatibility
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+""let g:Powerline_symbols = 'unicode'
+
+Helptags
