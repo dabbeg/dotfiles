@@ -14,9 +14,14 @@ set number " Sets line numbers to the left
 inoremap jj <ESC> 
 
 "Mapped the moving keys so they make more sense to me.
-noremap l h
+noremap j h
+noremap k j
+noremap l k
 noremap ; l
 noremap h ;
+""noremap l h
+""noremap ; l
+""noremap h ;
 
 "Mapping ctrl-c, ctrl-x and ctrl-v
 vmap <C-c> "+yi
@@ -41,3 +46,13 @@ map <silent> <F11>
 set guioptions-=T guioptions-=m "Makes the whitespace at the bottom and right a little smaller. 
 
 source ~/dotfiles/vim/extraVimrc/autoclose.vim "Enables a vim file that completes braces, it can be found in the following path.
+
+
+"Forces vim to source .vimrc file if it is present in the working directory.
+set exrc
+"Restrict usage of some commands for security
+set secure
+
+"Highlight the column of the 110 line too see if your lines are too long
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
