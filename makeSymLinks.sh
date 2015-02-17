@@ -54,7 +54,7 @@ install_zsh() {
   
   if [ ! -d "./oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
       echo "Cloning zsh-syntax-highlighting into oh-my-zsh custom plugins..."
-      git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/dotfiles/oh-my-zsh/custom/plugins
+      git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/dotfiles/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
       echo "done"
   fi
 }
