@@ -18,13 +18,9 @@ possibly you will get an error because there are three depandancies YCM depends 
 To make vim-powerline work properly we need to install custom fonts.
 
 `mkdir ~/.fonts`
-
 `git clone https://github.com/powerline/fonts.git`
-
 `./fonts/install.sh`
-
 `fc-cache -vf ~/.fonts/`
-
 `rm fonts`
 
 And to setup the symlinks for the dotfiles run the script:
