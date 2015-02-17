@@ -17,7 +17,7 @@ To make vim-powerline work properly we need to install custom fonts.
 `git clone https://github.com/powerline/fonts.git`  
 `./fonts/install.sh`  
 `fc-cache -vf ~/.fonts/`  
-`rm fonts`  
+`rm -r fonts`  
 
 And to setup the symlinks for the dotfiles run the script:  
 `./makeSymLinks.sh`
