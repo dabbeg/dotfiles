@@ -14,5 +14,9 @@ And to setup the symlinks for the dotfiles run the script:
 
 `./makeSymLinks.sh`
 
+## Maintenance
+To pull all latest changes from this repository and the latest changes of submodules or getting new submodules that have been added in this repository simply do:
+`git submodule update --init --recursive`
+
 ## How to manage what dotfiles are used
 Simply open the script in an editor and add the filename in the files list in line 11.

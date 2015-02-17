@@ -71,7 +71,7 @@ set exrc
 set secure
 
 "Highlight the column of the 110 line too see if your lines are too long
-set colorcolumn=110
+set colorcolumn=100
 highlight ColorColumn ctermbg=darkgray
 
 
