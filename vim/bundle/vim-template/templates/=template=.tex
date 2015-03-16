@@ -1,17 +1,97 @@
-% vim:ft=tex:
-%
-\documentclass[12pt]{article}
+\renewcommand{\familydefault}{\sfdefault}
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc} %Ice characters
+\usepackage[T1]{fontenc} %Ice characters
+\usepackage[parfill]{parskip} %Skip indent for each paragraph
+\usepackage{graphicx} %Images
+\usepackage{wrapfig} %Text wrapping image
+\usepackage{color} %Colors
+\usepackage{helvet} %Font: Helvetica
+%\usepackage{avant} %Font: Avant-Green?
+%\usepackage{courier} % Required for the courier font
+\definecolor{myBlue}{RGB}{45,0,181} %Defining the section color
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{listings} % Required for insertion of code
+\usepackage{scrextend}
+\usepackage{seqsplit}
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usetikzlibrary{arrows,shapes,decorations,automata,backgrounds,petri}
 
-\title{
-	%FILE%
-}
-\author{
-	%USER% --- \texttt{%MAIL%}
-}
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
 
-\begin{document}
-\maketitle
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\email} % Top left header
+\chead{\assignment} % Top center head
+\rhead{\course} % Top right header
+\lfoot{} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+
+%%%%%%%%%%%%%%%%% FILL IN INFORMATION %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %HERE%
+\newcommand{\authors}{Davíð Guðni Halldórsson}
+\newcommand{\email}{davidgh13@ru.is}
+\newcommand{\assignment}{Name of Assignment}
+\newcommand{\course}{Course}
+\newcommand{\teacher}{teacher}
+\newcommand{\curdate}{Mars 2015}
+
+%%%%%%%%%%%%%%%%%% CONTENTS OF THE DOCUMENT %%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{titlepage}
+    ~\\
+    ~\\
+    ~\\
+    ~\\
+    \centerline{\LARGE \assignment}\\
+    ~\\
+    \centerline{\Large \course}\\
+    \centerline{\large Teacher: \teacher}\\
+    ~\\
+    ~\\
+    ~\\
+     
+    \begin{figure}[h!]
+        \center
+        \includegraphics[width=0.5\textwidth,natwidth=610,natheight=642]{/home/dabbeg/dotfiles/vim/bundle/vim-template/photos/hr.png}
+    \end{figure}
+    
+    ~\\
+    ~\\
+
+    \centerline{\large \textbf{\authors}}
+    \centerline{Software Engineering}
+    \centerline{Reykjavík University}
+
+    \centerline{\curdate}
+    ~\\
+    ~\\
+    ~\\
+    ~\\
+    
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% START OF CONTENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \end{document}
