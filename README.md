@@ -9,8 +9,11 @@ To install the repository it is required to clone the repository recursively bec
 Now we need to finish installation of YouCompleteMe with going to dotfiles/vim/bundle/YouCompleteMe and doing:  
 `./install.sh --clang-completer`
 
-possibly you will get an error because there are three depandancies YCM depends on, to fix that you can add them and run the command above again:  
-`sudo apt-get install build-essentials CMake python-dev`
+possibly you will get an error because there are three depandancies YCM depends on, to fix that you can add them and run the command above again:
+Ubuntu:
+`apt-get install build-essentials CMake python-dev`
+Fedora:
+`yum install cmake python-devel`
 
 To make vim-powerline work properly we need to install custom fonts.  
 `mkdir ~/.fonts`  
