@@ -10,8 +10,10 @@ Now we need to finish installation of YouCompleteMe with going to dotfiles/vim/b
 `./install.sh --clang-completer`
 
 possibly you will get an error because there are three depandancies YCM depends on, to fix that you can add them and run the command above again:
+
 Ubuntu:
 `apt-get install build-essentials CMake python-dev`
+
 Fedora:
 `yum install cmake python-devel`
 
