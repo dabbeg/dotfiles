@@ -3,7 +3,7 @@ set wrap linebreak nolist "If a line is longer than width of window it drops dow
 color molokai "Colortheme
 ""set guifont=Inconsolata\ 12 "Font
 set guifont=Inconsolata\ for\ Powerline\ 15 "Special font for powerline
-let g:NERDTreeWinPos = "right" "NERDTree position
+""let g:NERDTreeWinPos = "right" "NERDTree position
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 set go-=L " Removes left hand scroll bar
