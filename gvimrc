@@ -1,16 +1,34 @@
+
+"Apperance
+"============================================================================
 set wrap linebreak nolist "If a line is longer than width of window it drops down to next line.
 
-color molokai "Colortheme
-""set guifont=Inconsolata\ 12 "Font
-set guifont=Inconsolata\ for\ Powerline\ 15 "Special font for powerline
-""let g:NERDTreeWinPos = "right" "NERDTree position
-set guioptions-=T " Removes top toolbar
-set guioptions-=r " Removes right hand scroll bar
-set go-=L " Removes left hand scroll bar
-autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
-set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
-set number " Sets line numbers to the left
+""color molokai 
+""color nazca
+color distinguished
 
+set guifont=Inconsolata\ for\ Powerline\ 15 "Special font for powerline
+set guioptions-=T "Removes top toolbar
+set guioptions-=r "Removes right hand scroll bar
+set go-=L "Removes left hand scroll bar
+autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
+set cpoptions+=$ "puts a $ marker for the end of words/lines in cw/c$ commands
+set guioptions-=T guioptions-=m "Makes the whitespace at the bottom and right a little smaller. 
+set number "Sets line numbers to the left
+
+set exrc "Forces vim to source .vimrc file if it is present in the working directory.
+set secure "Restrict usage of some commands for security
+
+"Highlight the column of the 110 line too see if your lines are too long
+set colorcolumn=100
+highlight ColorColumn ctermbg=darkgray
+
+Helptags
+"============================================================================
+
+
+"Mappings
+"============================================================================
 "jj goes from insertmode to normalmode
 inoremap jj <ESC> 
 
@@ -30,52 +48,41 @@ vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 
-"NERDTree mapping to let nerdtree always display current directory of the
-"document selected.
-map <leader>r :NERDTreeFind<cr>
-autocmd BufEnter * lcd %:p:h
-
 "Mapping keys for building and running with make from vim
 nnoremap <F5> :make<cr>
 nnoremap <F6> :make run<cr>
 nnoremap <F7> :make runInput<cr>
+"============================================================================
 
-"At start open NERDTree
-NERDTree
 
-"Close vim if NERDTree is the only buffer open.
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-"This is for the pathogen which is located in ./vim/autoload
+"Execute the pathogen which is located in ./vim/autoload
+"============================================================================
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
+"============================================================================
+
 
 "YouCompleteMe
+"============================================================================
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+"============================================================================
 
-"Some code from the laptop vim config..
+
+"Html
+"============================================================================
 let g:html_indent_inctags = "html,body,head,tbody" "Makes the smart indent for html indent these tags aswell.
-
-map <silent> <F11>
-            \   :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>  "It worked in the laptop making vim go fullscreen with pressing F11..
-
-set guioptions-=T guioptions-=m "Makes the whitespace at the bottom and right a little smaller. 
-
-source ~/dotfiles/vim/extraVimrc/autoclose.vim "Enables a vim file that completes braces, it can be found in the following path.
+"============================================================================
 
 
-"Forces vim to source .vimrc file if it is present in the working directory.
-set exrc
-"Restrict usage of some commands for security
-set secure
-
-"Highlight the column of the 110 line too see if your lines are too long
-set colorcolumn=100
-highlight ColorColumn ctermbg=darkgray
+"Brace completion called autoclose
+"============================================================================
+source ~/dotfiles/vim/extraVimrc/autoclose.vim "Enables a vim file that completes braces.
+"============================================================================
 
 
 "Powerline settings for vim
+"============================================================================
 set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
@@ -83,8 +90,23 @@ let g:Powerline_symbols = 'fancy'
 
 let g:Powerline_dividers_override = ['', '', '', '']
 let g:Powerline_symbols_override = { 'BRANCH': '', 'LINE': '', 'RO': '' }
+"============================================================================
 
 
+"NERDTree Settings
+"============================================================================
+""let g:NERDTreeWinPos = "right" "NERDTree position
 
+"NERDTree mapping to let nerdtree always display current directory of the document selected.
+map <leader>r :NERDTreeFind<cr>
+autocmd BufEnter * lcd %:p:h
 
-Helptags
+"The size of NERDTree window
+let g:NERDTreeWinSize=15
+
+"At start open NERDTree
+NERDTree
+
+"Close vim if NERDTree is the only buffer open.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"============================================================================
