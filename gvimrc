@@ -1,11 +1,19 @@
+"Execute the pathogen which is located in ./vim/autoload
+"============================================================================
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+"============================================================================
+
 
 "Apperance
 "============================================================================
 set wrap linebreak nolist "If a line is longer than width of window it drops down to next line.
 
+color codeschool
 ""color molokai 
 ""color nazca
-color distinguished
+""color distinguished
 
 set guifont=Inconsolata\ for\ Powerline\ 15 "Special font for powerline
 set guioptions-=T "Removes top toolbar
@@ -22,6 +30,9 @@ set secure "Restrict usage of some commands for security
 "Highlight the column of the 110 line too see if your lines are too long
 set colorcolumn=100
 highlight ColorColumn ctermbg=darkgray
+
+"Close vim if there is only one window open
+autocmd bufenter * if (winnr("$") == 1) | q | endif
 
 Helptags
 "============================================================================
@@ -52,14 +63,6 @@ imap <C-v> <ESC>"+pa
 nnoremap <F5> :make<cr>
 nnoremap <F6> :make run<cr>
 nnoremap <F7> :make runInput<cr>
-"============================================================================
-
-
-"Execute the pathogen which is located in ./vim/autoload
-"============================================================================
-execute pathogen#infect()
-syntax on
-filetype plugin indent on
 "============================================================================
 
 
@@ -102,11 +105,8 @@ map <leader>r :NERDTreeFind<cr>
 autocmd BufEnter * lcd %:p:h
 
 "The size of NERDTree window
-let g:NERDTreeWinSize=15
+let g:NERDTreeWinSize=20
 
 "At start open NERDTree
 NERDTree
-
-"Close vim if NERDTree is the only buffer open.
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "============================================================================
