@@ -85,3 +85,5 @@ alias gvim="gvim 2>/dev/null"
 #function gvim {
 #  /usr/bin/gvim -f $* > /dev/null 2> /dev/null & disown
 #}
+
+[ -s "/home/dabbeg/.dnx/dnvm/dnvm.sh" ] && . "/home/dabbeg/.dnx/dnvm/dnvm.sh" # Load dnvm
