@@ -8,7 +8,7 @@ filetype plugin indent on
 
 "Apperance
 "============================================================================
-set wrap linebreak nolist "If a line is longer than width of window it drops down to next line.
+set nowrap linebreak nolist "If a line is longer than width of window it drops down to next line.
 
 color codeschool
 ""color molokai 
@@ -33,6 +33,9 @@ highlight ColorColumn ctermbg=darkgray
 
 "Close vim if there is only one window open
 autocmd bufenter * if (winnr("$") == 1) | q | endif
+
+"Highlight all names that is the same as the one that's focused
+autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
 Helptags
 "============================================================================
