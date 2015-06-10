@@ -101,7 +101,7 @@ let g:Powerline_symbols_override = { 'BRANCH': '', 'LINE': '', 'RO': ''
 
 "NERDTree Settings
 "============================================================================
-""let g:NERDTreeWinPos = "right" "NERDTree position
+""let g:NERDTreeWinPos = right "NERDTree position
 
 "NERDTree mapping to let nerdtree always display current directory of the document selected.
 map <leader>r :NERDTreeFind<cr>
@@ -109,7 +109,9 @@ autocmd BufEnter * lcd %:p:h
 
 "The size of NERDTree window
 let g:NERDTreeWinSize=25
+let NERDTreeShowBookmarks=1
 
 "At start open NERDTree
 NERDTree
 "============================================================================
+
