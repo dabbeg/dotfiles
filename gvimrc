@@ -1,4 +1,4 @@
-"Execute the pathogen which is located in ./vim/autoload
+ "Execute the pathogen which is located in ./vim/autoload
 "============================================================================
 execute pathogen#infect()
 syntax on
