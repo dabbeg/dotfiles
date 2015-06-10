@@ -8,7 +8,7 @@ filetype plugin indent on
 
 "Apperance
 "============================================================================
-set nowrap linebreak nolist "If a line is longer than width of window it drops down to next line.
+set wrap linebreak nolist "If a line is longer than width of window it drops down to next line.
 
 color codeschool
 ""color molokai 
@@ -35,7 +35,7 @@ highlight ColorColumn ctermbg=darkgray
 autocmd bufenter * if (winnr("$") == 1) | q | endif
 
 "Highlight all names that is the same as the one that's focused
-autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+"autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
 Helptags
 "============================================================================
@@ -108,7 +108,7 @@ map <leader>r :NERDTreeFind<cr>
 autocmd BufEnter * lcd %:p:h
 
 "The size of NERDTree window
-let g:NERDTreeWinSize=20
+let g:NERDTreeWinSize=25
 
 "At start open NERDTree
 NERDTree
