@@ -1,4 +1,4 @@
-"Execute the pathogen which is located in ./vim/autoload
+ "Execute the pathogen which is located in ./vim/autoload
 "============================================================================
 execute pathogen#infect()
 syntax on
@@ -33,6 +33,9 @@ highlight ColorColumn ctermbg=darkgray
 
 "Close vim if there is only one window open
 autocmd bufenter * if (winnr("$") == 1) | q | endif
+
+"Highlight all names that is the same as the one that's focused
+"autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
 Helptags
 "============================================================================
@@ -98,15 +101,17 @@ let g:Powerline_symbols_override = { 'BRANCH': '', 'LINE': '', 'RO': ''
 
 "NERDTree Settings
 "============================================================================
-""let g:NERDTreeWinPos = "right" "NERDTree position
+""let g:NERDTreeWinPos = right "NERDTree position
 
 "NERDTree mapping to let nerdtree always display current directory of the document selected.
 map <leader>r :NERDTreeFind<cr>
 autocmd BufEnter * lcd %:p:h
 
 "The size of NERDTree window
-let g:NERDTreeWinSize=20
+let g:NERDTreeWinSize=25
+let NERDTreeShowBookmarks=1
 
 "At start open NERDTree
 NERDTree
 "============================================================================
+
