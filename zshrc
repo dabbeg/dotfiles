@@ -5,7 +5,15 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="frisk"
+
+#ZSH_THEME="frisk"
+ZSH_THEME="agnoster"
+
+#Specify default user to make zsh not display the current user
+DEFAULT_USER=dabbeg
+
+#dircolors for zsh
+eval `dircolors ~/.dircolors/dircolors.256dark`
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
