@@ -24,13 +24,14 @@ autocmd bufenter * if (winnr("$") == 1) | q | endif
 "============================================================================
 set wrap linebreak nolist "If a line is longer than width of window it drops down to next line.
 
-color up
-""color codeschool
+color codeschool
 ""color molokai 
 ""color nazca
 ""color distinguished
+""color frozen
 
-set guifont=Inconsolata\ for\ Powerline\ 15 "Special font for powerline
+""set guifont=Inconsolata\ 12
+set guifont=Inconsolata\ for\ Powerline\ 14 "Special font for powerline
 set guioptions-=T "Removes top toolbar
 set guioptions-=r "Removes right hand scroll bar
 set go-=L "Removes left hand scroll bar

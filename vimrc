@@ -3,12 +3,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-"
-"
-"
-"
-"
- "Execute the pathogen which is located in ./vim/autoload
+"Execute the pathogen which is located in ./vim/autoload
 "============================================================================
 execute pathogen#infect()
 syntax on
@@ -26,6 +21,10 @@ filetype plugin indent on
 set exrc "Forces vim to source .vimrc file if it is present in the working directory.
 set secure "Restrict usage of some commands for security
 
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
+
 "Close vim if there is only one window open
 ""autocmd bufenter * if (winnr("$") == 1) | q | endif
 "============================================================================
@@ -34,7 +33,11 @@ set secure "Restrict usage of some commands for security
 "============================================================================
 set wrap linebreak nolist "If a line is longer than width of window it drops down to next line.
 
-color up
+""color up
+""color frozen
+""color tropikos
+""color codeschool
+color xoria256
 
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
 set cpoptions+=$ "puts a $ marker for the end of words/lines in cw/c$ commands
@@ -49,6 +52,21 @@ highlight ColorColumn ctermbg=darkgray
 
 "Restore cursor position
 set hidden
+"============================================================================
+
+
+"Functions
+"============================================================================
+let g:toggle = 0
+function! ToggleHighlight()
+    let g:toggle = 1 - g:toggle
+
+    if g:toggle == 1
+        autocmd CursorMoved * exe printf('match StatusLine /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+    else
+        autocmd! CursorMoved
+    endif
+endfunction
 "============================================================================
 
 
@@ -77,6 +95,29 @@ imap <C-v> <ESC>"+pa
 nnoremap <F5> :make<cr>
 nnoremap <F6> :make run<cr>
 nnoremap <F7> :make runInput<cr>
+
+" fugitive git bindings
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gc :Gcommit -v -q<CR>
+nnoremap <space>gt :Gcommit -v -q %:p<CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>ge :Gedit<CR>
+nnoremap <space>gr :Gread<CR>
+nnoremap <space>gw :Gwrite<CR><CR>
+nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <space>gp :Ggrep<Space>
+nnoremap <space>gm :Gmove<Space>
+nnoremap <space>gb :Git branch<Space>
+nnoremap <space>go :Git checkout<Space>
+nnoremap <space>gps :Dispatch! git push<CR>
+nnoremap <space>gpl :Dispatch! git pull<CR>
+
+"Toggle on/off to highlight all names that is the same as the one that's focused
+nnoremap 2 :call ToggleHighlight()<CR>
+
+"Make it easier to switch between windows
+nnoremap 1 <C-W><C-W>
 "============================================================================
 
 
