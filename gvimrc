@@ -32,13 +32,26 @@ set colorcolumn=100
 highlight ColorColumn ctermbg=darkgray
 
 "Close vim if there is only one window open
-autocmd bufenter * if (winnr("$") == 1) | q | endif
-
-"Highlight all names that is the same as the one that's focused
-"autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+"autocmd bufenter * if (winnr("$") == 1) | q | endif
 
 Helptags
 "============================================================================
+
+
+"Functions
+"============================================================================
+let g:toggle = 0
+function! ToggleHighlight()
+    let g:toggle = 1 - g:toggle
+
+    if g:toggle == 1
+        autocmd CursorMoved * exe printf('match StatusLine /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+    else
+        autocmd! CursorMoved
+    endif
+endfunction
+"============================================================================
+
 
 
 "Mappings
@@ -66,6 +79,29 @@ imap <C-v> <ESC>"+pa
 nnoremap <F5> :make<cr>
 nnoremap <F6> :make run<cr>
 nnoremap <F7> :make runInput<cr>
+
+" fugitive git bindings
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gc :Gcommit -v -q<CR>
+nnoremap <space>gt :Gcommit -v -q %:p<CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>ge :Gedit<CR>
+nnoremap <space>gr :Gread<CR>
+nnoremap <space>gw :Gwrite<CR><CR>
+nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <space>gp :Ggrep<Space>
+nnoremap <space>gm :Gmove<Space>
+nnoremap <space>gb :Git branch<Space>
+nnoremap <space>go :Git checkout<Space>
+nnoremap <space>gps :Dispatch! git push<CR>
+nnoremap <space>gpl :Dispatch! git pull<CR>
+
+"Toggle on/off to highlight all names that is the same as the one that's focused
+nnoremap 2 :call ToggleHighlight()<CR>
+
+"Make it easier to switch between windows
+nnoremap 1 <C-W><C-W>
 "============================================================================
 
 
@@ -101,8 +137,6 @@ let g:Powerline_symbols_override = { 'BRANCH': '', 'LINE': '', 'RO': ''
 
 "NERDTree Settings
 "============================================================================
-""let g:NERDTreeWinPos = right "NERDTree position
-
 "NERDTree mapping to let nerdtree always display current directory of the document selected.
 map <leader>r :NERDTreeFind<cr>
 autocmd BufEnter * lcd %:p:h
@@ -110,6 +144,7 @@ autocmd BufEnter * lcd %:p:h
 "The size of NERDTree window
 let g:NERDTreeWinSize=25
 let NERDTreeShowBookmarks=1
+let NERDTreeShowHidden=1
 
 "At start open NERDTree
 NERDTree
