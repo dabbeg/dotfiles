@@ -5,12 +5,27 @@ syntax on
 filetype plugin indent on
 "============================================================================
 
+"Vim settings
+"============================================================================
+"Auto source vimrc on save
+""augroup myvimrc
+""    au!
+""    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+""augroup END
+
+set exrc "Forces vim to source .vimrc file if it is present in the working directory.
+set secure "Restrict usage of some commands for security
+
+"Close vim if there is only one window open
+autocmd bufenter * if (winnr("$") == 1) | q | endif
+"============================================================================
 
 "Apperance
 "============================================================================
 set wrap linebreak nolist "If a line is longer than width of window it drops down to next line.
 
-color codeschool
+color up
+""color codeschool
 ""color molokai 
 ""color nazca
 ""color distinguished
@@ -24,17 +39,18 @@ set cpoptions+=$ "puts a $ marker for the end of words/lines in cw/c$ commands
 set guioptions-=T guioptions-=m "Makes the whitespace at the bottom and right a little smaller. 
 set number "Sets line numbers to the left
 
-set exrc "Forces vim to source .vimrc file if it is present in the working directory.
-set secure "Restrict usage of some commands for security
-
 "Highlight the column of the 110 line too see if your lines are too long
 set colorcolumn=100
 highlight ColorColumn ctermbg=darkgray
 
 "Close vim if there is only one window open
 "autocmd bufenter * if (winnr("$") == 1) | q | endif
+"
+"Highlight all names that is the same as the one that's focused
+"autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
-Helptags
+"Restore cursor position
+set hidden
 "============================================================================
 
 
