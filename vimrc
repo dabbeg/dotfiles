@@ -21,9 +21,7 @@ filetype plugin indent on
 set exrc "Forces vim to source .vimrc file if it is present in the working directory.
 set secure "Restrict usage of some commands for security
 
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
+set t_Co=256
 
 "Close vim if there is only one window open
 ""autocmd bufenter * if (winnr("$") == 1) | q | endif
@@ -37,15 +35,18 @@ set wrap linebreak nolist "If a line is longer than width of window it drops dow
 ""color frozen
 ""color tropikos
 ""color codeschool
-color xoria256
+""color xoria256
+colorscheme badwolf
+" Make the gutters darker than the background.
+let g:badwolf_darkgutter = 1
 
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
 set cpoptions+=$ "puts a $ marker for the end of words/lines in cw/c$ commands
 set number "Sets line numbers to the left
 
 "Highlight the column of the 110 line too see if your lines are too long
-set colorcolumn=100
-highlight ColorColumn ctermbg=darkgray
+""set colorcolumn=100
+""highlight ColorColumn ctermbg=darkgray
 
 "Highlight all names that is the same as the one that's focused
 "autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))

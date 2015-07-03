@@ -7,12 +7,6 @@ filetype plugin indent on
 
 "Vim settings
 "============================================================================
-"Auto source vimrc on save
-""augroup myvimrc
-""    au!
-""    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-""augroup END
-
 set exrc "Forces vim to source .vimrc file if it is present in the working directory.
 set secure "Restrict usage of some commands for security
 
@@ -24,14 +18,12 @@ autocmd bufenter * if (winnr("$") == 1) | q | endif
 "============================================================================
 set wrap linebreak nolist "If a line is longer than width of window it drops down to next line.
 
-color codeschool
+""color codeschool
 ""color molokai 
-""color nazca
-""color distinguished
-""color frozen
+color badwolf
 
-""set guifont=Inconsolata\ 12
-set guifont=Inconsolata\ for\ Powerline\ 14 "Special font for powerline
+"set guifont=Inconsolata\ for\ Powerline\ 14 "Special font for powerline
+set guifont=Sauce\ Code\ Powerline\ Medium\ 13
 set guioptions-=T "Removes top toolbar
 set guioptions-=r "Removes right hand scroll bar
 set go-=L "Removes left hand scroll bar
@@ -44,9 +36,6 @@ set number "Sets line numbers to the left
 set colorcolumn=100
 highlight ColorColumn ctermbg=darkgray
 
-"Close vim if there is only one window open
-"autocmd bufenter * if (winnr("$") == 1) | q | endif
-"
 "Highlight all names that is the same as the one that's focused
 "autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
@@ -166,4 +155,3 @@ let NERDTreeShowHidden=1
 "At start open NERDTree
 NERDTree
 "============================================================================
-
