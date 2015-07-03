@@ -40,7 +40,7 @@ highlight ColorColumn ctermbg=darkgray
 "autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
 "Restore cursor position
-set hidden
+""set hidden
 "============================================================================
 
 
@@ -62,6 +62,8 @@ endfunction
 
 "Mappings
 "============================================================================
+let mapleader = "\<Space>"
+
 "jj goes from insertmode to normalmode
 inoremap jj <ESC> 
 
