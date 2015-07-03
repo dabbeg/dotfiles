@@ -155,3 +155,10 @@ let NERDTreeShowHidden=1
 "At start open NERDTree
 NERDTree
 "============================================================================
+
+
+"NeoComplete Settings
+"============================================================================
+let g:neocomplete#enable_auto_select=1
+NeoCompleteEnable
+"============================================================================
