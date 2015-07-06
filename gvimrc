@@ -11,7 +11,7 @@ set exrc "Forces vim to source .vimrc file if it is present in the working direc
 set secure "Restrict usage of some commands for security
 
 "Close vim if there is only one window open
-autocmd bufenter * if (winnr("$") == 1) | q | endif
+""autocmd bufenter * if (winnr("$") == 1) | q | endif
 "============================================================================
 
 "Apperance
