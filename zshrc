@@ -15,6 +15,11 @@ DEFAULT_USER=dabbeg
 #dircolors for zsh
 eval `dircolors ~/.dircolors/dircolors.256dark`
 
+# Set GOPATH and GOROOT
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
