@@ -1,11 +1,11 @@
-/*
- * %FFILE%
- * Copyright (C) %YEAR% %USER% <%MAIL%>
- *
- * Distributed under terms of the %LICENSE% license.
- */
+#include<iostream>
+#include<stack>
+#include<queue>
+#include<string>
+using namespace std;
 
-#include "%FILE%.h"
-
-
-%HERE%
+int main() {
+    %HERE%
+    
+    return 0;
+}
