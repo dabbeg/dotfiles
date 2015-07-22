@@ -7,7 +7,7 @@ setxkbmap -layout en,is
 setxkbmap -option 'grp:ctrl_alt_toggle'
 
 # Binds the Ctrl+Alt+l to lock the screen
-bindsym Control+Mod1+l exec i3lock -i ~/.i3/lock.png -p default -n
+bindsym Control+Mod1+l exec i3lock -i ~/.i3/pictures/lock.png -p default -n
 
 # Desktop wallpaper
 exec --no-startup-id feh --bg-scale ~/.i3/wallpaper.jpg
