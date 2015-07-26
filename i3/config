@@ -10,7 +10,7 @@ setxkbmap -option 'grp:ctrl_alt_toggle'
 bindsym Control+Mod1+l exec i3lock -i ~/.i3/pictures/lock.png -p default -n
 
 # Desktop wallpaper
-exec --no-startup-id feh --bg-scale ~/.i3/wallpaper.jpg
+exec --no-startup-id feh --bg-scale ~/.i3/pictures/wallpaper.jpg
 
 # scrot & gimp - select window or rectangle
 bindsym Print exec scrot 'screenshot-%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/'
