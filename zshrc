@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 
 #ZSH_THEME="frisk"
-ZSH_THEME="agnoster"
+ZSH_THEME="agnoster2"
 
 #Specify default user to make zsh not display the current user
 DEFAULT_USER=dabbeg
