@@ -1,75 +1,8 @@
 {
-   "checksum": "98ffa88f52224bd5e8c3d182d0c0531a",
+   "checksum": "1e54fbb25d92a354f7aeaf576726429e",
    "roots": {
       "bookmark_bar": {
-         "children": [ {
-            "date_added": "13062348333175437",
-            "id": "6",
-            "meta_info": {
-               "stars.id": "ssc_8030ffc6f74b1475",
-               "stars.isSynced": "true",
-               "stars.pageData": "OAE=",
-               "stars.type": "2"
-            },
-            "name": "D",
-            "type": "url",
-            "url": "http://192.168.1.1/"
-         }, {
-            "date_added": "13064797755979000",
-            "id": "7",
-            "meta_info": {
-               "stars.id": "ssc_65ef91969e5891bb",
-               "stars.imageData": "Cg5iSTcwZVRrRGhySW5STRJSCkpodHRwczovL2Fzc2V0cy5kaWdpdGFsb2NlYW4uY29tL2FydGljbGVzL3dvcmRwcmVzc18xNDA0L2luaXRpYWxfY29uZmlnLnBuZxCyBRjwBhpjCltodHRwOi8vdDAuZ3N0YXRpYy5jb20vaW1hZ2VzP3E9dGJuOkFOZDlHY1N4aEdMWElSRThYZmJjblVYTjJaajh0dTZVWG50eXJqWkZuMXNuV0RBdmVxVWNReWdBEMcBGP4BIh8IARDHARj+ASDHJ0IGEgSKBX0ASgppbWFnZS9qcGVn",
-               "stars.isSynced": "true",
-               "stars.pageData": "Ep8BV29yZFByZXNzIGlzIHRoZSBtb3N0IHBvcHVsYXIgY29udGVudCBtYW5hZ2VtZW50IHN5c3RlbSBvbiB0aGUgd2ViLiBJbiB0aGlzIGd1aWRlLCB3ZSdsbCBkZW1vbnN0cmF0ZSBob3cgdG8gaW5zdGFsbCBhbmQgY29uZmlndXJlIGl0IG9uIGFuIFVidW50dSAxNC4wNCBzZXJ2ZXIuIg5FQVY1YzdEcW0zdEM1TQ==",
-               "stars.type": "2"
-            },
-            "name": "How To Install Wordpress on Ubuntu 14.04 | DigitalOcean",
-            "type": "url",
-            "url": "https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-on-ubuntu-14-04"
-         }, {
-            "date_added": "13070728512775000",
-            "id": "8",
-            "meta_info": {
-               "stars.id": "ssc_9b505a9018b1b2b1",
-               "stars.isSynced": "true",
-               "stars.pageData": "Ig5UUWN2S092RHp4aEc5TQ==",
-               "stars.type": "2"
-            },
-            "name": "cremeronline.com/LaTeX/minimaltikz.pdf",
-            "type": "url",
-            "url": "http://cremeronline.com/LaTeX/minimaltikz.pdf"
-         }, {
-            "date_added": "13079701822612799",
-            "id": "9",
-            "meta_info": {
-               "stars.id": "ssc_f4446d521baab416",
-               "stars.isSynced": "true"
-            },
-            "name": "How Does System.out.println work in Java",
-            "type": "url",
-            "url": "http://www.programmerinterview.com/index.php/java-questions/how-system-out-println-works/"
-         }, {
-            "date_added": "13080686962956014",
-            "id": "10",
-            "meta_info": {
-               "stars.id": "ssc_fdde4909e684dc56",
-               "stars.isSynced": "true"
-            },
-            "name": "New Tab",
-            "type": "url",
-            "url": "chrome://newtab/"
-         }, {
-            "date_added": "13082167253765472",
-            "id": "11",
-            "meta_info": {
-               "stars.id": "ssc_738ba09af678a229",
-               "stars.isSynced": "true"
-            },
-            "name": "install - \"unrecognized import path\" with go get - Stack Overflow",
-            "type": "url",
-            "url": "http://stackoverflow.com/questions/20458796/unrecognized-import-path-with-go-get"
-         } ],
+         "children": [  ],
          "date_added": "13082395998564612",
          "date_modified": "13082167253765472",
          "id": "1",
@@ -84,6 +17,7 @@
          "name": "Other bookmarks",
          "type": "folder"
       },
+      "sync_transaction_version": "2",
       "synced": {
          "children": [  ],
          "date_added": "13082395998564618",
