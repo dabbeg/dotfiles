@@ -5,6 +5,9 @@
 ### Custom Config ###
 set $mod Mod1
 
+#exec killall -q notify-osd
+#exec --no-startup-id dunst
+
 # shutdown ubuntu
 bindsym Control+$mod+s exec "i3-nagbar -t warning -m 'You pressed the shutdown shortcut. Do you really want to shutdown ubuntu?' -b 'Yes, shutdown ubuntu!' 'sudo /sbin/shutdown -h now'"
 # restart ubuntu
@@ -196,15 +199,24 @@ bindsym $mod+r mode "resize"
 bar {
     colors {
         # Whole color settings
-        background #000000
-        statusline #ffffff
-        separator  #666666
+        #background #000000
+        #statusline #ffffff
+        #separator  #666666
 
         # Type             border  background font
-        focused_workspace  #008fff #007fff #ffffff
-        active_workspace   #333333 #5f676a #ffffff
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #aa0000 #990000 #ffffff
+        #focused_workspace  #008fff #007fff #ffffff
+        #active_workspace   #333333 #5f676a #ffffff
+        #inactive_workspace #333333 #222222 #888888
+        #urgent_workspace   #aa0000 #990000 #ffffff
+
+        statusline #AAAAAA
+        focused_workspace #0080ff #0080ff #000000
+        inactive_workspace #00000 #000000 #AAAAAA
+        urgent_workspace #d33682 #d33682 #fdf6e3
+        #focused_workspace #0088CC #0088CC #FFFFFF
+        #active_workspace #333333 #333333 #FFFFFF
+        #inactive_workspace #333333 #333333 #888888
+        #urgent_workspace #2F343A #900000 #FFFFFF
     }
     # i3bar position
     position top

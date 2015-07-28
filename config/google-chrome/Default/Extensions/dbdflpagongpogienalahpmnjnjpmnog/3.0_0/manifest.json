@@ -1,0 +1,13 @@
+{
+   "browser_action": {
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+   },
+   "description": "Currency converter.",
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAltfqp7il2L+Jy5qCaZ7RhX6z9ZhnjMuMQJG3IvYBaLj3aP+HnRJ59Fb6LnVHKcJfAX3c/YpAvYYRPUcpE0l+c2M1NMgP+F8Eu1gSbQ11dNjsN5l2Y6PLwExOtV0AoqXdTLt5S2pNB4Kvb2J3dgGRY6c7jaZx+X+gEq3CqqNf6xuLlGotBV4vUuNdmfJc8Z73XvHwTsA6EItiOZA94oyBbVjpQkGSjJZoLUmy1KJA9zd78VtixkAatCmZUNYiX37lf/ijGiYqmeIXgmukXjuT1b2ugpTvgoGTkdtN3n0ZuMRDko8bjIL+OWTh37BE313gGLiJyL8MX+Zcvbpxttsw/wIDAQAB",
+   "manifest_version": 2,
+   "name": "Currency converter",
+   "permissions": [ "tabs", "http://*/", "https://*/" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "3.0"
+}
