@@ -5,8 +5,8 @@
 ### Custom Config ###
 set $mod Mod1
 
-#exec killall -q notify-osd
-#exec --no-startup-id dunst
+#exec killall dunst
+#exec --no-startup-id dunst -config ~/.dunstrc
 
 # shutdown ubuntu
 bindsym Control+$mod+s exec "i3-nagbar -t warning -m 'You pressed the shutdown shortcut. Do you really want to shutdown ubuntu?' -b 'Yes, shutdown ubuntu!' 'sudo /sbin/shutdown -h now'"
