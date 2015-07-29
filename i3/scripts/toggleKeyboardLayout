@@ -1,0 +1,8 @@
+#!/bin/bash
+
+layout=`setxkbmap -query | grep -o -P '(?<=layout:     ).*(?=)'`
+if [ "$layout" == "us" ]; then
+    setxkbmap is
+else
+    setxkbmap us
+fi
