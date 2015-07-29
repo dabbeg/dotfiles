@@ -4,6 +4,8 @@ STATUS=`playerctl --player=spotify status`
 
 if [ "$STATUS" == "Playing" ]; then
     echo ""
-else
+elif [ "$STATUS" == "Paused" ]; then
     echo ""
+elif [ "$STATUS" == "Not available" ]; then
+    echo ""
 fi
