@@ -55,7 +55,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
 # Touchpad controls
-bindsym XF86TouchpadToggle exec ~/.i3/scripts/toggletouchpad.sh # toggle touchpad
+bindsym XF86TouchpadToggle exec /home/dabbeg/.i3/scripts/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"

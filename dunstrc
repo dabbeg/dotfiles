@@ -1,3 +1,4 @@
+# <- now vim shows colors
 [global]
     #font = Monospace 8
     font = Droid Sans 10
@@ -178,15 +179,11 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
     background = "#26282B"
     foreground = "#CECFD1"
     timeout = 5
 
 [urgency_normal]
-    #background = "#285577"
-    #foreground = "#CECFD1"
     background = "#26282B"
     foreground = "#CECFD1"
     timeout = 5
@@ -251,6 +248,10 @@
 #
 # vim: ft=cfg
 
-[i3blocks]
+# The name in the brackets is only for naming purposes
+# Only notifications with the appname spotify will be called by this script
+[i3blocks-spotify]
+    appname = Spotify
     summary = "*"
-    script = /home/dabbeg/.i3/scripts/dunst
+    urgency = low
+    script = /home/dabbeg/.i3/scripts/spotify
