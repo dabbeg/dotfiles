@@ -19,7 +19,13 @@ if env | grep -q BLOCK_
 then # called by i3blocks
   # get info from playerctl
   ARTIST=`playerctl --player=spotify metadata xesam:artist`  
-  SONG=`playerctl --player=spotify metadata xesam:title`
+  SONGTITLE=`playerctl --player=spotify metadata xesam:title`
+  
+  # get rid of extra information about the song (featuring etc.)
+  IFS='(' read -ra tmp1 <<< "$SONGTITLE"
+  IFS='-' read -ra tmp2 <<< "$tmp1"
+  SONG=$tmp2
+
   INFO="$ARTIST - $SONG"
 
   # only show 30 characters of artist/song info

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+STATUS=`playerctl --player=spotify status`
+
+if [ "$STATUS" == "Playing" ]; then
+    echo ""
+else
+    echo ""
+fi
