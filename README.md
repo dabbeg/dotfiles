@@ -1,28 +1,15 @@
 # Dotfiles
 This repository contains all important dot files that I keep track with and a handy way of keeping track of them from multiple computers. The script makeSymLinks installs zsh, changes the default shell to zsh and takes all dotfiles specified in the script and moves the old ones to the dotfiles_old directory and then makes symlinks from the home directory to the dotfiles directory.
 
+## Depandancies
+TODO
 
 ## Setup
 To install the repository it is required to clone the repository recursively because of some submodules.  
 `git clone --recursive https://github.com/dabbeg/dotfiles.git`
 
-Now we need to finish installation of YouCompleteMe with going to dotfiles/vim/bundle/YouCompleteMe and doing:  
-`./install.sh --clang-completer`
-
-possibly you will get an error because there are three depandancies YCM depends on, to fix that you can add them and run the command above again:
-
-Ubuntu:
-`apt-get install build-essentials CMake python-dev`
-
-Fedora:
-`yum install cmake python-devel`
-
-To make vim-powerline work properly we need to install custom fonts.  
-`mkdir ~/.fonts`  
-`git clone https://github.com/powerline/fonts.git`  
-`./fonts/install.sh`  
-`fc-cache -vf ~/.fonts/`  
-`rm -r fonts`  
+Possibly you have to cache your fonts for them to work.
+`fc-cache -vf ~/.fonts/`
 
 And to setup the symlinks for the dotfiles run the script:  
 `./makeSymLinks.sh`

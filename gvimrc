@@ -5,6 +5,7 @@ syntax on
 filetype plugin indent on
 "============================================================================
 
+
 "Vim settings
 "============================================================================
 set exrc "Forces vim to source .vimrc file if it is present in the working directory.
@@ -13,6 +14,7 @@ set secure "Restrict usage of some commands for security
 "Close vim if there is only one window open
 ""autocmd bufenter * if (winnr("$") == 1) | q | endif
 "============================================================================
+
 
 "Apperance
 "============================================================================
@@ -35,9 +37,6 @@ set number "Sets line numbers to the left
 "Highlight the column of the 110 line too see if your lines are too long
 set colorcolumn=100
 highlight ColorColumn ctermbg=darkgray
-
-"Highlight all names that is the same as the one that's focused
-"autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
 "Restore cursor position
 ""set hidden
@@ -62,7 +61,6 @@ endfunction
 "============================================================================
 
 
-
 "Mappings
 "============================================================================
 let mapleader = "\<Space>"
@@ -76,9 +74,6 @@ noremap k j
 noremap l k
 noremap ; l
 noremap h ;
-""noremap l h
-""noremap ; l
-""noremap h ;
 
 "Mapping ctrl-c, ctrl-x and ctrl-v
 vmap <C-c> "+yi
