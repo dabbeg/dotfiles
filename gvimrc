@@ -41,8 +41,8 @@ highlight ColorColumn ctermbg=darkgray
 "Restore cursor position
 ""set hidden
 
-set foldmethod=indent
-set foldnestmax=1
+""set foldmethod=syntax
+""set foldnestmax=1
 "============================================================================
 
 

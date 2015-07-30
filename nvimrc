@@ -1,19 +1,10 @@
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
-"
-"
-"
-"
-"
- "Execute the pathogen which is located in ./vim/autoload
+"Execute the pathogen which is located in ./vim/autoload
 "============================================================================
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
 "============================================================================
+
 
 "Vim settings
 "============================================================================
@@ -30,11 +21,13 @@ set secure "Restrict usage of some commands for security
 ""autocmd bufenter * if (winnr("$") == 1) | q | endif
 "============================================================================
 
+
 "Apperance
 "============================================================================
 set wrap linebreak nolist "If a line is longer than width of window it drops down to next line.
 
-color up
+"color up
+colorscheme badwolf
 
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
 set cpoptions+=$ "puts a $ marker for the end of words/lines in cw/c$ commands
@@ -44,11 +37,14 @@ set number "Sets line numbers to the left
 set colorcolumn=100
 highlight ColorColumn ctermbg=darkgray
 
-"Highlight all names that is the same as the one that's focused
-"autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
-
 "Restore cursor position
 set hidden
+
+"Indent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
 "============================================================================
 
 
@@ -63,9 +59,6 @@ noremap k j
 noremap l k
 noremap ; l
 noremap h ;
-""noremap l h
-""noremap ; l
-""noremap h ;
 
 "Mapping ctrl-c, ctrl-x and ctrl-v
 vmap <C-c> "+yi
@@ -100,13 +93,6 @@ source ~/dotfiles/vim/extraVimrc/autoclose.vim "Enables a vim file that complete
 
 "Powerline settings for vim
 "============================================================================
-""set nocompatible   " Disable vi-compatibility
-""set laststatus=2   " Always show the statusline
-""set encoding=utf-8 " Necessary to show Unicode glyphs
-""let g:Powerline_symbols = 'fancy'
-
-""let g:Powerline_dividers_override = ['', '', '', '']
-""let g:Powerline_symbols_override = { 'BRANCH': '', 'LINE': '', 'RO': '' }
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 " Always show statusline
@@ -119,8 +105,6 @@ set t_Co=256
 
 "NERDTree Settings
 "============================================================================
-""let g:NERDTreeWinPos = right "NERDTree position
-
 "NERDTree mapping to let nerdtree always display current directory of the document selected.
 ""map <leader>r :NERDTreeFind<cr>
 ""autocmd BufEnter * lcd %:p:h
@@ -132,4 +116,3 @@ let NERDTreeShowBookmarks=1
 "At start open NERDTree
 autocmd VimEnter * NERDTree
 "============================================================================
-
