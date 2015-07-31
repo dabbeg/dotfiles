@@ -1,10 +1,19 @@
-# Dotfiles
-This repository contains all important dot files that I keep track with and a handy way of keeping track of them from multiple computers. The script makeSymLinks installs zsh, changes the default shell to zsh and takes all dotfiles specified in the script and moves the old ones to the dotfiles_old directory and then makes symlinks from the home directory to the dotfiles directory.
+# David's Dotfiles
+This repository contains all important dot files that I keep track of and a handy way of keeping track of them from multiple computers.
 
-## Depandancies
-TODO
+## Dependancies
+astyle - none.
+dircolors - none.
+dunst - none.
+fonts - none.
+gvim - vim-powerline, vim-fugitive, vim-template, nerdtree, nerdcommenter, neocomplete.
+i3 - i3lock, i3blocks, feh, acpi, playerctl, scrot, amixer, xbacklight.
+neovim - vim-powerline, vim-fugitive, vim-template, nerdtree, nerdcommenter, neocomplete.
+vim - vim-powerline, vim-fugitive, vim-template, nerdtree, nerdcommenter, neocomplete.
+zsh - oh-my-zsh.
 
 ## Setup
+### Install
 To install the repository it is required to clone the repository recursively because of some submodules.  
 `git clone --recursive https://github.com/dabbeg/dotfiles.git`
 
@@ -14,14 +23,5 @@ Possibly you have to cache your fonts for them to work.
 And to setup the symlinks for the dotfiles run the script:  
 `./makeSymLinks.sh`
 
-
-## Maintenance
-To pull all latest changes from this repository and the latest changes of submodules simply do:  
-`git submodule update --recursive`
-
-If submodules have not been created then it is possible to do:  
-`git submodule update --init --recursive`
-
-
-## How to manage what dotfiles are used
-Simply open the script in an editor and add the filename in the files list in line 11.
+### How to manage what dotfiles are used
+Simply open the script in an editor and add the filename in the files list.
