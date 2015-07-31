@@ -1,0 +1,6 @@
+#!/bin/bash
+
+scrot 'lock.png' -e 'mv lock.png /tmp/'
+convert /tmp/lock.png -scale 10% -scale 1000% /tmp/lock.png
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+i3lock -i /tmp/lock.png -p default -n

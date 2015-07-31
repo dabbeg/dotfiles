@@ -7,7 +7,7 @@ bindsym Control+$mod+r exec "i3-nagbar -t warning -m 'You pressed the restart sh
 # logout
 bindsym Control+$mod+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock
-bindsym Control+$mod+l exec i3lock -i ~/.i3/pictures/lock.png -p default -n
+bindsym Control+$mod+l exec $HOME/.i3/scripts/lock
 
 # Desktop wallpaper
 exec --no-startup-id feh --bg-scale ~/.i3/pictures/wallpaper.jpg
