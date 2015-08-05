@@ -254,4 +254,4 @@
     appname = Spotify
     summary = "*"
     urgency = low
-    script = /home/dabbeg/.i3/scripts/spotify
+    script = /home/dabbeg/.i3/scripts/dunst/spotify

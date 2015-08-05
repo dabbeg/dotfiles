@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# signal i3blocks that there was a change
+pkill -RTMIN+12 i3blocks
