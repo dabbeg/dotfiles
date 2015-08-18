@@ -87,7 +87,7 @@ let g:html_indent_inctags = "html,body,head,tbody" "Makes the smart indent for h
 
 "Brace completion called autoclose
 "============================================================================
-source ~/dotfiles/vim/extraVimrc/autoclose.vim "Enables a vim file that completes braces.
+source ~/.vim/extraVimrc/autoclose.vim "Enables a vim file that completes braces.
 "============================================================================
 
 
