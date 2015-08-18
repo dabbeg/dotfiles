@@ -2,4 +2,4 @@
 *.swo
 .DS_Store
 *.pyc
-i3/pictures/wallpaper.jpg
+i3/pictures/*
