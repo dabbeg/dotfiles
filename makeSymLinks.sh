@@ -5,7 +5,7 @@
 
 dir=~/dotfiles
 olddir=~/dotfiles_old
-files="astylerc dircolors dunstrc fonts gvimrc i3 nvimrc vimrc vim zshrc oh-my-zsh xinitrc"    # list of files/folders to symlink in homedir
+files="astylerc dircolors dunstrc fonts gvimrc i3 ideavimrc nvimrc vimrc vim zshrc oh-my-zsh xinitrc"    # list of files/folders to symlink in homedir
 
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in the home folder"
