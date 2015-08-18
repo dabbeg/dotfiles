@@ -1,0 +1,20 @@
+"This is a vimrc file for the IdeaVIM plugin in Intellij"
+
+"Mappings
+"============================================================================
+"jj goes from insertmode to normalmode
+inoremap jj <ESC> 
+
+"Mapped the moving keys so they make more sense to me.
+noremap j h
+noremap k j
+noremap l k
+noremap ; l
+noremap h ;
+
+"Mapping ctrl-c, ctrl-x and ctrl-v
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
+"============================================================================
