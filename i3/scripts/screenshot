@@ -1,0 +1,14 @@
+#!/bin/bash
+# Take a screenshot and notify the user
+# parameter: possible to have parameter equal to 'select' to select the scrot -s option.
+
+NAME=`date +"screenshot-%Y-%m-%d_%H:%M:%S.png"`
+
+if [ "$1" == "select" ]; then
+    scrot $NAME -s -e 'mv $f ~/pictures/screenshots/'
+else
+    scrot $NAME -e 'mv $f ~/pictures/screenshots/'
+fi
+
+convert "/home/dabbeg/pictures/screenshots/$NAME" -resize 4096@ "/tmp/screenshot-notification.png"
+notify-send "Screenshot taken" -i "/tmp/screenshot-notification.png"

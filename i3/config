@@ -21,8 +21,11 @@ exec --no-startup-id insync start
 # Removes the titlebars over every window
 new_window pixel
 
-# Binds the Print Scrn button to take a screenshot with scrot and save it to ~/Pictures/
-bindsym Print exec scrot 'screenshot-%Y-%m-%d_$wx$h.png' -e 'mv $f ~/pictures/screenshots/'
+# Binds the Print Scrn button to take a screenshot with scrot and save it to ~/Pictures/screenshots
+bindsym Print exec $HOME/.i3/scripts/screenshot 
+
+# Binds the mod + Print Scrn button to take a screenshot with scrot -s and save it to ~/Pictures/screenshots
+bindsym $mod+Print exec $HOME/.i3/scripts/screenshot "select"
 
 # Toggle between keyboard layouts
 bindsym $mod+Tab exec /home/dabbeg/.i3/scripts/i3blocks/toggleKeyboardLayout
