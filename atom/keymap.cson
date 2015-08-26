@@ -1,8 +1,10 @@
+'atom-text-editor.vim-mode.insert-mode':
+  'j j': 'vim-mode:reset-normal-mode'
+
 'atom-text-editor.vim-mode:not(.insert-mode)':
   'j': 'vim-mode:move-left'
   'k': 'vim-mode:move-down'
   'l': 'vim-mode:move-up'
   ';': 'vim-mode:move-right'
 
-'atom-text-editor.vim-mode':
-  'j j': 'vim-mode:reset-normal-mode'
+#https://github.com/atom/vim-mode/blob/master/keymaps/vim-mode.cson

@@ -3,3 +3,10 @@
     showOnStartup: false
   core:
     autoHideMenuBar: true
+    themes: [
+      "one-dark-ui"
+      "atom-dark-syntax"
+    ]
+  "atom-beautify": {}
+  editor:
+    invisibles: {}
