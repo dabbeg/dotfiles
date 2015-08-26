@@ -6,6 +6,7 @@ import oauth2client
 from oauth2client import client
 from oauth2client import tools
 from apiclient import errors
+import subprocess
 
 try:
     import argparse
@@ -118,11 +119,17 @@ def checkForNewMessages(service, lis):
     msgHour = time[0]
     msgMin = time[1]
 
-    print(msgYear)
-    print(msgMonth)
-    print(msgDay)
-    print(msgHour)
-    print(msgMin)
+    dateNow = subprocess.check_output(('date', '+%Y %m %d %H %M'))
+    dateNow = dateNow.decode("utf-8")
+    dateNow = dateNow.split()
+
+    year = dateNow[0]
+    month = dateNow[1]
+    day = dateNow[2]
+    hour = dateNow[3]
+    minu = dateNow[4]
+
+    
 
 
 def main():
