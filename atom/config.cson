@@ -10,3 +10,6 @@
   "atom-beautify": {}
   editor:
     invisibles: {}
+    fontSize: 15
+  "linter-javac":
+    javaExecutablePath: "/usr/lib/jvm/java-8-openjdk/bin/javac"

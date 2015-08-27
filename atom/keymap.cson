@@ -6,5 +6,12 @@
   'k': 'vim-mode:move-down'
   'l': 'vim-mode:move-up'
   ';': 'vim-mode:move-right'
+  '1': 'tree-view:toggle-focus'
+
+'.tree-view':
+  'j': 'tree-view:collapse-directory'
+  'k': 'core:move-down'
+  'l': 'core:move-up'
+  ';': 'tree-view:expand-directory'
 
 #https://github.com/atom/vim-mode/blob/master/keymaps/vim-mode.cson
