@@ -2,14 +2,31 @@
   welcome:
     showOnStartup: false
   core:
-    autoHideMenuBar: true
     themes: [
       "one-dark-ui"
       "atom-dark-syntax"
     ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      "*.class"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+    ]
+    autoHideMenuBar: true
   "atom-beautify": {}
   editor:
     invisibles: {}
     fontSize: 15
+    scrollPastEnd: true
+    tabLength: 4
+    backUpBeforeSaving: true
   "linter-javac":
     javaExecutablePath: "/usr/lib/jvm/java-8-openjdk/bin/javac"
+  "tree-view":
+    hideIgnoredNames: true
+  linter: {}
+core:
+  ignoredNames: "*.class"
