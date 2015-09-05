@@ -24,6 +24,9 @@ new_window pixel
 # Binds the Print Scrn button to take a screenshot with scrot and save it to ~/Pictures/screenshots
 bindsym Print exec $HOME/.i3/scripts/screenshot 
 
+# Binds the windows button to toggle the touchpad on/off
+bindsym F2 exec $HOME/.i3/scripts/i3/toggle_touchpad.sh 
+
 # Binds the mod + Print Scrn button to take a screenshot with scrot -s and save it to ~/Pictures/screenshots
 bindsym $mod+Print exec $HOME/.i3/scripts/screenshot "select"
 

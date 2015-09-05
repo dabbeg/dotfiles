@@ -19,7 +19,6 @@ CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Gmail API Quickstart'
 MONTHS = {'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6, 'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12}
 
-
 def get_credentials():
     """Gets valid user credentials from storage.
 
@@ -80,7 +79,6 @@ def ListMessagesWithLabels(service, user_id, label_ids=[]):
   except errors.HttpError:
     print('An error occurred: %s')
 
-
 def GetMessage(service, user_id, msg_id):
   """Get a Message with given ID.
 
@@ -96,8 +94,6 @@ def GetMessage(service, user_id, msg_id):
   try:
     message = service.users().messages().get(userId=user_id, id=msg_id).execute()
 
-    print('Message snippet: %s' % message['snippet'])
-
     return message
   except errors.HttpError:
     print('An error occurred')
@@ -106,7 +102,8 @@ def checkForNewMessages(service, lis):
     counter = 0
     for msg in lis:
         counter += 1
-        if counter == 4: break
+        if counter == 5: break
+
         header = GetMessage(service, 'me', msg['id'])['payload']['headers']
 
         #Wed, 19 Aug 2015 20:58:19 +0000
@@ -135,45 +132,31 @@ def checkForNewMessages(service, lis):
         minu = int(dateNow[4])
         sec = int(dateNow[5])
 
-        if msgYear == year:
-            print("same year")
-            if msgMonth == month:
-                print("same month")
-                if msgDay == day:
-                    print("same day")
-                    if msgHour == hour:
-                        print("same hour")
-                        if msgMin == minu:
-                            print("valid message")
-                        elif msgMin+1 == minu:
-                            if msgSec < sec:
-                                print("valid message")
+        if msgYear == year and msgMonth == month and msgDay == day and msgHour == hour:
+            if msgMin == minu:
+                displayNotification(header)
+            elif msgMin+1 == minu:
+                if msgSec >= sec:
+                    displayNotification(header)
 
+def displayNotification(array):
+    msgSubject = getDataFromJsonArray(array, 'Subject')
+    msgFrom = getDataFromJsonArray(array, 'From')
+    notification = msgSubject + '\n' + 'From: ' + msgFrom
+    subprocess.check_output(('notify-send', notification, '-i', '/home/dabbeg/dotfiles/dunst/icons/gmail_64x64.png'))
 
-
+def getDataFromJsonArray(array, key):
+    for x in array:
+        if x['name'] == key:
+            return x['value'];
 
 def main():
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('gmail', 'v1', http=http)
 
-    results = service.users().labels().list(userId='me').execute()
-    labels = results.get('labels', [])
-
-    if not labels:
-        print('No labels found.')
-    else:
-      print('Labels:')
-      for label in labels:
-        print(label['name'])
-
-    personal = ListMessagesWithLabels(service, 'me', ['INBOX'])
-    #personal = ListMessagesWithLabels(service, 'me', ['INBOX', 'CATEGORY_PERSONAL'])
-    #updates = ListMessagesWithLabels(service, 'me', ['INBOX', 'CATEGORY_UPDATES'])
-
-    checkForNewMessages(service, personal)
-    #checkForNewMessages(service, updates)
-
+    inbox = ListMessagesWithLabels(service, 'me', ['INBOX'])
+    checkForNewMessages(service, inbox)
 
 if __name__ == '__main__':
     main()
