@@ -103,33 +103,53 @@ def GetMessage(service, user_id, msg_id):
     print('An error occurred')
 
 def checkForNewMessages(service, lis):
-    header = GetMessage(service, 'me', '14f47c16b2ddc573')['payload']['headers']
+    counter = 0
+    for msg in lis:
+        counter += 1
+        if counter == 4: break
+        header = GetMessage(service, 'me', msg['id'])['payload']['headers']
 
-    #Wed, 19 Aug 2015 20:58:19 +0000
-    date = []
-    for x in header:
-        if x['name'] == 'Date':
-            date = x['value'].split()
+        #Wed, 19 Aug 2015 20:58:19 +0000
+        date = []
+        for x in header:
+            if x['name'] == 'Date':
+                date = x['value'].split()
 
-    time = date[4].split(':')
+        time = date[4].split(':')
 
-    msgYear = date[3]
-    msgMonth = MONTHS[date[2]]
-    msgDay = date[1]
-    msgHour = time[0]
-    msgMin = time[1]
+        msgYear = int(date[3])
+        msgMonth = MONTHS[date[2]]
+        msgDay = int(date[1])
+        msgHour = int(time[0])
+        msgMin = int(time[1])
+        msgSec = int(time[2])
 
-    dateNow = subprocess.check_output(('date', '+%Y %m %d %H %M'))
-    dateNow = dateNow.decode("utf-8")
-    dateNow = dateNow.split()
+        dateNow = subprocess.check_output(('date', '+%Y %m %d %H %M %S'))
+        dateNow = dateNow.decode("utf-8")
+        dateNow = dateNow.split()
 
-    year = dateNow[0]
-    month = dateNow[1]
-    day = dateNow[2]
-    hour = dateNow[3]
-    minu = dateNow[4]
+        year = int(dateNow[0])
+        month = int(dateNow[1])
+        day = int(dateNow[2])
+        hour = int(dateNow[3])
+        minu = int(dateNow[4])
+        sec = int(dateNow[5])
 
-    
+        if msgYear == year:
+            print("same year")
+            if msgMonth == month:
+                print("same month")
+                if msgDay == day:
+                    print("same day")
+                    if msgHour == hour:
+                        print("same hour")
+                        if msgMin == minu:
+                            print("valid message")
+                        elif msgMin+1 == minu:
+                            if msgSec < sec:
+                                print("valid message")
+
+
 
 
 def main():
@@ -137,8 +157,19 @@ def main():
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('gmail', 'v1', http=http)
 
-    personal = ListMessagesWithLabels(service, 'me', ['INBOX', 'CATEGORY_PERSONAL'])
-    updates = ListMessagesWithLabels(service, 'me', ['INBOX', 'CATEGORY_UPDATES'])
+    results = service.users().labels().list(userId='me').execute()
+    labels = results.get('labels', [])
+
+    if not labels:
+        print('No labels found.')
+    else:
+      print('Labels:')
+      for label in labels:
+        print(label['name'])
+
+    personal = ListMessagesWithLabels(service, 'me', ['INBOX'])
+    #personal = ListMessagesWithLabels(service, 'me', ['INBOX', 'CATEGORY_PERSONAL'])
+    #updates = ListMessagesWithLabels(service, 'me', ['INBOX', 'CATEGORY_UPDATES'])
 
     checkForNewMessages(service, personal)
     #checkForNewMessages(service, updates)
