@@ -19,7 +19,6 @@
   "atom-beautify": {}
   editor:
     invisibles: {}
-    fontSize: 15
     scrollPastEnd: true
     tabLength: 4
     backUpBeforeSaving: true
@@ -28,5 +27,6 @@
   "tree-view":
     hideIgnoredNames: true
   linter: {}
+  latex: {}
 core:
   ignoredNames: "*.class"
