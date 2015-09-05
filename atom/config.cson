@@ -21,12 +21,14 @@
     invisibles: {}
     fontSize: 15
     scrollPastEnd: true
-    tabLength: 4
     backUpBeforeSaving: true
+    showIndentGuide: true
   "linter-javac":
     javaExecutablePath: "/usr/lib/jvm/java-8-openjdk/bin/javac"
   "tree-view":
     hideIgnoredNames: true
   linter: {}
+  latex:
+    alwaysOpenResultInAtom: true
 core:
   ignoredNames: "*.class"
