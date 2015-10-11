@@ -16,12 +16,17 @@
       "Thumbs.db"
     ]
     autoHideMenuBar: true
-  "atom-beautify": {}
+    disabledPackages: [
+      "linter-javac"
+    ]
+  "atom-beautify":
+    _analyticsUserId: "62c446ce-7d18-4c09-8dca-4866253d83a5"
   editor:
     invisibles: {}
     scrollPastEnd: true
     backUpBeforeSaving: true
     showIndentGuide: true
+    tabLength: 4
   "linter-javac":
     javaExecutablePath: "/usr/lib/jvm/java-8-openjdk/bin/javac"
   "tree-view":
@@ -29,5 +34,7 @@
   linter: {}
   latex:
     alwaysOpenResultInAtom: true
+  minimap:
+    absoluteMode: true
 core:
   ignoredNames: "*.class"
