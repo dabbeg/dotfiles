@@ -16,6 +16,8 @@
             #include <queue> 
             #include <stack> 
             #include <cmath> 
+            #include <sstream> // stringstream ss(nameofstring)
+            #include <string> 
             using namespace std;
 
             int main() {
