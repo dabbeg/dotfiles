@@ -7,6 +7,7 @@
   'l': 'vim-mode:move-up'
   ';': 'vim-mode:move-right'
   '1': 'tree-view:toggle-focus'
+  'ctrl-c': 'core:copy'
 
 '.tree-view':
   'j': 'tree-view:collapse-directory'
