@@ -6,8 +6,13 @@
   'k': 'vim-mode:move-down'
   'l': 'vim-mode:move-up'
   ';': 'vim-mode:move-right'
-  '1': 'tree-view:toggle-focus'
   'ctrl-c': 'core:copy'
+  '1': 'tree-view:toggle-focus'
+  '2': 'pane:show-next-item'
+
+#'atom-workspace':
+#  '1': 'tree-view:toggle-focus'
+#  '2': 'pane:show-next-item'
 
 '.tree-view':
   'j': 'tree-view:collapse-directory'
