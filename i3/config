@@ -9,18 +9,6 @@ bindsym Control+$mod+e exec "i3-nagbar -t warning -m 'You pressed the exit short
 # lock
 bindsym Control+$mod+l exec $HOME/.i3/scripts/lock
 
-# Desktop wallpaper
-exec --no-startup-id feh --no-xinerama --bg-scale ~/.i3/pictures/wallpaper.jpg
-
-# Starts the compostition manager Compton
-exec --no-startup-id compton -cCGb --backend glx --vsync opengl
-
-# Start insync for google-drive
-exec --no-startup-id insync start
-
-# Removes the titlebars over every window
-for_window [class="^.*"] border pixel 0
-
 # Binds the Print Scrn button to take a screenshot with scrot and save it to ~/Pictures/screenshots
 bindsym Print exec $HOME/.i3/scripts/screenshot 
 
@@ -172,9 +160,11 @@ bindsym $mod+r mode "resize"
 bar {
     # Using custom i3blocks.conf
     status_command i3blocks -c ~/.i3/i3blocks.conf
+    i3bar_command i3bar -t 
 
     position top
     workspace_buttons yes
+    height 24
 
     #font pango: FontAwesome 9
     #font pango: Ubuntu Mono 9
@@ -195,7 +185,7 @@ bar {
     }
 }
 
-gaps inner 4
+gaps inner 8
 gaps outer 0
 
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -234,3 +224,16 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+# Desktop wallpaper
+exec --no-startup-id feh --no-xinerama --bg-scale ~/.i3/pictures/wallpaper.jpg
+
+# Start insync for google-drive
+exec --no-startup-id insync start
+
+# Removes the titlebars over every window
+for_window [class="^.*"] border pixel 0
+
+# Starts the compostition manager Compton
+exec --no-startup-id compton -cb --backend glx --vsync opengl --config /home/dabbeg/.compton.conf
+
