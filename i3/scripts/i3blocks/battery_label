@@ -1,7 +1,0 @@
-#!/bin/bash
-
-BATTERY=`acpi -b | grep 'Battery' | wc -l`
-
-if [ "$BATTERY" -ne "0" ]; then
-    echo ""
-fi
