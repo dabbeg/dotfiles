@@ -35,12 +35,11 @@ colorscheme badwolf
 let g:badwolf_darkgutter = 1
 
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
-set cpoptions+=$ "puts a $ marker for the end of words/lines in cw/c$ commands
 set number "Sets line numbers to the left
 
 "Highlight the column of the 110 line too see if your lines are too long
-""set colorcolumn=100
-""highlight ColorColumn ctermbg=darkgray
+set colorcolumn=100
+highlight ColorColumn ctermbg=darkgray
 
 "Restore cursor position
 set hidden
@@ -50,21 +49,6 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
-"============================================================================
-
-
-"Functions
-"============================================================================
-let g:toggle = 0
-function! ToggleHighlight()
-    let g:toggle = 1 - g:toggle
-
-    if g:toggle == 1
-        autocmd CursorMoved * exe printf('match StatusLine /\V\<%s\>/', escape(expand('<cword>'), '/\'))
-    else
-        autocmd! CursorMoved
-    endif
-endfunction
 "============================================================================
 
 
@@ -107,9 +91,6 @@ nnoremap <space>gb :Git branch<Space>
 nnoremap <space>go :Git checkout<Space>
 nnoremap <space>gps :Dispatch! git push<CR>
 nnoremap <space>gpl :Dispatch! git pull<CR>
-
-"Toggle on/off to highlight all names that is the same as the one that's focused
-nnoremap 2 :call ToggleHighlight()<CR>
 
 "Make it easier to switch between windows
 nnoremap 1 <C-W><C-W>
