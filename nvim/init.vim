@@ -17,8 +17,6 @@ filetype plugin indent on
 set exrc "Forces vim to source .vimrc file if it is present in the working directory.
 set secure "Restrict usage of some commands for security
 
-"Close vim if there is only one window open
-""autocmd bufenter * if (winnr("$") == 1) | q | endif
 "============================================================================
 
 
@@ -30,7 +28,6 @@ set wrap linebreak nolist "If a line is longer than width of window it drops dow
 colorscheme badwolf
 
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
-set cpoptions+=$ "puts a $ marker for the end of words/lines in cw/c$ commands
 set number "Sets line numbers to the left
 
 "Highlight the column of the 110 line too see if your lines are too long
@@ -70,16 +67,36 @@ imap <C-v> <ESC>"+pa
 nnoremap <F5> :make<cr>
 nnoremap <F6> :make run<cr>
 nnoremap <F7> :make runInput<cr>
+
+" fugitive git bindings
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gc :Gcommit -v -q<CR>
+nnoremap <space>gt :Gcommit -v -q %:p<CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>ge :Gedit<CR>
+nnoremap <space>gr :Gread<CR>
+nnoremap <space>gw :Gwrite<CR><CR>
+nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <space>gp :Ggrep<Space>
+nnoremap <space>gm :Gmove<Space>
+nnoremap <space>gb :Git branch<Space>
+nnoremap <space>go :Git checkout<Space>
+nnoremap <space>gps :Dispatch! git push<CR>
+nnoremap <space>gpl :Dispatch! git pull<CR>
+
+"Make it easier to switch between windows
+nnoremap 1 <C-W><C-W>
 "============================================================================
 
 
 "YouCompleteMe
 "============================================================================
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+""let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 "============================================================================
 
 
-"Html
+"Indent
 "============================================================================
 let g:html_indent_inctags = "html,body,head,tbody" "Makes the smart indent for html indent these tags aswell.
 "============================================================================
@@ -87,7 +104,7 @@ let g:html_indent_inctags = "html,body,head,tbody" "Makes the smart indent for h
 
 "Brace completion called autoclose
 "============================================================================
-source ~/.vim/extraVimrc/autoclose.vim "Enables a vim file that completes braces.
+""source ~/.vim/extraVimrc/autoclose.vim "Enables a vim file that completes braces.
 "============================================================================
 
 
@@ -97,9 +114,6 @@ set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 " Always show statusline
 set laststatus=2
-
-" Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set t_Co=256
 "============================================================================
 
 
