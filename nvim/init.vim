@@ -1,4 +1,4 @@
-"Execute the pathogen which is located in ./vim/autoload
+"Execute the vim-plugin plugin manager which is located in ./vim/autoload
 "============================================================================
 syntax on
 filetype plugin indent on
@@ -12,6 +12,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'benekastah/neomake'
+Plug 'cohama/lexima.vim'
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -42,8 +43,6 @@ set wrap linebreak "If a line is longer than width of window it drops down to ne
 "colorscheme colorsbox-stnight
 color badwolf
 "color molokai
-"
-set guifont=Sauce\ Code\ Powerline\ Medium\ 15
 
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
 set number "Sets line numbers to the left
@@ -136,14 +135,9 @@ endif
 autocmd! BufWritePost * Neomake
 "============================================================================
 
-"YouCompleteMe
-"============================================================================
-""let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-"============================================================================
-
 "Brace completion
 "============================================================================
-""source ~/.vim/extraVimrc/autoclose.vim "Enables a vim file that completes braces.
+let g:lexima_enable_basic_rules = 1
 "============================================================================
 
 "vim-airline
@@ -163,10 +157,6 @@ let g:markdown_composer_open_browser = 1
 
 "NERDTree Settings
 "============================================================================
-"NERDTree mapping to let nerdtree always display current directory of the document selected.
-""map <leader>r :NERDTreeFind<cr>
-""autocmd BufEnter * lcd %:p:h
-
 "The size of NERDTree window
 let g:NERDTreeWinSize=25
 let NERDTreeShowBookmarks=1
