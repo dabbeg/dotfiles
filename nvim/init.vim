@@ -11,6 +11,7 @@ Plug 'janko-m/vim-test'
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'benekastah/neomake'
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -111,7 +112,7 @@ nnoremap 1 <C-W><C-W>
 let g:html_indent_inctags = "html,body,head,tbody" "Makes the smart indent for html indent these tags aswell.
 "============================================================================
 
-"Plugins
+"NeoSnippets
 "============================================================================
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -128,23 +129,40 @@ imap <expr><TAB>
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+"============================================================================
 
+"NeoMake
+"============================================================================
+autocmd! BufWritePost * Neomake
+"============================================================================
 
+"YouCompleteMe
+"============================================================================
 ""let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+"============================================================================
 
 "Brace completion
+"============================================================================
 ""source ~/.vim/extraVimrc/autoclose.vim "Enables a vim file that completes braces.
+"============================================================================
 
 "vim-airline
+"============================================================================
 let g:airline#extensions#tabline#enabled = 1
+"============================================================================
 
 "deocomplete
+"============================================================================
 let g:deoplete#enable_at_startup = 1
+"============================================================================
 
 "Markdown composer
+"============================================================================
 let g:markdown_composer_open_browser = 1
+"============================================================================
 
 "NERDTree Settings
+"============================================================================
 "NERDTree mapping to let nerdtree always display current directory of the document selected.
 ""map <leader>r :NERDTreeFind<cr>
 ""autocmd BufEnter * lcd %:p:h
