@@ -5,32 +5,30 @@ syntax on
 filetype plugin indent on
 "============================================================================
 
-
 "Vim settings
 "============================================================================
 set exrc "Forces vim to source .vimrc file if it is present in the working directory.
 set secure "Restrict usage of some commands for security
 
-"Close vim if there is only one window open
-""autocmd bufenter * if (winnr("$") == 1) | q | endif
+set list!
+set listchars=space:·,trail:~
 "============================================================================
-
 
 "Apperance
 "============================================================================
-set wrap linebreak nolist "If a line is longer than width of window it drops down to next line.
+set wrap linebreak "If a line is longer than width of window it drops down to next line.
 
 ""color codeschool
-""color molokai 
-color badwolf
+color molokai
+""color badwolf
+"color colorsbox-stnight
 
 "set guifont=Inconsolata\ for\ Powerline\ 14 "Special font for powerline
-set guifont=Sauce\ Code\ Powerline\ Medium\ 13
+set guifont=Sauce\ Code\ Powerline\ Medium\ 11
 set guioptions-=T "Removes top toolbar
 set guioptions-=r "Removes right hand scroll bar
 set go-=L "Removes left hand scroll bar
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
-set cpoptions+=$ "puts a $ marker for the end of words/lines in cw/c$ commands
 set guioptions-=T guioptions-=m "Makes the whitespace at the bottom and right a little smaller. 
 set number "Sets line numbers to the left
 
@@ -39,25 +37,10 @@ set colorcolumn=100
 highlight ColorColumn ctermbg=darkgray
 
 "Restore cursor position
-""set hidden
+set hidden
 
 ""set foldmethod=syntax
 ""set foldnestmax=1
-"============================================================================
-
-
-"Functions
-"============================================================================
-let g:toggle = 0
-function! ToggleHighlight()
-    let g:toggle = 1 - g:toggle
-
-    if g:toggle == 1
-        autocmd CursorMoved * exe printf('match StatusLine /\V\<%s\>/', escape(expand('<cword>'), '/\'))
-    else
-        autocmd! CursorMoved
-    endif
-endfunction
 "============================================================================
 
 
@@ -103,34 +86,24 @@ nnoremap <space>go :Git checkout<Space>
 nnoremap <space>gps :Dispatch! git push<CR>
 nnoremap <space>gpl :Dispatch! git pull<CR>
 
-"Toggle on/off to highlight all names that is the same as the one that's focused
-nnoremap 2 :call ToggleHighlight()<CR>
-
 "Make it easier to switch between windows
 nnoremap 1 <C-W><C-W>
 "============================================================================
-
-
-"YouCompleteMe
-"============================================================================
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-"============================================================================
-
 
 "Html
 "============================================================================
 let g:html_indent_inctags = "html,body,head,tbody" "Makes the smart indent for html indent these tags aswell.
 "============================================================================
 
+"Plugins
+"============================================================================
+"YouCompleteMe
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
 "Brace completion called autoclose
-"============================================================================
 source ~/.vim/extraVimrc/autoclose.vim "Enables a vim file that completes braces.
-"============================================================================
-
 
 "Powerline settings for vim
-"============================================================================
 set nocompatible   " Disable vi-compatibility
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
@@ -138,11 +111,8 @@ let g:Powerline_symbols = 'fancy'
 
 let g:Powerline_dividers_override = ['', '', '', '']
 let g:Powerline_symbols_override = { 'BRANCH': '', 'LINE': '', 'RO': '' }
-"============================================================================
-
 
 "NERDTree Settings
-"============================================================================
 "NERDTree mapping to let nerdtree always display current directory of the document selected.
 map <leader>r :NERDTreeFind<cr>
 autocmd BufEnter * lcd %:p:h
@@ -154,11 +124,8 @@ let NERDTreeShowHidden=1
 
 "At start open NERDTree
 NERDTree
-"============================================================================
-
 
 "NeoComplete Settings
-"============================================================================
 ""let g:neocomplete#enable_auto_select=1
 ""NeoCompleteEnable
 "============================================================================

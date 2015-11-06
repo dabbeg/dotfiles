@@ -1,8 +1,13 @@
 "Execute the pathogen which is located in ./vim/autoload
 "============================================================================
-execute pathogen#infect()
 syntax on
 filetype plugin indent on
+
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'scrooloose/nerdtree'
+Plug 'bling/vim-airline'
+call plug#end()
 "============================================================================
 
 
@@ -17,15 +22,21 @@ filetype plugin indent on
 set exrc "Forces vim to source .vimrc file if it is present in the working directory.
 set secure "Restrict usage of some commands for security
 
+set list!
+set listchars=space:·,trail:~
 "============================================================================
 
 
 "Apperance
 "============================================================================
-set wrap linebreak nolist "If a line is longer than width of window it drops down to next line.
+set wrap linebreak "If a line is longer than width of window it drops down to next line.
 
 "color up
-colorscheme badwolf
+"colorscheme colorsbox-stnight
+color badwolf
+"color molokai
+"
+set guifont=Sauce\ Code\ Powerline\ Medium\ 15
 
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
 set number "Sets line numbers to the left
@@ -48,7 +59,7 @@ set expandtab
 "Mappings
 "============================================================================
 "jj goes from insertmode to normalmode
-inoremap jj <ESC> 
+inoremap jj <ESC>
 
 "Mapped the moving keys so they make more sense to me.
 noremap j h
@@ -89,36 +100,24 @@ nnoremap <space>gpl :Dispatch! git pull<CR>
 nnoremap 1 <C-W><C-W>
 "============================================================================
 
-
-"YouCompleteMe
-"============================================================================
-""let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-"============================================================================
-
-
 "Indent
 "============================================================================
 let g:html_indent_inctags = "html,body,head,tbody" "Makes the smart indent for html indent these tags aswell.
 "============================================================================
 
+"Plugins
+"============================================================================
+""let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
 "Brace completion called autoclose
-"============================================================================
 ""source ~/.vim/extraVimrc/autoclose.vim "Enables a vim file that completes braces.
-"============================================================================
-
 
 "Powerline settings for vim
-"============================================================================
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
-
 " Always show statusline
 set laststatus=2
-"============================================================================
-
 
 "NERDTree Settings
-"============================================================================
 "NERDTree mapping to let nerdtree always display current directory of the document selected.
 ""map <leader>r :NERDTreeFind<cr>
 ""autocmd BufEnter * lcd %:p:h
