@@ -7,9 +7,19 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
+Plug 'janko-m/vim-test'
+Plug 'Shougo/deoplete.nvim'
+
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    !cargo build --release
+    UpdateRemotePlugins
+  endif
+endfunction
+
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 call plug#end()
 "============================================================================
-
 
 "Vim settings
 "============================================================================
@@ -112,10 +122,14 @@ let g:html_indent_inctags = "html,body,head,tbody" "Makes the smart indent for h
 "Brace completion called autoclose
 ""source ~/.vim/extraVimrc/autoclose.vim "Enables a vim file that completes braces.
 
-"Powerline settings for vim
-set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
-" Always show statusline
-set laststatus=2
+"air-line settings for vim
+let g:airline#extensions#tabline#enabled = 1
+
+"Enable deocomplete
+let g:deoplete#enable_at_startup = 1
+
+"Markdown composer
+let g:markdown_composer_open_browser = 1
 
 "NERDTree Settings
 "NERDTree mapping to let nerdtree always display current directory of the document selected.

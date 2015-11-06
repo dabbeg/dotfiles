@@ -1,0 +1,6 @@
+"Mapped the moving keys so they make more sense to me.
+noremap j h
+noremap k j
+noremap l k
+noremap ; l
+noremap h ;

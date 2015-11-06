@@ -2,4 +2,11 @@
 *.swo
 .DS_Store
 *.pyc
+
 i3/pictures/*
+
+# ignore all plugins
+nvim/plugged/*
+
+# ignore markdown-composer plugin file
+nvim/.init.vim-rplugin~
