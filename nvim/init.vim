@@ -9,6 +9,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'janko-m/vim-test'
 Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -23,12 +25,6 @@ call plug#end()
 
 "Vim settings
 "============================================================================
-"Auto source vimrc on save
-""augroup myvimrc
-""    au!
-""    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-""augroup END
-
 set exrc "Forces vim to source .vimrc file if it is present in the working directory.
 set secure "Restrict usage of some commands for security
 
@@ -117,15 +113,32 @@ let g:html_indent_inctags = "html,body,head,tbody" "Makes the smart indent for h
 
 "Plugins
 "============================================================================
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB>
+ \ pumvisible() ? "\<C-n>" :
+ \ neosnippet#expandable_or_jumpable() ?
+ \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+
 ""let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
-"Brace completion called autoclose
+"Brace completion
 ""source ~/.vim/extraVimrc/autoclose.vim "Enables a vim file that completes braces.
 
-"air-line settings for vim
+"vim-airline
 let g:airline#extensions#tabline#enabled = 1
 
-"Enable deocomplete
+"deocomplete
 let g:deoplete#enable_at_startup = 1
 
 "Markdown composer
