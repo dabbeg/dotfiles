@@ -108,6 +108,7 @@ nnoremap <space>gpl :Dispatch! git pull<CR>
 nnoremap 1 <C-W><C-W>
 "============================================================================
 
+
 "Indent
 "============================================================================
 let g:html_indent_inctags = "html,body,head,tbody" "Makes the smart indent for html indent these tags aswell.
