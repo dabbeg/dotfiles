@@ -131,7 +131,6 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 "============================================================================
-"This is a test
 
 "NeoMake
 "============================================================================
@@ -153,7 +152,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:deoplete#enable_at_startup = 1
 "============================================================================
 
-"This is another test
 "Markdown composer
 "============================================================================
 let g:markdown_composer_open_browser = 1
