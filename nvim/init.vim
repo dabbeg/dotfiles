@@ -5,14 +5,16 @@ filetype plugin indent on
 
 call plug#begin()
 Plug 'tpope/vim-sensible'
-Plug 'scrooloose/nerdtree'
-Plug 'bling/vim-airline'
-Plug 'janko-m/vim-test'
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'benekastah/neomake'
-Plug 'cohama/lexima.vim'
+Plug 'scrooloose/nerdtree'        "File structure
+Plug 'bling/vim-airline'          "Vim statusline
+Plug 'janko-m/vim-test'           "Plugin for running tests
+Plug 'Shougo/deoplete.nvim'       "Autocompletion
+Plug 'Shougo/neosnippet'          "Snippets
+Plug 'Shougo/neosnippet-snippets' "Snippets
+Plug 'benekastah/neomake'         "Linter for many languages
+Plug 'cohama/lexima.vim'          "Brace completion
+Plug 'ctrlpvim/ctrlp.vim'         "Easy access to files
+Plug 'tpope/vim-fugitive'
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -162,5 +164,5 @@ let g:NERDTreeWinSize=25
 let NERDTreeShowBookmarks=1
 
 "At start open NERDTree
-autocmd VimEnter * NERDTree
+"autocmd VimEnter * NERDTree
 "============================================================================
