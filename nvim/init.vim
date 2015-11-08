@@ -16,15 +16,20 @@ Plug 'ctrlpvim/ctrlp.vim'         "Easy access to files
 Plug 'tpope/vim-fugitive'         "Git wrapper
 Plug 'chriskempson/base16-vim'    "Colorscheme
 Plug 'tpope/vim-commentary'       "Comment
-Plug 'Valloric/YouCompleteMe', { 'for': ['cpp', 'c'] }
-"Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 "Plug 'hdima/python-syntax', { 'for': 'python' }
 "Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
+function! BuildYCM(info)
+    if a:info.status != 'unchanged' || a:info.force
+        !python2 $HOME/dotfiles/nvim/plugged/YouCompleteMe/install.py --clang-completer --omnisharp-completer
+    endif
+endfunction
+
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'for': ['cpp', 'c'] }
 
 function! BuildPolyglot(info)
   if a:info.status != 'unchanged' || a:info.force
-    !sh $HOME/dotfiles/nvim/plugged/vim-polyglot/build
+    !bash $HOME/dotfiles/nvim/plugged/vim-polyglot/build
   endif
 endfunction
 
