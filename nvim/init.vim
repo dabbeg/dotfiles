@@ -16,8 +16,18 @@ Plug 'ctrlpvim/ctrlp.vim'         "Easy access to files
 Plug 'tpope/vim-fugitive'         "Git wrapper
 Plug 'chriskempson/base16-vim'    "Colorscheme
 Plug 'tpope/vim-commentary'       "Comment
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
-Plug 'hdima/python-syntax', { 'for': 'py' }
+"Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+"Plug 'hdima/python-syntax', { 'for': 'python' }
+"Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+
+
+function! BuildPolyglot(info)
+  if a:info.status != 'unchanged' || a:info.force
+    !sh $HOME/dotfiles/nvim/plugged/vim-polyglot/build
+  endif
+endfunction
+
+Plug 'sheerun/vim-polyglot', { 'do': function('BuildPolyglot') }
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
