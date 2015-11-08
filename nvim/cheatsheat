@@ -1,0 +1,35 @@
+=====================================================================================
+d and c serve the same purpose but after commands with c you go into insert mode.
+
+dd
+D
+de
+dw
+
+cc
+C
+ce
+cw
+
+f and t jump to a character in the current row
+
+f= jumps at =
+t= jumps one character before =
+
+so using these together
+
+df= removes every character where the cursor is at to and with =
+df= removes every character where the cursor is at to =
+=====================================================================================
+
+
+
+=====================================================================================
+H(high) moves the cursor to the bottom of the screen
+M(middle) moves the cursor to the middle of the screen
+L(low) moves cursor to the bottom of the screen
+
+zt moves the view so the place the cursor is, is moved to the top
+zm moves the view so the place the cursor is, is moved to the middle
+zb moves the view so the place the cursor is, is moved to the bottom
+=====================================================================================

@@ -16,6 +16,9 @@ Plug 'ctrlpvim/ctrlp.vim'         "Easy access to files
 Plug 'tpope/vim-fugitive'         "Git wrapper
 Plug 'chriskempson/base16-vim'    "Colorscheme
 Plug 'tpope/vim-commentary'       "Comment
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'wikitopian/hardmode'
+Plug 'tpope/vim-surround'
 "Plug 'hdima/python-syntax', { 'for': 'python' }
 "Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
@@ -53,16 +56,54 @@ set secure "Restrict usage of some commands for security
 
 set list!
 set listchars=space:·,trail:~
+
+autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
+
+set ttyfast " faster redrawing
+set number
+
+set so=7 " set 7 lines to the cursors - when moving vertical
+set wildmenu " enhanced command line completion
+set hidden " current buffer can be put into background
+set wildmode=list:longest " complete files like a shell
+set scrolloff=3 " lines of text around cursor
+set shell=$SHELL
+set cmdheight=1 " command bar height
+
+" Searching
+set ignorecase " case insensitive searching
+set smartcase " case-sensitive if expresson contains a capital letter
+set hlsearch
+set incsearch " set incremental search, like modern browsers
+set nolazyredraw " don't redraw while executing macros
+set magic " Set magic on, for regex
+
+set showmatch " show matching braces
+set mat=2 " how many tenths of a second to blink
+
+"Highlight the column of the 110 line too see if your lines are too long
+set colorcolumn=100
+highlight ColorColumn ctermbg=darkgray
+
+set wrap "turn on line wrapping
+set wrapmargin=8 " wrap lines when coming within n characters from side
+set linebreak " set soft wrapping
+set showbreak=… " show ellipsis at breaking
+
+"Indent
+set autoindent " automatically set indent of new line
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
 "============================================================================
 
 
 "Apperance
 "============================================================================
-set wrap linebreak "If a line is longer than width of window it drops down to next line.
-
 syntax on
 set encoding=utf8
-let base16colorspace=256  " Access colors present in 256 colorspace"
+let base16colorspace=256  "Access colors present in 256 colorspace
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 
 "execute "set background=".$BACKGROUND
@@ -71,35 +112,15 @@ set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 set background=dark
 colorscheme base16-atelierforest
 "color up
-"colorscheme colorsbox-stnight
 "color badwolf
 "color molokai
-
-set ttyfast " faster redrawing
-set showmatch " show matching braces
-
-autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
-set number "Sets line numbers to the left
-
-"Highlight the column of the 110 line too see if your lines are too long
-set colorcolumn=100
-highlight ColorColumn ctermbg=darkgray
-
-"Restore cursor position
-set hidden
-
-"Indent
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
 "============================================================================
 
 "Mappings
 "============================================================================
 " set a map leader for more key combos
-let mapleader = ' '
-let g:mapleader = ' '
+let mapleader = ','
+let g:mapleader = ','
 
 "jj goes from insertmode to normalmode
 inoremap jj <ESC>
@@ -110,6 +131,8 @@ noremap k j
 noremap l k
 noremap ; l
 noremap h ;
+
+noremap <space> :
 
 "Mapping ctrl-c, ctrl-x and ctrl-v
 vmap <C-c> "+yi
@@ -141,9 +164,6 @@ nnoremap <leader>gpl :Dispatch! git pull<CR>
 
 "Open NERDTree
 nnoremap <leader>n :NERDTreeToggle<cr>
-
-"Make it easier to switch between windows
-nnoremap 1 <C-W><C-W>
 
 map <silent> <C-h> :call WinMove('h')<cr>
 map <silent> <C-j> :call WinMove('j')<cr>
