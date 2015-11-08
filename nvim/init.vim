@@ -4,18 +4,19 @@ filetype plugin indent on
 
 call plug#begin()
 Plug 'tpope/vim-sensible'
-Plug 'scrooloose/nerdtree'        "File structure
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'bling/vim-airline'          "Vim statusline
 Plug 'janko-m/vim-test'           "Plugin for running tests
-Plug 'Shougo/deoplete.nvim'       "Autocompletion
+Plug 'Shougo/deoplete.nvim', { 'for': ['vim', 'javascript', 'python', 'java', 'css', 'html', 'latex', 'bash'] }
+Plug 'benekastah/neomake', { 'for': ['vim', 'javascript', 'python', 'java', 'css', 'html', 'latex', 'bash'] }
 Plug 'Shougo/neosnippet'          "Snippets
 Plug 'Shougo/neosnippet-snippets' "Snippets
-Plug 'benekastah/neomake'         "Linter for many languages
 Plug 'cohama/lexima.vim'          "Brace completion
 Plug 'ctrlpvim/ctrlp.vim'         "Easy access to files
 Plug 'tpope/vim-fugitive'         "Git wrapper
 Plug 'chriskempson/base16-vim'    "Colorscheme
 Plug 'tpope/vim-commentary'       "Comment
+Plug 'Valloric/YouCompleteMe', { 'for': ['cpp', 'c'] }
 "Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 "Plug 'hdima/python-syntax', { 'for': 'python' }
 "Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -169,6 +170,11 @@ endfunction
 let g:html_indent_inctags = "html,body,head,tbody" "Makes the smart indent for html indent these tags aswell.
 "============================================================================
 
+"YCM
+"============================================================================
+set completeopt-=preview
+let g:ycm_global_ycm_extra_conf = '/home/dabbeg/dotfiles/nvim/.ycm_extra_conf.py'
+"============================================================================
 "NeoSnippets
 "============================================================================
 " Plugin key-mappings.
