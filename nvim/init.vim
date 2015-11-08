@@ -13,8 +13,11 @@ Plug 'Shougo/neosnippet-snippets' "Snippets
 Plug 'benekastah/neomake'         "Linter for many languages
 Plug 'cohama/lexima.vim'          "Brace completion
 Plug 'ctrlpvim/ctrlp.vim'         "Easy access to files
-Plug 'tpope/vim-fugitive'
-Plug 'chriskempson/base16-vim'
+Plug 'tpope/vim-fugitive'         "Git wrapper
+Plug 'chriskempson/base16-vim'    "Colorscheme
+Plug 'tpope/vim-commentary'       "Comment
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+Plug 'hdima/python-syntax', { 'for': 'py' }
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -76,6 +79,8 @@ set shiftwidth=4
 set expandtab
 "============================================================================
 
+"let java_highlight_functions = "syntax"
+let java_highlight_all = 1
 
 "Mappings
 "============================================================================
@@ -148,6 +153,7 @@ function! WinMove(key)
 endfunction
 "============================================================================
 
+
 "Indent
 "============================================================================
 let g:html_indent_inctags = "html,body,head,tbody" "Makes the smart indent for html indent these tags aswell.
@@ -180,6 +186,18 @@ autocmd! BufWritePost * Neomake
 "Brace completion
 "============================================================================
 let g:lexima_enable_basic_rules = 1
+"============================================================================
+
+"python-syntax
+"============================================================================
+let python_highlight_all = 1
+let b:python_version_2 = 1
+"============================================================================
+
+"vim-cpp-enhanced-highlight
+"============================================================================
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_template_highlight = 1
 "============================================================================
 
 "vim-airline
