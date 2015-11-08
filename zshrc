@@ -61,6 +61,10 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # User configuration
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-atelierforest.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
 #export PATH="/usr/local/bin:/usr/bin:/home/hir.is/$USER/bin:/usr/local/sbin:/usr/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -73,7 +77,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR=vim
+export EDITOR=nvim
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -92,6 +96,7 @@ export EDITOR=vim
 # unalias sl
 
 alias gvim="gvim 2>/dev/null"
+alias vim="nvim"
 
 #function gvim {
 #  /usr/bin/gvim -f $* > /dev/null 2> /dev/null & disown

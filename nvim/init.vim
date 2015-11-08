@@ -1,6 +1,5 @@
 "Execute the vim-plugin plugin manager which is located in ./vim/autoload
 "============================================================================
-syntax on
 filetype plugin indent on
 
 call plug#begin()
@@ -15,6 +14,7 @@ Plug 'benekastah/neomake'         "Linter for many languages
 Plug 'cohama/lexima.vim'          "Brace completion
 Plug 'ctrlpvim/ctrlp.vim'         "Easy access to files
 Plug 'tpope/vim-fugitive'
+Plug 'chriskempson/base16-vim'
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -41,10 +41,21 @@ set listchars=space:·,trail:~
 "============================================================================
 set wrap linebreak "If a line is longer than width of window it drops down to next line.
 
+syntax on
+set encoding=utf8
+let base16colorspace=256  " Access colors present in 256 colorspace"
+set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
+
+"execute "set background=".$BACKGROUND
+"execute "colorscheme ".$THEME
+
+set background=dark
+colorscheme base16-atelierforest
 "color up
 "colorscheme colorsbox-stnight
-color badwolf
+"color badwolf
 "color molokai
+
 
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
 set number "Sets line numbers to the left
@@ -106,6 +117,26 @@ nnoremap <space>gpl :Dispatch! git pull<CR>
 
 "Make it easier to switch between windows
 nnoremap 1 <C-W><C-W>
+
+map <silent> <C-h> :call WinMove('h')<cr>
+map <silent> <C-j> :call WinMove('j')<cr>
+map <silent> <C-k> :call WinMove('k')<cr>
+map <silent> <C-l> :call WinMove('l')<cr>
+
+" Window movement shortcuts
+" move to the window in the direction shown, or create a new window
+function! WinMove(key)
+    let t:curwin = winnr()
+    exec "wincmd ".a:key
+    if (t:curwin == winnr())
+        if (match(a:key,'[jk]'))
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec "wincmd ".a:key
+    endif
+endfunction
 "============================================================================
 
 "Indent
@@ -145,6 +176,10 @@ let g:lexima_enable_basic_rules = 1
 "vim-airline
 "============================================================================
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts=1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_theme='base16'
 "============================================================================
 
 "deocomplete
