@@ -95,9 +95,6 @@ set shiftwidth=4
 set expandtab
 "============================================================================
 
-"let java_highlight_functions = "syntax"
-let java_highlight_all = 1
-
 "Mappings
 "============================================================================
 " set a map leader for more key combos
@@ -180,6 +177,7 @@ let g:html_indent_inctags = "html,body,head,tbody" "Makes the smart indent for h
 set completeopt-=preview
 let g:ycm_global_ycm_extra_conf = '/home/dabbeg/dotfiles/nvim/.ycm_extra_conf.py'
 "============================================================================
+
 "NeoSnippets
 "============================================================================
 " Plugin key-mappings.
@@ -201,7 +199,7 @@ endif
 
 "NeoMake
 "============================================================================
-autocmd! BufWritePost * Neomake
+autocmd! User neomake autocmd! BufWritePost * Neomake
 "============================================================================
 
 "Brace completion
