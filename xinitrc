@@ -2,7 +2,9 @@
 
 DEFAULTSESSION=i3
 
-echo "$1" >> /home/dabbeg/sessions-slim
+if [ -s ~/.xmodmaprc ]; then
+    xmodmap ~/.xmodmaprc
+fi
 
 case "$1" in
      i3) exec i3 ;;

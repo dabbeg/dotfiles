@@ -54,8 +54,8 @@ call plug#end()
 set exrc "Forces vim to source .vimrc file if it is present in the working directory.
 set secure "Restrict usage of some commands for security
 
-set list!
-set listchars=space:·,trail:~
+"set list!
+"set listchars=space:·,trail:~
 
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
 
@@ -72,7 +72,7 @@ set cmdheight=1 " command bar height
 
 " Searching
 set ignorecase " case insensitive searching
-set smartcase " case-sensitive if expresson contains a capital letter
+"set smartcase " case-sensitive if expresson contains a capital letter
 set hlsearch
 set incsearch " set incremental search, like modern browsers
 set nolazyredraw " don't redraw while executing macros
@@ -161,6 +161,10 @@ nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
+
+"Switch buffers
+nnoremap <leader>t :bn<cr>
+nnoremap <leader>r :bp<cr>
 
 "Open NERDTree
 nnoremap <leader>n :NERDTreeToggle<cr>

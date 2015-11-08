@@ -33,3 +33,13 @@ zt moves the view so the place the cursor is, is moved to the top
 zm moves the view so the place the cursor is, is moved to the middle
 zb moves the view so the place the cursor is, is moved to the bottom
 =====================================================================================
+
+=====================================================================================
+o opens a line below the cursor
+O opens a line over the cursor
+p pastes from buffer below the cursor
+P pastes from buffer over the cursor
+
+,t next buffer
+,r prev buffer
+=====================================================================================

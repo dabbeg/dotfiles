@@ -7,8 +7,9 @@ dir=~/dotfiles
 olddir=~/dotfiles_old
 
 # list of files/folders to symlink
-files_homedir="astylerc compton.conf dircolors fonts gvimrc i3 ideavimrc vim vimperatorrc vimrc zshrc xinitrc"
+files_homedir="astylerc compton.conf dircolors fonts gvimrc i3 ideavimrc vim vimperatorrc vimrc zshrc xinitrc xmodmaprc"
 files_configdir="nvim dunst"
+files_atom="config.cson keymap.cson snippets.cson"
 
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in the home folder"
@@ -38,8 +39,6 @@ echo ""
 
 # move atom config files in the atom dot directory to dotfiles_old and create symlinks
 # from the dotfiles directory to the atom dot directory
-files_atom="config.cson keymap.cson snippets.cson"
-
 echo "Moving atom config files from the atom folder to $olddir"
 
 if [ ! -d ~/.atom/ ]; then
