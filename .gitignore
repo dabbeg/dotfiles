@@ -10,3 +10,6 @@ nvim/plugged/*
 
 # ignore markdown-composer plugin file
 nvim/.init.vim-rplugin~
+
+# ignore the session folder
+nvim/session/*
