@@ -10,10 +10,10 @@ bindsym Control+$mod+e exec "i3-nagbar -t warning -m 'You pressed the exit short
 bindsym Control+$mod+l exec $HOME/.i3/scripts/lock
 
 # Binds the Print Scrn button to take a screenshot with scrot and save it to ~/Pictures/screenshots
-bindsym Print exec $HOME/.i3/scripts/screenshot 
+bindsym Print exec $HOME/.i3/scripts/screenshot
 
 # Binds the windows button to toggle the touchpad on/off
-bindsym F2 exec $HOME/.i3/scripts/i3/toggle_touchpad.sh 
+bindsym F2 exec $HOME/.i3/scripts/i3/toggle_touchpad.sh
 
 # Binds the mod + Print Scrn button to take a screenshot with scrot -s and save it to ~/Pictures/screenshots
 bindsym $mod+Print exec $HOME/.i3/scripts/screenshot "select"
@@ -160,7 +160,7 @@ bindsym $mod+r mode "resize"
 bar {
     # Using custom i3blocks.conf
     status_command i3blocks -c ~/.i3/i3blocks.conf
-    i3bar_command i3bar -t 
+    i3bar_command i3bar -t
 
     position top
     workspace_buttons yes
@@ -176,7 +176,7 @@ bar {
         background #333333
         statusline #ffffff
         #separator  #666666
-        
+
         # Type             border  background font
         focused_workspace #333333 #333333 #FFFFFF
         #active_workspace #333333 #333333 #FFFFFF

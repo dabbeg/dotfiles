@@ -164,10 +164,13 @@ nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
+nnoremap <leader>gbl :Gblame
 
 "Switch buffers
 nnoremap <leader>t :bn<cr>
 nnoremap <leader>r :bp<cr>
+nnoremap <C-w> gt
+nnoremap <C-q> gT
 
 "Open NERDTree
 nnoremap <leader>n :NERDTreeToggle<cr>
@@ -290,6 +293,16 @@ let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='base16'
+"============================================================================
+
+"Ctrl-p
+"============================================================================
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
 "============================================================================
 
 "deocomplete
