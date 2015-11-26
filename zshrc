@@ -22,7 +22,7 @@ eval `dircolors ~/.dircolors/dircolors.256dark`
 #DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=13
+#export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -107,7 +107,7 @@ alias pacr='sudo pacman -Rs'
 alias pacs='sudo pacman -Ss'
 alias paci='sudo pacman -Si'
 alias paclo='sudo pacman -Qdt'
-alias pacro='sudo paclo && sudo pacman -Rns $(pacman -Qtdq)' 
+alias pacro='sudo paclo && sudo pacman -Rns $(pacman -Qtdq)'
 
 #function gvim {
 #  /usr/bin/gvim -f $* > /dev/null 2> /dev/null & disown
