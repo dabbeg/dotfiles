@@ -5,11 +5,11 @@
 
 i3/pictures/*
 
-# ignore all plugins
+# ignore plugin files
 nvim/plugged/*
-
-# ignore markdown-composer plugin file
 nvim/.init.vim-rplugin~
+nvim/.netrwhist
 
 # ignore the session folder
 nvim/session/*
+

@@ -63,6 +63,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/base16-atelierforest.dark.sh"
+#BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
+#BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 #export PATH="/usr/local/bin:/usr/bin:/home/hir.is/$USER/bin:/usr/local/sbin:/usr/sbin"
@@ -95,8 +97,17 @@ export EDITOR=nvim
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # unalias sl
 
-alias gvim="gvim 2>/dev/null"
-alias vim="nvim"
+alias gvim='gvim 2>/dev/null'
+alias vim='nvim'
+
+# pacman aliases
+alias pac='sudo pacman -S'
+alias pacu='sudo pacman -Syu'
+alias pacr='sudo pacman -Rs'
+alias pacs='sudo pacman -Ss'
+alias paci='sudo pacman -Si'
+alias paclo='sudo pacman -Qdt'
+alias pacro='sudo paclo && sudo pacman -Rns $(pacman -Qtdq)' 
 
 #function gvim {
 #  /usr/bin/gvim -f $* > /dev/null 2> /dev/null & disown

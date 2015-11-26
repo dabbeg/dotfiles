@@ -231,6 +231,9 @@ exec --no-startup-id feh --no-xinerama --bg-scale ~/.i3/pictures/wallpaper.jpg
 # Start insync for google-drive
 exec --no-startup-id insync start
 
+# Run xmodmap with its config
+exec --no-startup-id xmodmap $HOME/.xmodmaprc
+
 # Removes the titlebars over every window
 for_window [class="^.*"] border pixel 0
 

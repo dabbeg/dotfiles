@@ -12,7 +12,6 @@ set secure "Restrict usage of some commands for security
 
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
 
-set ttyfast " faster redrawing
 set number
 
 set so=7 " set 7 lines to the cursors - when moving vertical
@@ -50,13 +49,11 @@ set shiftwidth=4
 set expandtab
 "============================================================================
 
-
 "Apperance
 "============================================================================
 syntax on
 set encoding=utf8
 let base16colorspace=256  "Access colors present in 256 colorspace
-set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
 
 "execute "set background=".$BACKGROUND
 "execute "colorscheme ".$THEME
@@ -72,20 +69,26 @@ colorscheme base16-atelierforest
 "Mappings
 "============================================================================
 " set a map leader for more key combos
-let mapleader = ','
-let g:mapleader = ','
+let mapleader = ' '
+let g:mapleader = ' '
 
 "jj goes from insertmode to normalmode
 inoremap jj <ESC>
 
 "Mapped the moving keys so they make more sense to me.
-noremap j h
-noremap k j
-noremap l k
-noremap ; l
-noremap h ;
-
-noremap <space> :
+"noremap j h
+"noremap k j
+"noremap l k
+"noremap ; l
+"noremap h ;
+"noremap gj gh
+"noremap gk gj
+"noremap gl gk
+"noremap g; gl
+"noremap gh g;
+"
+"Save
+map <C-s> :w<cr>
 
 "Mapping ctrl-c, ctrl-x and ctrl-v
 vmap <C-c> "+yi

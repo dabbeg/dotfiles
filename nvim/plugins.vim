@@ -16,6 +16,8 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'wikitopian/hardmode'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-repeat'
+Plug 'othree/html5.vim'
 "Plug 'hdima/python-syntax', { 'for': 'python' }
 "Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
@@ -27,13 +29,12 @@ endfunction
 
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'for': ['cpp', 'c'] }
 
-function! BuildPolyglot(info)
-  if a:info.status != 'unchanged' || a:info.force
-    !bash $HOME/dotfiles/nvim/plugged/vim-polyglot/build
-  endif
-endfunction
-
-Plug 'sheerun/vim-polyglot', { 'do': function('BuildPolyglot') }
+" function! BuildPolyglot(info)
+"   if a:info.status != 'unchanged' || a:info.force
+"     !bash $HOME/dotfiles/nvim/plugged/vim-polyglot/build
+"   endif
+" endfunction
+"Plug 'sheerun/vim-polyglot', { 'do': function('BuildPolyglot') }
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -42,7 +43,7 @@ function! BuildComposer(info)
   endif
 endfunction
 
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+"Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 call plug#end()
 
 "YCM
@@ -81,7 +82,7 @@ let g:startify_enable_special = 0
 let g:startify_session_autoload = 1
 let g:startify_session_dir = '~/dotfiles/nvim//session'
 let g:startify_list_order = [ [ '   Bookmarks:' ], 'bookmarks', [ '   MRU:' ], 'files', [ '   Sessions:' ], 'sessions']
-let g:startify_bookmarks = [ '', {'v': '~/dotfiles/nvim/init.vim'}, '~/dotfiles/zshrc' ]
+let g:startify_bookmarks = [ '', {'v': '~/dotfiles/nvim/init.vim'}, {'p': '~/dotfiles/nvim/plugins.vim'}, {'z': '~/dotfiles/zshrc' }, {'i3': '~/dotfiles/i3/config'} ]
 highlight StartifyBracket ctermfg = 240
 highlight StartifyFooter  ctermfg = 240
 highlight StartifyHeader  ctermfg = 114
