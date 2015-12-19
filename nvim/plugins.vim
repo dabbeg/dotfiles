@@ -18,6 +18,9 @@ Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-repeat'
 Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 "Plug 'hdima/python-syntax', { 'for': 'python' }
 "Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
@@ -55,20 +58,20 @@ let g:ycm_global_ycm_extra_conf = '/home/dabbeg/dotfiles/nvim/.ycm_extra_conf.py
 "NeoSnippets
 "============================================================================
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB>
- \ pumvisible() ? "\<C-n>" :
- \ neosnippet#expandable_or_jumpable() ?
- \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+"imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"xmap <C-k>     <Plug>(neosnippet_expand_target)
+"
+"" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
+"
+"" For conceal markers.
+"if has('conceal')
+"  set conceallevel=2 concealcursor=niv
+"endif
 "============================================================================
 
 "Startify
@@ -110,6 +113,13 @@ augroup END
 "NeoMake
 "============================================================================
 autocmd! User neomake autocmd! BufWritePost * Neomake
+
+let g:neomake_javascript_jscs_maker = {
+    \ 'exe': 'jscs',
+    \ 'args': ['--no-color', '--preset', 'airbnb', '--reporter', 'inline', '--esnext'],
+    \ 'errorformat': '%f: line %l\, col %c\, %m',
+    \ }
+let g:neomake_javascript_enabled_makers = ['jshint', 'jscs']
 "============================================================================
 
 "Brace completion
@@ -163,4 +173,9 @@ let g:markdown_composer_open_browser = 1
 let g:NERDTreeWinSize=25
 let NERDTreeShowBookmarks=1
 let NERDTreeHijackNetrw = 0
+"============================================================================
+
+"vim-jsx
+"============================================================================
+let g:jsx_ext_required = 0
 "============================================================================

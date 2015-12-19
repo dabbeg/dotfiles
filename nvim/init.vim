@@ -44,10 +44,12 @@ set showbreak=… " show ellipsis at breaking
 "Indent
 set autoindent " automatically set indent of new line
 set smartindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
 set expandtab
+set shiftwidth=2
+set softtabstop=2
 "============================================================================
+
 
 "Apperance
 "============================================================================
