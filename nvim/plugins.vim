@@ -3,8 +3,8 @@ Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'bling/vim-airline'          "Vim statusline
 Plug 'janko-m/vim-test'           "Plugin for running tests
-Plug 'Shougo/deoplete.nvim', { 'for': ['vim', 'javascript', 'python', 'java', 'css', 'html', 'latex', 'bash'] }
-Plug 'benekastah/neomake', { 'for': ['vim', 'javascript', 'python', 'java', 'css', 'html', 'latex', 'bash'] }
+Plug 'Shougo/deoplete.nvim', { 'for': ['vim', 'javascript', 'python', 'java', 'css', 'html', 'latex', 'bash', 'cpp', 'c'] }
+Plug 'benekastah/neomake', { 'for': ['vim', 'javascript', 'python', 'java', 'css', 'html', 'latex', 'bash', 'cpp', 'c'] }
 Plug 'Shougo/neosnippet'          "Snippets
 Plug 'Shougo/neosnippet-snippets' "Snippets
 Plug 'cohama/lexima.vim'          "Brace completion
@@ -24,21 +24,6 @@ Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 "Plug 'hdima/python-syntax', { 'for': 'python' }
 "Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
-function! BuildYCM(info)
-    if a:info.status != 'unchanged' || a:info.force
-        !python2 $HOME/dotfiles/nvim/plugged/YouCompleteMe/install.py --clang-completer --omnisharp-completer
-    endif
-endfunction
-
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'for': ['cpp', 'c'] }
-
-" function! BuildPolyglot(info)
-"   if a:info.status != 'unchanged' || a:info.force
-"     !bash $HOME/dotfiles/nvim/plugged/vim-polyglot/build
-"   endif
-" endfunction
-"Plug 'sheerun/vim-polyglot', { 'do': function('BuildPolyglot') }
-
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
     !cargo build --release
@@ -49,29 +34,40 @@ endfunction
 "Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 call plug#end()
 
-"YCM
-"============================================================================
-set completeopt-=preview
-let g:ycm_global_ycm_extra_conf = '/home/dabbeg/dotfiles/nvim/.ycm_extra_conf.py'
-"============================================================================
-
 "NeoSnippets
 "============================================================================
-" Plugin key-mappings.
-"imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-"smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-"xmap <C-k>     <Plug>(neosnippet_expand_target)
-"
-"" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<TAB>" : "\<Plug>(neosnippet_expand_or_jump)"
-"
-"" For conceal markers.
-"if has('conceal')
-"  set conceallevel=2 concealcursor=niv
-"endif
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" <Tab> completion:
+" 1. If popup menu is visible, select and insert next item
+" 2. Otherwise, if within a snippet, jump to next input
+" 3. Otherwise, if preceding chars are whitespace, insert tab char
+" 4. Otherwise, start manual autocomplete
+imap <silent><expr><Tab> pumvisible() ? "\<C-n>"
+	\ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
+	\ : (<SID>is_whitespace() ? "\<Tab>"
+	\ : deoplete#mappings#manual_complete()))
+
+smap <silent><expr><Tab> pumvisible() ? "\<C-n>"
+	\ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
+	\ : (<SID>is_whitespace() ? "\<Tab>"
+	\ : deoplete#mappings#manual_complete()))
+
+inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:is_whitespace()
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~? '\s'
+endfunction
+
+let g:neosnippet#disable_runtime_snippets = {
+\   '_': 1,
+\ }
+let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'
 "============================================================================
 
 "Startify

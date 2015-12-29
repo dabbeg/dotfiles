@@ -44,10 +44,10 @@ set showbreak=… " show ellipsis at breaking
 "Indent
 set autoindent " automatically set indent of new line
 set smartindent
-set tabstop=2
+set tabstop=4
 set expandtab
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 "============================================================================
 
 
@@ -62,9 +62,6 @@ let base16colorspace=256  "Access colors present in 256 colorspace
 
 set background=dark
 colorscheme base16-atelierforest
-"color up
-"color badwolf
-"color molokai
 "============================================================================
 
 
@@ -77,18 +74,6 @@ let g:mapleader = ' '
 "jj goes from insertmode to normalmode
 inoremap jj <ESC>
 
-"Mapped the moving keys so they make more sense to me.
-"noremap j h
-"noremap k j
-"noremap l k
-"noremap ; l
-"noremap h ;
-"noremap gj gh
-"noremap gk gj
-"noremap gl gk
-"noremap g; gl
-"noremap gh g;
-"
 "Save
 map <C-s> :w<cr>
 
