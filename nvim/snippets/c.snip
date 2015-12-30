@@ -73,23 +73,6 @@ abbr        enum {}
         ${0:TARGET}
     };
 
-# hard-tab is necessary; C indent doesn't support this.
-snippet main
-	int main(int argc, char const* argv[])
-	{
-		${0:TARGET}
-		return 0;
-	}
-
-# #include <...>
-snippet inc
-alias   #inc, #include
-    #include <${1:stdio}.h>${0}
-# #include "..."
-snippet inc2
-alias   #inc2, #include2
-    #include "${1}.h"${0}
-
 snippet ifndef
 alias   #ifndef
 abbr #ifndef ... #define ... #endif
@@ -99,7 +82,7 @@ abbr #ifndef ... #define ... #endif
 
 snippet def
 alias   #def, #define
-    #define 
+    #define
 
 # Include-Guard
 snippet once

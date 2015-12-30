@@ -52,6 +52,9 @@ abbr        enum struct {};
 snippet     start
 abbr        #include<iostream> int main...
     #include <iostream>
+    #include <stdio.h> // printf, scanf
+    #include <stdlib.h> // atof
+    #include <vector> // push_back
     using namespace std;
 
     int main() {
@@ -61,3 +64,6 @@ abbr        #include<iostream> int main...
 snippet     p
 options     head
   std::cout << ${0:TARGET} << std::endl;
+
+snippet     scanf
+    scanf("${1}", ${2});${0}
