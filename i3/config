@@ -185,12 +185,13 @@ bar {
     }
 }
 
-gaps inner 8
-gaps outer 0
+# Gaps settings
+#gaps inner 8
+#gaps outer 0
 
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#set $mode_gaps Gaps: (o) outer, (i) inner
+#set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
@@ -240,3 +241,5 @@ for_window [class="^.*"] border pixel 0
 # Starts the compostition manager Compton
 exec --no-startup-id compton -cb --backend glx --vsync opengl --config /home/dabbeg/.compton.conf
 
+# Starts up unclutter which hides the cursor when not being used
+exec --no-startup-id unclutter -b --timeout 2
