@@ -1,1 +1,2 @@
-colorscheme darkness
+colorscheme indigo
+set gui=nonavigation

@@ -15,7 +15,6 @@ Plug 'tpope/vim-commentary'       "Comment
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'wikitopian/hardmode'
 Plug 'tpope/vim-surround'
-Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-repeat'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -68,42 +67,6 @@ let g:neosnippet#disable_runtime_snippets = {
 \   '_': 1,
 \ }
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'
-"============================================================================
-
-"Startify
-"============================================================================
-autocmd User Startified setlocal cursorline
-let g:startify_files_number = 7
-let g:startify_session_persistence = 1
-let g:startify_change_to_dir = 1
-let g:startify_change_to_vcs_root = 1
-let g:startify_enable_special = 0
-let g:startify_session_autoload = 1
-let g:startify_session_dir = '~/dotfiles/nvim//session'
-let g:startify_list_order = [ [ '   Bookmarks:' ], 'bookmarks', [ '   MRU:' ], 'files', [ '   Sessions:' ], 'sessions']
-let g:startify_bookmarks = [ '', {'v': '~/dotfiles/nvim/init.vim'}, {'p': '~/dotfiles/nvim/plugins.vim'}, {'z': '~/dotfiles/zshrc' }, {'i3': '~/dotfiles/i3/config'} ]
-highlight StartifyBracket ctermfg = 240
-highlight StartifyFooter  ctermfg = 240
-highlight StartifyHeader  ctermfg = 114
-highlight StartifyNumber  ctermfg = 215
-highlight StartifyPath    ctermfg = 245
-highlight StartifySlash   ctermfg = 240
-highlight StartifySpecial ctermfg = 240
-
-function! s:filter_header(lines) abort
-    let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
-    let centered_lines = map(copy(a:lines),
-        \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
-    return centered_lines
-endfunction
-let g:startify_custom_header = s:filter_header(map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['',''])
-
-" Hacky way to disable Powerline in Startify
-augroup startify
-  autocmd!
-  autocmd BufNew * set laststatus=2|highlight CursorLine guibg=NONE
-  autocmd FileType startify set laststatus=0|highlight CursorLine guibg=#000000|setlocal cursorline
-augroup END
 "============================================================================
 
 "NeoMake

@@ -1,11 +1,9 @@
+##### ZSH SETTINGS #####
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-
+#ZSH_THEME="random" # Gets random themes from ~/.oh-my-zsh/themes/
 #ZSH_THEME="frisk"
 ZSH_THEME="agnoster"
 
@@ -15,17 +13,8 @@ DEFAULT_USER=dabbeg
 #dircolors for zsh
 eval `dircolors ~/.dircolors/dircolors.256dark`
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-#DISABLE_AUTO_UPDATE="true"
-
 # Uncomment the following line to change how often to auto-update (in days).
 #export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -46,25 +35,20 @@ eval `dircolors ~/.dircolors/dircolors.256dark`
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+##### PLUGINS #####
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(git autojump)
 
 source $ZSH/oh-my-zsh.sh
 
-if [ `which apt-get` ]; then
-    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-elif [ `which pacman` ]; then
+if [ `which pacman` ]; then
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 
-# User configuration
+##### USER CONFIGURATION #####
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/base16-atelierforest.dark.sh"
@@ -79,12 +63,11 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-atelierforest.dark.sh"
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-export EDITOR=nvim
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='vim'
+ else
+    export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -96,13 +79,7 @@ export EDITOR=nvim
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# unalias sl
 
-alias gvim='gvim 2>/dev/null'
 alias vim='nvim'
 
 # pacman aliases
@@ -113,9 +90,3 @@ alias pacs='sudo pacman -Ss'
 alias paci='sudo pacman -Si'
 alias paclo='sudo pacman -Qdt'
 alias pacro='sudo paclo && sudo pacman -Rns $(pacman -Qtdq)'
-
-#function gvim {
-#  /usr/bin/gvim -f $* > /dev/null 2> /dev/null & disown
-#}
-
-[ -s "/home/dabbeg/.dnx/dnvm/dnvm.sh" ] && . "/home/dabbeg/.dnx/dnvm/dnvm.sh" # Load dnvm
