@@ -240,3 +240,4 @@ for_window [class="^.*"] border pixel 0
 # Starts the compostition manager Compton
 exec --no-startup-id compton -cb --backend glx --vsync opengl --config /home/dabbeg/.compton.conf
 
+exec --no-startup-id syndaemon -i 1
