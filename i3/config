@@ -21,6 +21,16 @@ bindsym $mod+Print exec $HOME/.i3/scripts/screenshot "select"
 # Toggle between keyboard layouts
 bindsym $mod+Tab exec /home/dabbeg/.i3/scripts/i3blocks/toggleKeyboardLayout
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+for_window [title="Messenger"] move window to scratchpad, resize grow width 80 px
+exec --no-startup-id sleep 30; messengerfordesktop
+#bindsym $mod+m exec messengerfordesktop
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -242,7 +252,10 @@ for_window [class="^.*"] border pixel 0
 exec --no-startup-id compton -cb --backend glx --vsync opengl --config /home/dabbeg/.compton.conf
 
 # Starts up syndaemon which disables the touchpad when typing
-exec --no-startup-id syndaemon -i 1
+exec --no-startup-id syndaemon -i 0.6
 
 # Starts up unclutter which hides the cursor when not being used
 exec --no-startup-id unclutter -b --timeout 2
+
+# Starts up dunst, a notification daemon
+exec --no-startup-id dunst
