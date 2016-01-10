@@ -247,8 +247,8 @@
 
 # The name in the brackets is only for naming purposes
 # Only notifications with the appname spotify will be called by this script
-[i3blocks-spotify]
+[spotify]
     appname = Spotify
     summary = "*"
     urgency = low
-    script = /home/dabbeg/.i3/scripts/dunst/spotify
+    new_icon = /home/dabbeg/dotfiles/dunst/icons/spotify.png
