@@ -5,7 +5,11 @@ export ZSH=$HOME/.oh-my-zsh
 
 #ZSH_THEME="random" # Gets random themes from ~/.oh-my-zsh/themes/
 #ZSH_THEME="frisk"
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
+#ZSH_THEME="pure"
+#ZSH_THEME="dabbeg"
+#ZSH_THEME="zhann"
+ZSH_THEME="Soliah"
 
 #Specify default user to make zsh not display the current user
 DEFAULT_USER=dabbeg
