@@ -28,7 +28,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 for_window [title="Messenger"] move window to scratchpad, resize grow width 80 px
-exec --no-startup-id sleep 30; messengerfordesktop
+exec --no-startup-id sleep 10; messengerfordesktop
 #bindsym $mod+m exec messengerfordesktop
 
 # switch to workspace
@@ -88,7 +88,7 @@ bindsym $mod+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -show run -terminal xfce4-terminal -font 'Fira Mono Medium 16' -lines 3 -eh 2 -width 100 -padding 300 -opacity "70" -bw 0 -bc "#282828" -bg "#282828" -fg "#928374" -hlbg "#282828" -hlfg "#ebdbb2"
+bindsym $mod+d exec rofi -show run -terminal xfce4-terminal -font 'Droid Sans Mono 16' -lines 3 -eh 2 -width 100 -padding 300 -opacity "80" -bw 0 -bc "#282828" -bg "#282828" -fg "#928374" -hlbg "#282828" -hlfg "#ebdbb2"
 
 # change focus
 bindsym $mod+j focus left
@@ -259,3 +259,7 @@ exec --no-startup-id unclutter -b --timeout 2
 
 # Starts up dunst, a notification daemon
 exec --no-startup-id dunst
+
+# lock pc at startup
+exec $HOME/.i3/scripts/lock
+
