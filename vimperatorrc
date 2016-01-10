@@ -1,2 +1,16 @@
 colorscheme indigo
+
+" Remove address bar at the top of the firefox screen"
 set gui=nonavigation
+
+" navigate the tabs with control-q and control-w"
+nnoremap <C-w> <C-Tab>
+nnoremap <C-q> <C-S-Tab>
+imap <C-q> <Nop>
+
+" Scroll 3 times faster"
+nnoremap j 3j
+nnoremap k 3k
+
+" Load configuration file into current browser, useful for updating after editing this file.
+command! sourcerc :source ~/.vimperatorrc
