@@ -20,8 +20,12 @@ Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+"Plug 'moll/vim-node', { 'for': 'javascript' }
+"Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+"Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' }
+"Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 "Plug 'hdima/python-syntax', { 'for': 'python' }
-"Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -73,14 +77,14 @@ let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'
 "============================================================================
 autocmd! User neomake autocmd! BufWritePost * Neomake
 
-"let g:neomake_javascript_jscs_maker = {
-"    \ 'exe': 'jscs',
-"    \ 'args': ['--no-color', '--preset', 'airbnb', '--reporter', 'inline', '--esnext'],
-"    \ 'errorformat': '%f: line %l\, col %c\, %m',
-"    \ }
-"let g:neomake_javascript_enabled_makers = ['jshint', 'jscs']
+let g:neomake_javascript_jscs_maker = {
+    \ 'exe': 'jscs',
+    \ 'args': ['--no-color', '--preset', 'airbnb', '--reporter', 'inline', '--esnext'],
+    \ 'errorformat': '%f: line %l\, col %c\, %m',
+    \ }
+let g:neomake_javascript_enabled_makers = ['jshint', 'jscs']
 
-let g:neomake_javascript_enabled_makers = ['eslint']
+"let g:neomake_javascript_enabled_makers = ['eslint']
 "let g:neomake_verbose=3
 "============================================================================
 
