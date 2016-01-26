@@ -20,8 +20,12 @@ Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+"Plug 'moll/vim-node', { 'for': 'javascript' }
+"Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+"Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' }
+"Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 "Plug 'hdima/python-syntax', { 'for': 'python' }
-"Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
