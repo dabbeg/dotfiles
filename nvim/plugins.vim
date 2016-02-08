@@ -2,6 +2,7 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'bling/vim-airline'          "Vim statusline
+Plug 'vim-airline/vim-airline-themes'
 Plug 'janko-m/vim-test'           "Plugin for running tests
 Plug 'Shougo/deoplete.nvim', { 'for': ['vim', 'javascript', 'python', 'java', 'css', 'html', 'latex', 'bash', 'cpp', 'c'] }
 Plug 'benekastah/neomake', { 'for': ['vim', 'javascript', 'python', 'java', 'css', 'html', 'latex', 'bash', 'cpp', 'c'] }
@@ -12,6 +13,7 @@ Plug 'ctrlpvim/ctrlp.vim'         "Easy access to files
 Plug 'tpope/vim-fugitive'         "Git wrapper
 Plug 'chriskempson/base16-vim'    "Colorscheme
 Plug 'tpope/vim-commentary'       "Comment
+Plug 'mhinz/vim-grepper'          "Grepper
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'wikitopian/hardmode'
 Plug 'tpope/vim-surround'

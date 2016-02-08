@@ -41,10 +41,10 @@ set showbreak=… " show ellipsis at breaking
 "Indent
 set autoindent " automatically set indent of new line
 set smartindent
-set tabstop=2
+set tabstop=4
 set expandtab
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 "============================================================================
 
 
@@ -111,6 +111,10 @@ nnoremap <C-q> gT
 
 "Open NERDTree
 nnoremap <leader>n :NERDTreeToggle<cr>
+
+nnoremap <leader>git :Grepper -tool git<cr>
+nnoremap <leader>ag  :Grepper -tool ag  -grepprg ag --vimgrep -G '^.+\.txt'<cr>
+nnoremap <leader>*   :Grepper -tool ack -cword -noprompt<cr>
 
 map <silent> <C-h> :call WinMove('h')<cr>
 map <silent> <C-j> :call WinMove('j')<cr>
