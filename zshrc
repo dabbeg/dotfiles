@@ -85,6 +85,7 @@ fi
 # For a full list of active aliases, run `alias`.
 
 alias vim='nvim'
+alias matlab-cli='matlab -nodisplay'
 
 # pacman aliases
 alias pac='sudo pacman -S'
