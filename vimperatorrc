@@ -13,7 +13,10 @@ nnoremap j 3j
 nnoremap k 3k
 
 " Load configuration file into current browser, useful for updating after editing this file.
-command! sourcerc :source ~/.vimperatorrc
+command! -description="Source the vimperatorrc file" sourcerc source ~/.vimperatorrc
+
+" Open the firefox settings window
+command! -description="Open firefox settings" settings tabopen about:preferences
 
 " Hide status bar when fullscreen mode is detected
 autocmd Fullscreen .* js updateBottomBar()
