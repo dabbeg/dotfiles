@@ -1,0 +1,17 @@
+Description='HR-Students Wifi'
+Interface=wlp2s0
+Connection=wireless
+Security=wpa-configsection
+IP=dhcp
+ESSID=HR-Students
+WPAConfigSection=(
+        'ssid="HR-Students"'
+        'proto=RSN'
+        'key_mgmt=WPA-EAP'
+        'pairwise=CCMP'
+        'group=CCMP'
+        'eap=PEAP'
+        'identity="username"'
+        'password="password"'
+        'phase2="auth=MSCHAPV2"'
+)
