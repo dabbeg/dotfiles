@@ -263,3 +263,5 @@ exec --no-startup-id dunst
 # lock pc at startup
 exec $HOME/.i3/scripts/lock
 
+# Disable display power saver
+exec xset s off -dpms
