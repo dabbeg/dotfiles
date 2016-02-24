@@ -41,10 +41,22 @@ set showbreak=… " show ellipsis at breaking
 "Indent
 set autoindent " automatically set indent of new line
 set smartindent
-set tabstop=4
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+function ToggleIndent()
+    if &tabstop == 2
+        set tabstop=4
+        set shiftwidth=4
+        set softtabstop=4
+    else
+        set tabstop=2
+        set shiftwidth=2
+        set softtabstop=2
+    endif
+endfunction
 "============================================================================
 
 
@@ -120,6 +132,8 @@ map <silent> <C-h> :call WinMove('h')<cr>
 map <silent> <C-j> :call WinMove('j')<cr>
 map <silent> <C-k> :call WinMove('k')<cr>
 map <silent> <C-l> :call WinMove('l')<cr>
+
+nnoremap <silent> <C-i> :call ToggleIndent()<cr>
 "============================================================================
 
 "Other
