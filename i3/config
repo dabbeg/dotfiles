@@ -1,11 +1,5 @@
 set $mod Mod1
 
-# shutdown ubuntu
-bindsym Control+$mod+s exec "i3-nagbar -t warning -m 'You pressed the shutdown shortcut. Do you really want to shutdown?' -b 'Yes, shutdown!' 'sudo /sbin/poweroff'"
-# restart ubuntu
-bindsym Control+$mod+r exec "i3-nagbar -t warning -m 'You pressed the restart shortcut. Do you really want to restart?' -b 'Yes, restart!' 'sudo /sbin/reboot'"
-# logout
-bindsym Control+$mod+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock
 bindsym Control+$mod+l exec $HOME/.i3/scripts/lock
 
@@ -24,8 +18,8 @@ bindsym $mod+Tab exec /home/dabbeg/.i3/scripts/i3blocks/toggleKeyboardLayout
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
-# Show the first scratchpad window
-bindsym $mod+minus scratchpad show
+# Show the first scratchpad window [keycode 20 == key right of 0]
+bindcode $mod+20 scratchpad show
 
 for_window [title="Messenger"] move window to scratchpad, resize grow width 80 px
 exec --no-startup-id sleep 10; messengerfordesktop

@@ -90,6 +90,12 @@ let g:neomake_javascript_enabled_makers = ['jshint', 'jscs']
 "let g:neomake_verbose=3
 "============================================================================
 
+"Latex
+"============================================================================
+"Though this is not a plugin I thought it should be here
+autocmd! BufWritePost *.tex !pdflatex %
+"============================================================================
+
 "Brace completion
 "============================================================================
 let g:lexima_enable_basic_rules = 1
@@ -141,6 +147,7 @@ let g:markdown_composer_open_browser = 1
 let g:NERDTreeWinSize=25
 let NERDTreeShowBookmarks=1
 let NERDTreeHijackNetrw = 0
+let NERDTreeIgnore=['\.meta$', '\.pyc$']
 "============================================================================
 
 "vim-jsx
