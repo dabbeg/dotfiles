@@ -88,7 +88,7 @@ bindsym $mod+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -show run -terminal xfce4-terminal -font 'Droid Sans Mono 16' -lines 3 -eh 2 -width 100 -padding 300 -opacity "80" -bw 0 -bc "#282828" -bg "#282828" -fg "#928374" -hlbg "#282828" -hlfg "#ebdbb2"
+bindsym $mod+d exec rofi -show run -terminal xfce4-terminal -font 'Droid Sans Mono 16' -lines 3 -eh 2 -width 50 -padding 20 -bw 0 -bc "#1B1918" -bg "#1B1918" -fg "#F1EFEE" -hlbg "#1B1918" -hlfg "#F22C40" -auto-select -fuzzy
 
 # change focus
 bindsym $mod+j focus left

@@ -86,6 +86,7 @@ fi
 
 alias vim='nvim'
 alias matlab-cli='matlab -nodisplay'
+alias term='xfce4-terminal'
 
 # pacman aliases
 alias pac='sudo pacman -S'
