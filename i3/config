@@ -23,7 +23,18 @@ bindcode $mod+20 scratchpad show
 
 for_window [title="Messenger"] move window to scratchpad, resize grow width 80 px
 exec --no-startup-id sleep 10; messengerfordesktop
-#bindsym $mod+m exec messengerfordesktop
+
+for_window [title="Spotify"] move window to workspace 10
+exec --no-startup-id sleep 10; spotify
+
+for_window [title="Firefox"] move window to workspace 2
+exec --no-startup-id sleep 10; firefox
+
+# Move the current workspace to the screen to the right
+bindsym $mod+ctrl+j move workspace to output left
+
+# Move the current workspace to the screen to the left [keycode 40 == key right of l]
+bindcode $mod+ctrl+47 move workspace to output right
 
 # switch to workspace
 bindsym $mod+1 workspace 1
