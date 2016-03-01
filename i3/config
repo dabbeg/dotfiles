@@ -252,7 +252,7 @@ mode "$mode_gaps_outer" {
 }
 
 # Desktop wallpaper
-exec --no-startup-id feh --no-xinerama --bg-scale ~/.i3/pictures/wallpaper.jpg
+exec --no-startup-id /home/dabbeg/.i3/scripts/wallpaper.sh
 
 # Start insync for google-drive
 exec --no-startup-id insync start
@@ -280,3 +280,5 @@ exec $HOME/.i3/scripts/lock
 
 # Disable display power saver
 exec xset s off -dpms
+
+#
