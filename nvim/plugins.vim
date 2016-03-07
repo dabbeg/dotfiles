@@ -4,8 +4,9 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'bling/vim-airline'          "Vim statusline
 Plug 'vim-airline/vim-airline-themes'
 Plug 'janko-m/vim-test'           "Plugin for running tests
-Plug 'Shougo/deoplete.nvim', { 'for': ['vim', 'javascript', 'python', 'java', 'css', 'html', 'latex', 'bash', 'cpp', 'c'] }
-Plug 'benekastah/neomake', { 'for': ['vim', 'javascript', 'python', 'java', 'css', 'html', 'latex', 'bash', 'cpp', 'c'] }
+Plug 'Shougo/deoplete.nvim', { 'for': ['vim', 'javascript', 'python', 'java', 'css', 'html', 'latex', 'bash', 'cpp', 'c', 'cs'] }
+Plug 'benekastah/neomake', { 'for': ['vim', 'javascript', 'python', 'java', 'css', 'html', 'latex', 'bash', 'cpp', 'c', 'cs'] }
+Plug 'Valloric/YouCompleteMe', { 'for': [] }
 Plug 'Shougo/neosnippet'          "Snippets
 Plug 'Shougo/neosnippet-snippets' "Snippets
 Plug 'cohama/lexima.vim'          "Brace completion
@@ -38,6 +39,13 @@ endfunction
 
 "Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 call plug#end()
+
+"YouCompleteMe
+"============================================================================
+let g:ycm_global_ycm_extra_conf = '/home/dabbeg/.config/nvim/plugged/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_confirm_extra_conf = 0
+"============================================================================
 
 "NeoSnippets
 "============================================================================
