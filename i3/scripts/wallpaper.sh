@@ -18,5 +18,5 @@ while true; do
   convert +append $IMAGES "/tmp/wallpaper.jpg"
   feh --no-xinerama --bg-scale "/tmp/wallpaper.jpg"
 
-  sleep 1m
+  sleep 30m
 done
