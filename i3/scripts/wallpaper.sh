@@ -1,22 +1,22 @@
 #!/bin/bash
-NSCREENS=`xrandr | grep " connected " | wc -l`
-HD="/home/dabbeg/.i3/pictures/wallpaper/1920x1080"
-SD="/home/dabbeg/.i3/pictures/wallpaper/1280x1024"
 
-while true; do
-  i=0
-  IMAGES=""
-  while [ $i -lt $NSCREENS ]; do
-    if [ "$i" -eq 2 ]; then
-      IMAGES="$(ls $SD/* | shuf -n 1) $IMAGES"
-    else
-      IMAGES="$(ls $HD/* | shuf -n 1) $IMAGES"
-    fi
-    i=$[$i+1]
-  done
+IFS="
+"
+SCREENS=($(xrandr | grep " connected "))
+unset IFS
+WALLPAPER="/home/dabbeg/.i3/pictures/wallpaper/"
+IMAGES=""
 
-  convert +append $IMAGES "/tmp/wallpaper.jpg"
-  feh --no-xinerama --bg-scale "/tmp/wallpaper.jpg"
+for i in "${SCREENS[@]}"; do
+  RESOLUTION=$(echo $i | cut -d ' ' -f3 | cut -d '+' -f1)
+  PATHTOIMAGES="$WALLPAPER$RESOLUTION/*"
 
-  sleep 30m
+  if [ "$IMAGES" == "" ]; then
+    IMAGES=$(ls $PATHTOIMAGES | shuf -n 1)
+  else
+    IMAGES="$IMAGES $(ls $PATHTOIMAGES | shuf -n 1)"
+  fi
 done
+
+convert +append $IMAGES "/tmp/wallpaper.jpg"
+feh --no-xinerama --bg-scale "/tmp/wallpaper.jpg"
