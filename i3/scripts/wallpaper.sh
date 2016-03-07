@@ -1,14 +1,13 @@
 #!/bin/bash
 
-IFS="
-"
-SCREENS=($(xrandr | grep " connected "))
-unset IFS
+# Getting resolutions and screen positions from xrandr
+RESOLUTIONS=$(xrandr | grep " connected" | cut -d ' ' -f3)
+# Sorting resolutions according to position of screens
+RESOLUTIONS=($(echo "${RESOLUTIONS//"+"/" "}" | sort -k 2 | cut -d ' ' -f1))
 WALLPAPER="/home/dabbeg/.i3/pictures/wallpaper/"
 IMAGES=""
 
-for i in "${SCREENS[@]}"; do
-  RESOLUTION=$(echo $i | cut -d ' ' -f3 | cut -d '+' -f1)
+for RESOLUTION in "${RESOLUTIONS[@]}"; do
   PATHTOIMAGES="$WALLPAPER$RESOLUTION/*"
 
   if [ "$IMAGES" == "" ]; then
