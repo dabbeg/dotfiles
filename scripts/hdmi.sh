@@ -9,7 +9,7 @@ if [ "$#" -ne 1 ]; then
 fi
 
 if [ "$1" == "-on" ]; then
-  xrandr --output LVDS1 --auto --output HDMI1 --auto --right-of LVDS1 && feh --bg-scale ~/.i3/pictures/wallpaper.jpg
+  xrandr --output LVDS1 --auto --output HDMI1 --auto --right-of LVDS1 && $HOME/.i3/scripts/wallpaper.sh
 elif [ "$1" == "-off" ]; then
   xrandr --output HDMI1 --off
 else
