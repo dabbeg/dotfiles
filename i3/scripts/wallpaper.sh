@@ -1,5 +1,6 @@
 #!/bin/bash
 
+xrandr --noprimary
 # Getting resolutions and screen positions from xrandr
 RESOLUTIONS=$(xrandr | grep " connected" | cut -d ' ' -f3)
 # Sorting resolutions according to position of screens
