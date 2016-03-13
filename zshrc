@@ -87,6 +87,7 @@ fi
 alias vim='nvim'
 alias matlab-cli='matlab -nodisplay'
 alias term='xfce4-terminal'
+alias spotify='spotify --force-device-scale-factor=1.0000001'
 
 # pacman aliases
 alias pac='sudo pacman -S'
