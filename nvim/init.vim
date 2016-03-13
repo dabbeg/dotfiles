@@ -30,8 +30,8 @@ set showmatch " show matching braces
 set mat=2 " how many tenths of a second to blink
 
 "Highlight the column of the 110 line too see if your lines are too long
-set colorcolumn=100
-highlight ColorColumn ctermbg=darkgray
+"set colorcolumn=100
+"highlight ColorColumn ctermbg=darkgray
 
 set wrap "turn on line wrapping
 set wrapmargin=8 " wrap lines when coming within n characters from side
@@ -71,6 +71,8 @@ let base16colorspace=256  "Access colors present in 256 colorspace
 
 set background=dark
 colorscheme base16-atelierforest
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
 "============================================================================
 
 
