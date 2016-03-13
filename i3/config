@@ -51,7 +51,8 @@ bindsym $mod+ctrl+j move workspace to output left
 bindcode $mod+ctrl+47 move workspace to output right
 
 # change the font
-font pango: Lucida Grande 9
+#font pango: Lucida Grande 9
+font pango: System San Franciso Display 10
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
@@ -189,11 +190,12 @@ bar {
 
     position top
     workspace_buttons yes
+    height 25
 
     #font pango: FontAwesome 9
     #font pango: Ubuntu Mono 9
     #font pango: Fira Sans 9
-    font pango: Droid Sans Mono For Powerline 9
+    font pango: Droid Sans Mono For Powerline 10
 
     colors {
         # Whole color settings
