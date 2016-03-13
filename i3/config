@@ -94,10 +94,10 @@ bindsym $mod+q kill
 bindsym $mod+d exec rofi -show run -terminal xfce4-terminal -font 'Droid Sans Mono 16' -lines 3 -eh 2 -width 50 -padding 20 -bw 0 -bc "#1B1918" -bg "#1B1918" -fg "#F1EFEE" -hlbg "#1B1918" -hlfg "#F22C40" -auto-select -fuzzy
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym  $mod+j focus left
+bindsym  $mod+k focus down
+bindsym  $mod+l focus up
+bindcode $mod+47 focus right
 
 # move focused window
 bindsym $mod+Shift+j move left
