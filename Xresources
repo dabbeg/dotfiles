@@ -1,4 +1,4 @@
-URxvt.font: xft:monospace:size=12
+URxvt.font: xft:monospace-12,xft:Terminess Powerline-12
 URxvt.scrollBar: false
 
 ! transparency
