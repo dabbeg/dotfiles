@@ -1,0 +1,13 @@
+URxvt.font: xft:monospace:size=12
+URxvt.scrollBar: false
+
+! transparency
+URxvt*transparent: true
+URxvt*.shading: 99
+URxvt*tintColor: #1B1918
+
+! colors
+URxvt*background: #1B1918 
+URxvt*borderColor: #1B1918
+
+URxvt*letterSpace: -2
