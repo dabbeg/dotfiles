@@ -28,6 +28,36 @@ set magic " Set magic on, for regex
 
 set showmatch " show matching braces
 set mat=2 " how many tenths of a second to blink
+set foldmethod=expr
+set foldexpr=Fold(v:lnum)
+"set foldexpr=getline(v:lnum)=~'^\\s*public.*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
+"set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
+"set foldexpr=getline(v:lnum)=~'^.*$'
+function! Fold(lineNumber)
+  let line1 = getline(a:lineNumber)
+  let line0 = getline(a:lineNumber-1)
+
+  if line1 =~ '^\s*}.*$'
+    echo line0
+    if line0 =~ '^\s*done =.*$'
+        return 1
+    endif
+  endif
+
+  if line1 =~ '^\s*public void done.*$'
+    echo line1
+    return 1
+  endif
+
+  if line1 =~ '^\s*done =.*$'
+    return 2
+  endif
+  return 0
+endfunction
+
+function! IndentLevel(lnum)
+  return indent(a:lnum) / &shiftwidth
+endfunction
 
 "Highlight the column of the 110 line too see if your lines are too long
 "set colorcolumn=100
@@ -42,9 +72,9 @@ set showbreak=… " show ellipsis at breaking
 set autoindent " automatically set indent of new line
 set smartindent
 set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 function ToggleIndent()
     if &tabstop == 2
