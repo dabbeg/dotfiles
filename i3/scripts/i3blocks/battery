@@ -21,6 +21,7 @@ my $status;
 my $percent;
 my $full_text;
 my $short_text;
+my $icon;
 my $bat_number = $ENV{BLOCK_INSTANCE} || 0;
 
 # read the first line of the "acpi" command output
@@ -50,8 +51,18 @@ if ($acpi =~ /(\d\d:\d\d):/) {
 }
 
 # print text
-print " $full_text\n";
-print " $short_text\n";
+$icon=" ";
+if ($percent < 20) {
+  $icon=" ";
+} elsif ($percent < 40) {
+  $icon=" ";
+} elsif ($percent < 60) {
+  $icon=" ";
+} elsif ($percent < 80) {
+  $icon=" ";
+}
+print "$icon $full_text\n";
+print "$icon $short_text\n";
 
 # consider color and urgent flag only on discharge
 if ($status eq 'Discharging') {
