@@ -4,8 +4,8 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'bling/vim-airline'          "Vim statusline
 Plug 'vim-airline/vim-airline-themes'
 Plug 'janko-m/vim-test'           "Plugin for running tests
-Plug 'Shougo/deoplete.nvim', { 'for': ['vim', 'javascript', 'python', 'java', 'css', 'html', 'latex', 'bash', 'cpp', 'c', 'cs'] }
-Plug 'benekastah/neomake', { 'for': ['vim', 'javascript', 'python', 'java', 'css', 'html', 'latex', 'bash', 'cpp', 'c', 'cs'] }
+Plug 'Shougo/deoplete.nvim', { 'for': ['vim', 'javascript', 'python', 'css', 'html', 'latex', 'bash', 'cpp', 'c', 'cs'] }
+Plug 'benekastah/neomake', { 'for': ['vim', 'javascript', 'python', 'css', 'html', 'latex', 'bash', 'cpp', 'c', 'cs'] }
 Plug 'Valloric/YouCompleteMe', { 'for': [] }
 Plug 'Shougo/neosnippet'          "Snippets
 Plug 'Shougo/neosnippet-snippets' "Snippets
@@ -29,6 +29,7 @@ Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 "Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' }
 "Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 "Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'starcraftman/vim-eclim', { 'for': 'java' }
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
