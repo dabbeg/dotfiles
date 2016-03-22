@@ -52,7 +52,7 @@ bindcode $mod+ctrl+47 move workspace to output right
 
 # change the font
 #font pango: Lucida Grande 9
-font pango: System San Franciso Display 10
+font pango: System San Francisco Display 10
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
@@ -81,7 +81,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec xfce4-terminal
+#bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+q kill
@@ -92,7 +93,7 @@ bindsym $mod+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -show run -terminal xfce4-terminal -font 'Droid Sans Mono 16' -lines 3 -eh 2 -width 50 -padding 20 -bw 0 -bc "#1B1918" -bg "#1B1918" -fg "#F1EFEE" -hlbg "#1B1918" -hlfg "#F22C40" -auto-select -fuzzy
+bindsym $mod+d exec rofi -show run -terminal urxvt -font 'Droid Sans Mono 16' -lines 3 -eh 2 -width 50 -padding 20 -bw 0 -bc "#1B1918" -bg "#1B1918" -fg "#F1EFEE" -hlbg "#1B1918" -hlfg "#F22C40" -auto-select -fuzzy
 
 # change focus
 bindsym  $mod+j focus left
@@ -184,18 +185,15 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    # Using custom i3blocks.conf
     i3bar_command i3bar
     status_command i3blocks -c ~/.i3/i3blocks.conf
 
+    output LVDS1
     position top
     workspace_buttons yes
     height 25
 
-    #font pango: FontAwesome 9
-    #font pango: Ubuntu Mono 9
-    #font pango: Fira Sans 9
-    font pango: Droid Sans Mono For Powerline 10
+    font pango: System San Francisco Display 9
 
     colors {
         # Whole color settings
@@ -208,6 +206,31 @@ bar {
         #active_workspace #333333 #333333 #FFFFFF
         inactive_workspace #333333 #333333 #AAAAAA
         urgent_workspace #333333 #333333 #F1613C
+    }
+}
+
+bar {
+    i3bar_command i3bar
+    status_command i3blocks -c ~/.i3/i3blocks.conf
+
+    output HDMI1
+    position top
+    workspace_buttons yes
+    height 25
+
+    font pango: System San Francisco Display 9
+
+    colors {
+        # Whole color settings
+        background #333333
+        statusline #ffffff
+        #separator #666666
+
+        # Type             border  background font
+        focused_workspace  #333333 #333333    #FFFFFF
+        #active_workspace  #333333 #333333    #FFFFFF
+        inactive_workspace #333333 #333333    #AAAAAA
+        urgent_workspace   #333333 #333333    #F1613C
     }
 }
 
