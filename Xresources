@@ -1,13 +1,8 @@
 URxvt.font: xft:monospace:size=12,xft:Terminess Powerline:size=12
 URxvt.scrollBar: false
 
-! transparency
-URxvt*transparent: true
-URxvt*.shading: 99
-URxvt*tintColor: #1B1918
-
 ! colors
-URxvt*background: #1B1918 
+URxvt*background: #00ff00
 URxvt*borderColor: #1B1918
 
 URxvt*letterSpace: -2
@@ -34,6 +29,5 @@ URxvt.matcher.button: 1
 ! fullscreen
 URxvt.keysym.F11: perl:fullscreen:switch
 ! resize-font
-URxvt.resize-font.smaller: C-j
-URxvt.resize-font.bigger: C-k
-
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up
