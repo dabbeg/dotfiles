@@ -15,7 +15,7 @@ workspace $workspace2 output DVI-D-0
 workspace $workspace10 output HDMI-0
 
 # lock
-bindsym Control+$mod+l exec $HOME/.i3/scripts/lock
+bindsym F6 exec $HOME/.i3/scripts/lock
 
 # Binds the Print Scrn button to take a screenshot with scrot and save it to ~/Pictures/screenshots
 bindsym Print exec $HOME/.i3/scripts/screenshot
@@ -45,10 +45,10 @@ for_window [title="Firefox"] move window to workspace $workspace2
 exec --no-startup-id sleep 10; firefox
 
 # Move the current workspace to the screen to the right
-bindsym $mod+ctrl+j move workspace to output left
+bindsym $mod+ctrl+h move workspace to output left
 
-# Move the current workspace to the screen to the left [keycode 40 == key right of l]
-bindcode $mod+ctrl+47 move workspace to output right
+# Move the current workspace to the screen to the left
+bindsym $mod+ctrl+l move workspace to output right
 
 # change the font
 #font pango: Lucida Grande 9
@@ -96,19 +96,19 @@ bindsym $mod+q kill
 bindsym $mod+d exec rofi -show run -terminal urxvt -font 'Droid Sans Mono 16' -lines 3 -eh 2 -width 50 -padding 20 -bw 0 -bc "#1B1918" -bg "#1B1918" -fg "#F1EFEE" -hlbg "#1B1918" -hlfg "#F22C40" -auto-select -fuzzy
 
 # change focus
-bindsym  $mod+j focus left
-bindsym  $mod+k focus down
-bindsym  $mod+l focus up
-bindcode $mod+47 focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -210,10 +210,13 @@ bar {
 }
 
 bar {
+    output HDMI1
+    output HDMI-0
+    output DVI-D-0
+
     i3bar_command i3bar
     status_command i3blocks -c ~/.i3/i3blocks.conf
 
-    output HDMI1
     position top
     workspace_buttons yes
     height 25
@@ -305,4 +308,5 @@ exec $HOME/.i3/scripts/lock
 # Disable display power saver
 exec xset s off -dpms
 
-#
+#Read Xresources
+exec xrdb $HOME/.Xresources
