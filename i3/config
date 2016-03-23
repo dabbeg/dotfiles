@@ -186,7 +186,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     i3bar_command i3bar
-    status_command i3blocks -c ~/.i3/i3blocks.conf
+    status_command i3blocks -c ~/.i3/i3blocks1366.conf
 
     output LVDS1
     position top
@@ -215,7 +215,7 @@ bar {
     output DVI-D-0
 
     i3bar_command i3bar
-    status_command i3blocks -c ~/.i3/i3blocks.conf
+    status_command i3blocks -c ~/.i3/i3blocks1920.conf
 
     position top
     workspace_buttons yes
@@ -234,6 +234,31 @@ bar {
         #active_workspace  #333333 #333333    #FFFFFF
         inactive_workspace #333333 #333333    #AAAAAA
         urgent_workspace   #333333 #333333    #F1613C
+    }
+}
+
+bar {
+    i3bar_command i3bar
+    status_command i3blocks -c ~/.i3/i3blocks1280.conf
+
+    output DVI-I-0
+    position top
+    workspace_buttons yes
+    height 25
+
+    font pango: System San Francisco Display 9
+
+    colors {
+        # Whole color settings
+        background #333333
+        statusline #ffffff
+        #separator  #666666
+
+        # Type             border  background font
+        focused_workspace #333333 #333333 #FFFFFF
+        #active_workspace #333333 #333333 #FFFFFF
+        inactive_workspace #333333 #333333 #AAAAAA
+        urgent_workspace #333333 #333333 #F1613C
     }
 }
 
@@ -291,7 +316,7 @@ exec --no-startup-id xmodmap $HOME/.xmodmaprc
 for_window [class="^.*"] border pixel 0
 
 # Starts the compostition manager Compton
-exec --no-startup-id compton -cb --backend glx --vsync opengl --config /home/dabbeg/.compton.conf
+exec --no-startup-id sleep 5; compton -cb --backend glx --vsync opengl --config /home/dabbeg/.compton.conf
 
 # Starts up syndaemon which disables the touchpad when typing
 exec --no-startup-id syndaemon -i 0.6
