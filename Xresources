@@ -1,4 +1,4 @@
-URxvt.font: xft:monospace-12,xft:Terminess Powerline-12
+URxvt.font: xft:monospace:size=12,xft:Terminess Powerline:size=12
 URxvt.scrollBar: false
 
 ! transparency
@@ -11,3 +11,29 @@ URxvt*background: #1B1918
 URxvt*borderColor: #1B1918
 
 URxvt*letterSpace: -2
+
+
+!! Shell output appears in a clear window
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+! Enables scrolling in shell output
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+URxvt.secondaryWheel: 1
+
+!! perl extensions
+URxvt.perl-ext-common: default,matcher,fullscreen,resize-font
+! url-launcher
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+! fullscreen
+URxvt.keysym.F11: perl:fullscreen:switch
+! resize-font
+URxvt.resize-font.smaller: C-j
+URxvt.resize-font.bigger: C-k
+
