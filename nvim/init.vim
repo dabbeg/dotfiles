@@ -72,6 +72,12 @@ set background=dark
 colorscheme base16-atelierforest
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
+
+"Highlight current line
+set cursorline
+
+"Make current linenumber yellow
+hi CursorLineNR ctermfg=yellow
 "============================================================================
 
 
