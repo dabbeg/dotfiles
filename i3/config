@@ -214,7 +214,7 @@ bar {
     output HDMI-0
     output DVI-D-0
 
-    i3bar_command i3bar
+    i3bar_command i3bar -t
     status_command i3blocks -c ~/.i3/i3blocks1920.conf
 
     position top
@@ -225,40 +225,39 @@ bar {
 
     colors {
         # Whole color settings
-        background #333333
-        statusline #ffffff
+        background #333333cc
+        statusline #ffffffff
         #separator #666666
 
-        # Type             border  background font
-        focused_workspace  #333333 #333333    #FFFFFF
-        #active_workspace  #333333 #333333    #FFFFFF
-        inactive_workspace #333333 #333333    #AAAAAA
-        urgent_workspace   #333333 #333333    #F1613C
+        # Type             border  background  font
+        focused_workspace  #333333cc #333333cc #FFFFFF
+        active_workspace   #333333cc #333333cc #FFFFFF
+        inactive_workspace #333333cc #333333cc #AAAAAA
+        urgent_workspace   #333333cc #333333cc #F1613C
     }
 }
 
 bar {
-    i3bar_command i3bar
+    i3bar_command i3bar -t
     status_command i3blocks -c ~/.i3/i3blocks1280.conf
 
     output DVI-I-0
     position top
-    workspace_buttons yes
     height 25
 
     font pango: System San Francisco Display 9
 
     colors {
         # Whole color settings
-        background #333333
-        statusline #ffffff
+        background #33333388
+        statusline #ffffff55
         #separator  #666666
 
         # Type             border  background font
-        focused_workspace #333333 #333333 #FFFFFF
-        #active_workspace #333333 #333333 #FFFFFF
-        inactive_workspace #333333 #333333 #AAAAAA
-        urgent_workspace #333333 #333333 #F1613C
+        focused_workspace  #33333333 #33333333 #FFFFFF
+        active_workspace   #33333333 #33333333 #FFFFFF
+        inactive_workspace #33333333 #33333333 #AAAAAA
+        urgent_workspace   #33333333 #33333333 #F1613C
     }
 }
 
