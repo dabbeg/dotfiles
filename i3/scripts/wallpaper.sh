@@ -8,13 +8,25 @@ RESOLUTIONS=($(echo "${RESOLUTIONS//"+"/" "}" | sort -k 2 | cut -d ' ' -f1))
 WALLPAPER="/home/dabbeg/.i3/pictures/wallpaper/"
 IMAGES=""
 
+PRIMARY=1
+
 for RESOLUTION in "${RESOLUTIONS[@]}"; do
   PATHTOIMAGES="$WALLPAPER$RESOLUTION/*"
 
-  if [ "$IMAGES" == "" ]; then
-    IMAGES=$(ls $PATHTOIMAGES | shuf -n 1)
+  if [ "$RESOLUTION" == "1920x1080" ] && [ "$PRIMARY" -eq 1 ]; then
+      PATHTOIMAGES="$WALLPAPER/calendar/*"
+      if [ "$IMAGES" == "" ]; then
+        IMAGES=$(ls $PATHTOIMAGES | grep `date '+%b'`)
+      else
+        IMAGES="$IMAGES $(ls $PATHTOIMAGES | grep `date '+%b'`)"
+      fi
+      PRIMARY=0
   else
-    IMAGES="$IMAGES $(ls $PATHTOIMAGES | shuf -n 1)"
+      if [ "$IMAGES" == "" ]; then
+        IMAGES=$(ls $PATHTOIMAGES | shuf -n 1)
+      else
+        IMAGES="$IMAGES $(ls $PATHTOIMAGES | shuf -n 1)"
+      fi
   fi
 done
 
