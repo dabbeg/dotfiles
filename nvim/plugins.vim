@@ -15,7 +15,7 @@ Plug 'tpope/vim-fugitive'         "Git wrapper
 Plug 'chriskempson/base16-vim'    "Colorscheme
 Plug 'tpope/vim-commentary'       "Comment
 Plug 'mhinz/vim-grepper'          "Grepper
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+"Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'wikitopian/hardmode'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
