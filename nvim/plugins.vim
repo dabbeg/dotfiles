@@ -157,9 +157,44 @@ let g:NERDTreeWinSize=25
 let NERDTreeShowBookmarks=1
 let NERDTreeHijackNetrw = 0
 let NERDTreeIgnore=['\.meta$', '\.pyc$']
+
+nnoremap <leader>n :NERDTreeToggle<cr>
 "============================================================================
 
 "vim-jsx
 "============================================================================
 let g:jsx_ext_required = 0
+"============================================================================
+
+"Fugitive
+"============================================================================
+nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit -v -q<CR>
+nnoremap <leader>gt :Gcommit -v -q %:p<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>ge :Gedit<CR>
+nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>gw :Gwrite<CR><CR>
+nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <leader>gp :Ggrep<Space>
+nnoremap <leader>gm :Gmove<Space>
+nnoremap <leader>gb :Git branch<Space>
+nnoremap <leader>go :Git checkout<Space>
+nnoremap <leader>gps :Dispatch! git push<CR>
+nnoremap <leader>gpl :Dispatch! git pull<CR>
+nnoremap <leader>gbl :Gblame
+"============================================================================
+
+"Grepper
+"============================================================================
+nnoremap <leader>git :Grepper -tool git<cr>
+nnoremap <leader>ag  :Grepper -tool ag  -grepprg ag --vimgrep -G '^.+\.txt'<cr>
+nnoremap <leader>*   :Grepper -tool ack -cword -noprompt<cr>
+"============================================================================
+
+"Base-16
+"============================================================================
+set background=dark
+colorscheme base16-atelierforest
 "============================================================================

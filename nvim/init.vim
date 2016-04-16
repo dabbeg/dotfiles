@@ -1,6 +1,3 @@
-"Load plugins from vim-plug
-source ~/.config/nvim/plugins.vim
-
 "Vim settings
 "============================================================================
 filetype plugin indent on
@@ -44,32 +41,17 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-
-function ToggleIndent()
-    if &tabstop == 2
-        set tabstop=4
-        set shiftwidth=4
-        set softtabstop=4
-    else
-        set tabstop=2
-        set shiftwidth=2
-        set softtabstop=2
-    endif
-endfunction
 "============================================================================
 
 
 "Apperance
 "============================================================================
 syntax on
-set encoding=utf8
 let base16colorspace=256  "Access colors present in 256 colorspace
 
-"execute "set background=".$BACKGROUND
-"execute "colorscheme ".$THEME
+"Colorscheme is set in plugins.vim
 
-set background=dark
-colorscheme base16-atelierforest
+"Transparent background
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 
@@ -80,47 +62,32 @@ set cursorline
 hi CursorLineNR ctermfg=yellow
 "============================================================================
 
+"Autocommands
+"============================================================================
+"autocmd BufReadPre * :normal gg=G
+autocmd FileType javascript nnoremap <localleader>c I//<esc>
+autocmd FileType python nnoremap <localleader>c I#<esc>
+
+"============================================================================
+
 
 "Mappings
 "============================================================================
 " set a map leader for more key combos
 let mapleader = ' '
-let g:mapleader = ' '
+let maplocalleader = ' '
 
 "jj goes from insertmode to normalmode
-inoremap jj <ESC>
+inoremap jk <ESC>
 
 "Save
-map <C-s> :w<cr>
+noremap <C-s> :w<cr>
 
 "Mapping ctrl-c, ctrl-x and ctrl-v
-vmap <C-c> "+yi
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <ESC>"+pa
-
-"Mapping keys for building and running with make from vim
-nnoremap <F5> :make<cr>
-nnoremap <F6> :make run<cr>
-nnoremap <F7> :make runInput<cr>
-
-" fugitive git bindings
-nnoremap <leader>ga :Git add %:p<CR><CR>
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gc :Gcommit -v -q<CR>
-nnoremap <leader>gt :Gcommit -v -q %:p<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>ge :Gedit<CR>
-nnoremap <leader>gr :Gread<CR>
-nnoremap <leader>gw :Gwrite<CR><CR>
-nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
-nnoremap <leader>gp :Ggrep<Space>
-nnoremap <leader>gm :Gmove<Space>
-nnoremap <leader>gb :Git branch<Space>
-nnoremap <leader>go :Git checkout<Space>
-nnoremap <leader>gps :Dispatch! git push<CR>
-nnoremap <leader>gpl :Dispatch! git pull<CR>
-nnoremap <leader>gbl :Gblame
+vnoremap <C-c> "+yi
+vnoremap <C-x> "+c
+vnoremap <C-v> c<ESC>"+p
+inoremap <C-v> <ESC>"+pa
 
 "Switch buffers
 nnoremap <leader>t :bn<cr>
@@ -128,19 +95,40 @@ nnoremap <leader>r :bp<cr>
 nnoremap <C-w> gt
 nnoremap <C-q> gT
 
-"Open NERDTree
-nnoremap <leader>n :NERDTreeToggle<cr>
+"Surround word with brackets
+nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+vnoremap <leader>" <esc>`>a"<esc>`<i"<esc>`>ll
+vnoremap <leader>' <esc>`>a'<esc>`<i'<esc>`>ll
 
-nnoremap <leader>git :Grepper -tool git<cr>
-nnoremap <leader>ag  :Grepper -tool ag  -grepprg ag --vimgrep -G '^.+\.txt'<cr>
-nnoremap <leader>*   :Grepper -tool ack -cword -noprompt<cr>
+"Work with vimrc file
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
-map <silent> <C-h> :call WinMove('h')<cr>
-map <silent> <C-j> :call WinMove('j')<cr>
-map <silent> <C-k> :call WinMove('k')<cr>
-map <silent> <C-l> :call WinMove('l')<cr>
+"Put the last word written uppercase
+inoremap <c-y> <esc>vBUWa
 
-nnoremap <silent> <C-i> :call ToggleIndent()<cr>
+noremap <silent> <C-h> :call WinMove('h')<cr>
+noremap <silent> <C-j> :call WinMove('j')<cr>
+noremap <silent> <C-k> :call WinMove('k')<cr>
+noremap <silent> <C-l> :call WinMove('l')<cr>
+
+nnoremap <silent> <leader>i :call ToggleIndent()<cr>
+
+"Keys I want to stop using
+inoremap <up>    <nop>
+inoremap <left>  <nop>
+inoremap <right> <nop>
+inoremap <down>  <nop>
+nnoremap <up>    <nop>
+nnoremap <left>  <nop>
+nnoremap <right> <nop>
+nnoremap <down>  <nop>
+"============================================================================
+
+"Abbreviations
+"============================================================================
+iabbrev fun function
 "============================================================================
 
 "Folding
@@ -150,33 +138,33 @@ autocmd BufEnter *.java set foldexpr=Fold(v:lnum)
 
 let g:folding = 0
 function! Fold(lineNumber)
-  let line1 = getline(a:lineNumber)
+    let line1 = getline(a:lineNumber)
 
-  if line1 =~ '^\s\+}.*$'
-    if g:folding == IndentLevel(a:lineNumber)
-      let g:folding = 0
-      return 1
+    if line1 =~ '^\s\+}.*$'
+        if g:folding == IndentLevel(a:lineNumber)
+            let g:folding = 0
+            return 1
+        endif
     endif
-  endif
 
-  if line1 =~ '^\s\+public.*{$'
-    let g:folding = IndentLevel(a:lineNumber)
+    if line1 =~ '^\s\+public.*{$'
+        let g:folding = IndentLevel(a:lineNumber)
+        return 0
+    endif
+
+    if g:folding == 1
+        return 1
+    endif
     return 0
-  endif
-
-  if g:folding == 1
-    return 1
-  endif
-  return 0
 endfunction
 
 function! IndentLevel(lnum)
-  return indent(a:lnum) / &shiftwidth
+    return indent(a:lnum) / &shiftwidth
 endfunction
 "============================================================================
 
 
-"Other
+"Functions
 "============================================================================
 
 "Move to the window in the direction shown, or create a new window
@@ -192,4 +180,22 @@ function! WinMove(key)
         exec "wincmd ".a:key
     endif
 endfunction
+
+"Toggle indent 2 and 4 spaces
+function! ToggleIndent()
+    if &tabstop == 2
+        set tabstop=4
+        set shiftwidth=4
+        set softtabstop=4
+        echo "indent=4"
+    else
+        set tabstop=2
+        set shiftwidth=2
+        set softtabstop=2
+        echo "indent=2"
+    endif
+endfunction
 "============================================================================
+
+"Load plugins from vim-plug
+source ~/.config/nvim/plugins.vim
