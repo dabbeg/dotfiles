@@ -36,6 +36,7 @@ set wrap "turn on line wrapping
 set wrapmargin=8 " wrap lines when coming within n characters from side
 set linebreak " set soft wrapping
 set showbreak=… " show ellipsis at breaking
+set list listchars=trail:·
 
 "Indent
 set autoindent " automatically set indent of new line
@@ -103,6 +104,9 @@ inoremap jk <ESC>
 "Save
 noremap <C-s> :w<cr>
 
+"Take search highlighting
+noremap <leader>h :noh<cr>
+
 "Mapping ctrl-c, ctrl-x and ctrl-v
 vnoremap <C-c> "+yi
 vnoremap <C-x> "+c
@@ -144,6 +148,14 @@ nnoremap <up>    <nop>
 nnoremap <left>  <nop>
 nnoremap <right> <nop>
 nnoremap <down>  <nop>
+
+"Movement maps
+"<c-u>normal! gets past having to start changing at cursor
+"changes text inside next or current braces
+onoremap p :<c-u>normal! f)vi(<cr>
+onoremap " :<c-u>normal! f"vi"<cr>
+onoremap ' :<c-u>normal! f'vi'<cr>
+
 "============================================================================
 
 "Abbreviations
