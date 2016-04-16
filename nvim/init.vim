@@ -4,7 +4,10 @@ filetype plugin indent on
 set exrc "Forces vim to source .vimrc file if it is present in the working directory.
 set secure "Restrict usage of some commands for security
 
-autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
+"augroup railsCommands
+    "autocmd!
+    "autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
+"augroup END
 
 set number
 
@@ -65,9 +68,26 @@ hi CursorLineNR ctermfg=yellow
 "Autocommands
 "============================================================================
 "autocmd BufReadPre * :normal gg=G
-autocmd FileType javascript nnoremap <localleader>c I//<esc>
-autocmd FileType python nnoremap <localleader>c I#<esc>
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim nnoremap <localleader>c I"<esc>
+augroup END
 
+augroup filetype_python
+    autocmd!
+    autocmd FileType python nnoremap <localleader>c I#<esc>
+augroup END
+
+augroup filetype_javascript
+    autocmd!
+    autocmd FileType javascript nnoremap <localleader>c I//<esc>
+    autocmd FileType javascript iabbrev <buffer> iff if()<left>
+augroup END
+
+augroup filetype_bash
+    autocmd!
+    autocmd FileType sh iabbrev <buffer> iff if []; then
+augroup END
 "============================================================================
 
 
@@ -133,8 +153,11 @@ iabbrev fun function
 
 "Folding
 "============================================================================
-autocmd BufEnter *.java set foldmethod=expr
-autocmd BufEnter *.java set foldexpr=Fold(v:lnum)
+augroup folds
+    autocmd!
+    autocmd BufEnter *.java set foldmethod=expr
+    autocmd BufEnter *.java set foldexpr=Fold(v:lnum)
+augroup END
 
 let g:folding = 0
 function! Fold(lineNumber)
