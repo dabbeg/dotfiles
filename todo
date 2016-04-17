@@ -1,0 +1,2 @@
+- Create a livereload inside vim. Activate would make an autocmd on BufWrite for current files? It is possible to
+  reaload any firefox tab through commandline with a tool called xdotool
