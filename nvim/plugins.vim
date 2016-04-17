@@ -1,7 +1,7 @@
 call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'bling/vim-airline'          "Vim statusline
+Plug 'vim-airline/vim-airline'      "Vim statusline
 Plug 'vim-airline/vim-airline-themes'
 Plug 'janko-m/vim-test'           "Plugin for running tests
 Plug 'Shougo/deoplete.nvim', { 'for': ['vim', 'javascript', 'python', 'css', 'html', 'latex', 'bash', 'cpp', 'c', 'cs'] }
@@ -133,6 +133,11 @@ let g:airline_powerline_fonts = 1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='base16'
+
+"let g:airline_exclude_preview = 1
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#ctrlspace#enabled = 1
+let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
 "============================================================================
 
 "Ctrl-p
@@ -205,12 +210,21 @@ colorscheme base16-atelierforest
 
 "Ctrl-space
 "============================================================================
+nnoremap <silent><C-p> :CtrlSpace O<CR>
+
 let g:CtrlSpaceSymbols = { "CS": "#", "File": "◯", "CTab": "▣", "Tabs": "▢" }
+
 if executable("ag")
     let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
 endif
+
 let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
-let g:CtrlSpaceSearchTiming = 1000
+
+hi CtrlSpaceSelected ctermfg=White  ctermbg=60    cterm=bold
+hi CtrlSpaceSearch   ctermfg=Yellow ctermbg=NONE  cterm=NONE
+hi CtrlSpaceStatus   ctermfg=Red    ctermbg=Blue  cterm=NONE
+hi CtrlSpaceNormal   ctermfg=White  ctermbg=Black cterm=NONE
 "============================================================================
+
