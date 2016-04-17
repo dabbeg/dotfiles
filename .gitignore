@@ -7,7 +7,3 @@
 /nvim/plugged/*
 /nvim/.init.vim-rplugin~
 /nvim/.netrwhist
-
-# ignore the session folder
-./nvim/session/*
-
