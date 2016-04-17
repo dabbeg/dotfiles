@@ -4,10 +4,10 @@
 *.pyc
 
 # ignore plugin files
-nvim/plugged/*
-nvim/.init.vim-rplugin~
-nvim/.netrwhist
+/nvim/plugged/*
+/nvim/.init.vim-rplugin~
+/nvim/.netrwhist
 
 # ignore the session folder
-nvim/session/*
+./nvim/session/*
 
