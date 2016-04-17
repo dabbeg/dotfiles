@@ -1,21 +1,23 @@
+" Vim Plug {{{
 call plug#begin()
+
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'vim-airline/vim-airline'      "Vim statusline
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'janko-m/vim-test'           "Plugin for running tests
+Plug 'janko-m/vim-test'
 Plug 'Shougo/deoplete.nvim', { 'for': ['vim', 'javascript', 'python', 'css', 'html', 'latex', 'bash', 'cpp', 'c', 'cs'] }
 Plug 'benekastah/neomake', { 'for': ['vim', 'javascript', 'python', 'css', 'html', 'latex', 'bash', 'cpp', 'c', 'cs'] }
 Plug 'Valloric/YouCompleteMe', { 'for': [] }
-Plug 'Shougo/neosnippet'          "Snippets
-Plug 'Shougo/neosnippet-snippets' "Snippets
-Plug 'cohama/lexima.vim'          "Brace completion
-Plug 'ctrlpvim/ctrlp.vim'         "Easy access to files
-Plug 'tpope/vim-fugitive'         "Git wrapper
-Plug 'chriskempson/base16-vim'    "Colorscheme
-Plug 'tpope/vim-commentary'       "Comment
-Plug 'mhinz/vim-grepper'          "Grepper
-"Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'cohama/lexima.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'chriskempson/base16-vim'
+Plug 'tpope/vim-commentary'
+Plug 'mhinz/vim-grepper'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'wikitopian/hardmode'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -41,16 +43,15 @@ endfunction
 
 "Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 call plug#end()
+" }}}
 
-"YouCompleteMe
-"============================================================================
+" YouCompleteMe {{{
 let g:ycm_global_ycm_extra_conf = '/home/dabbeg/.config/nvim/plugged/YouCompleteMe/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_confirm_extra_conf = 0
-"============================================================================
+" }}}
 
-"NeoSnippets
-"============================================================================
+" NeoSnippets {{{
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
@@ -83,10 +84,9 @@ let g:neosnippet#disable_runtime_snippets = {
             \   '_': 1,
             \ }
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'
-"============================================================================
+" }}}
 
-"NeoMake
-"============================================================================
+" NeoMake {{{
 autocmd! User neomake autocmd! BufWritePost * Neomake
 
 let g:neomake_javascript_jscs_maker = {
@@ -98,33 +98,28 @@ let g:neomake_javascript_enabled_makers = ['jshint', 'jscs']
 
 "let g:neomake_javascript_enabled_makers = ['eslint']
 "let g:neomake_verbose=3
-"============================================================================
+" }}}
 
-"Latex
-"============================================================================
+" Latex {{{
 "Though this is not a plugin I thought it should be here
 autocmd! BufWritePost *.tex !pdflatex %
-"============================================================================
+" }}}
 
-"Brace completion
-"============================================================================
+" Brace completion {{{
 let g:lexima_enable_basic_rules = 1
-"============================================================================
+" }}}
 
-"python-syntax
-"============================================================================
+" Python Syntax {{{
 let python_highlight_all = 1
 let b:python_version_2 = 1
-"============================================================================
+" }}}
 
-"vim-cpp-enhanced-highlight
-"============================================================================
+" Vim-cpp-enhanced-highlight {{{
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
-"============================================================================
+" }}}
 
-"vim-airline
-"============================================================================
+" vim-airline {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -138,45 +133,39 @@ let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#ctrlspace#enabled = 1
 let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
-"============================================================================
+" }}}
 
-"Ctrl-p
-"============================================================================
+" Ctrl-p {{{
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_prompt_mappings = {
             \ 'AcceptSelection("e")': ['<c-t>'],
             \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
             \ }
-"============================================================================
+" }}}
 
-"deocomplete
-"============================================================================
+" deocomplete {{{
 let g:deoplete#enable_at_startup = 1
-"============================================================================
+" }}}
 
-"Markdown composer
-"============================================================================
+" Markdown composer {{{
 let g:markdown_composer_open_browser = 1
-"============================================================================
+" }}}
 
-"NERDTree Settings
-"============================================================================
+" NERDTree Settings {{{
 let g:NERDTreeWinSize=25
 let NERDTreeShowBookmarks=1
 let NERDTreeHijackNetrw = 0
 let NERDTreeIgnore=['\.meta$', '\.pyc$']
 
 nnoremap <leader>n :NERDTreeToggle<cr>
-"============================================================================
+" }}}
 
-"vim-jsx
-"============================================================================
+" vim-jsx {{{
 let g:jsx_ext_required = 0
-"============================================================================
+" }}}
 
-"Fugitive
-"============================================================================
+" Fugitive {{{
 nnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v -q<CR>
@@ -193,23 +182,20 @@ nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
 nnoremap <leader>gbl :Gblame
-"============================================================================
+" }}}
 
-"Grepper
-"============================================================================
+" Grepper {{{
 nnoremap <leader>git :Grepper -tool git<cr>
 nnoremap <leader>ag  :Grepper -tool ag  -grepprg ag --vimgrep -G '^.+\.txt'<cr>
 nnoremap <leader>*   :Grepper -tool ack -cword -noprompt<cr>
-"============================================================================
+" }}}
 
-"Base-16
-"============================================================================
+" Base-16 {{{
 set background=dark
 colorscheme base16-atelierforest
-"============================================================================
+" }}}
 
-"Ctrl-space
-"============================================================================
+" Ctrl-space {{{
 nnoremap <silent><C-p> :CtrlSpace O<CR>
 
 let g:CtrlSpaceSymbols = { "CS": "#", "File": "◯", "CTab": "▣", "Tabs": "▢" }
@@ -226,5 +212,4 @@ hi CtrlSpaceSelected ctermfg=White  ctermbg=60    cterm=bold
 hi CtrlSpaceSearch   ctermfg=Yellow ctermbg=NONE  cterm=NONE
 hi CtrlSpaceStatus   ctermfg=Red    ctermbg=Blue  cterm=NONE
 hi CtrlSpaceNormal   ctermfg=White  ctermbg=Black cterm=NONE
-"============================================================================
-
+" }}}

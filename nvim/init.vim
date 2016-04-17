@@ -1,16 +1,11 @@
-"Vim settings
-"============================================================================
+" Basic Settings --------- {{{
 filetype plugin indent on
 set exrc "Forces vim to source .vimrc file if it is present in the working directory.
 set secure "Restrict usage of some commands for security
 
-"augroup railsCommands
-    "autocmd!
-    "autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" "displays <% %> correctly
-"augroup END
-
 set number
 set relativenumber
+set foldlevelstart=0
 
 set so=7 " set 7 lines to the cursors - when moving vertical
 set wildmenu " enhanced command line completion
@@ -46,11 +41,9 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-"============================================================================
+" }}}
 
-
-"Apperance
-"============================================================================
+" Apperance {{{
 syntax on
 let base16colorspace=256  "Access colors present in 256 colorspace
 
@@ -65,14 +58,13 @@ set cursorline
 
 "Make current linenumber yellow
 hi CursorLineNR ctermfg=yellow
-"============================================================================
+" }}}
 
-"Autocommands
-"============================================================================
-"autocmd BufReadPre * :normal gg=G
+" FileType Settings ------------------------ {{{
 augroup filetype_vim
     autocmd!
     autocmd FileType vim nnoremap <localleader>c I"<esc>
+    autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
 augroup filetype_python
@@ -90,11 +82,9 @@ augroup filetype_bash
     autocmd!
     autocmd FileType sh iabbrev <buffer> iff if []; then
 augroup END
-"============================================================================
+" }}}
 
-
-"Mappings
-"============================================================================
+" Mappings {{{
 " set a map leader for more key combos
 let mapleader = ' '
 let maplocalleader = ' '
@@ -156,16 +146,13 @@ nnoremap <down>  <nop>
 onoremap p :<c-u>normal! f)vi(<cr>
 onoremap " :<c-u>normal! f"vi"<cr>
 onoremap ' :<c-u>normal! f'vi'<cr>
+" }}}
 
-"============================================================================
-
-"Abbreviations
-"============================================================================
+" Abbreviations ----------- {{{
 iabbrev fun function
-"============================================================================
+" }}}
 
-"Folding
-"============================================================================
+" Custom Java folding -------------- {{{
 augroup folds
     autocmd!
     autocmd BufEnter *.java set foldmethod=expr
@@ -197,11 +184,9 @@ endfunction
 function! IndentLevel(lnum)
     return indent(a:lnum) / &shiftwidth
 endfunction
-"============================================================================
+" }}}
 
-
-"Functions
-"============================================================================
+" Help functions -------------------- {{{
 
 "Move to the window in the direction shown, or create a new window
 function! WinMove(key)
@@ -231,7 +216,7 @@ function! ToggleIndent()
         echo "indent=2"
     endif
 endfunction
-"============================================================================
+" }}}
 
 "Load plugins from vim-plug
 source ~/.config/nvim/plugins.vim
