@@ -1,11 +1,12 @@
-URxvt.font: xft:monospace:size=12,xft:Terminess Powerline:size=12
+!URxvt*font: xft:monospace:size=12,xft:Terminess\ Powerline:size=12
+URxvt*font: xft:DejaVu Sans Mono for Powerline:Book:size=12
 URxvt.scrollBar: false
 
 ! colors
 URxvt*background: #00ff00
 URxvt*borderColor: #1B1918
 
-URxvt*letterSpace: -2
+URxvt*letterSpace: 0
 
 
 !! Shell output appears in a clear window
@@ -22,7 +23,7 @@ URxvt.secondaryScroll: 0
 URxvt.secondaryWheel: 1
 
 !! perl extensions
-URxvt.perl-ext-common: default,matcher,fullscreen,resize-font
+URxvt.perl-ext-common: default,matcher,fullscreen,resize-font,selection-to-clipboard
 ! url-launcher
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
