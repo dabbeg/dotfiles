@@ -4,7 +4,7 @@ PASS=`cat /home/dabbeg/.gmail-credentials | base64 --decode`
 
 COUNT=`curl -su $USER:$PASS https://mail.google.com/mail/feed/atom || echo "<fullcount>unknown number of</fullcount>"`
 COUNT=`echo "$COUNT" | grep -o -P '(?<=Inbox</tagline><fullcount>).*(?=</fullcount><link)'`
-echo "  $COUNT"
+echo "$COUNT"
 if [ "$COUNT" != "0" ]; then
     if [ "$COUNT" = "1" ];then
         WORD="mail";
