@@ -30,12 +30,13 @@ Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 "Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 "Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'starcraftman/vim-eclim', { 'for': 'java' }
+Plug 'vim-ctrlspace/vim-ctrlspace'
 
 function! BuildComposer(info)
-  if a:info.status != 'unchanged' || a:info.force
-    !cargo build --release
-    UpdateRemotePlugins
-  endif
+    if a:info.status != 'unchanged' || a:info.force
+        !cargo build --release
+        UpdateRemotePlugins
+    endif
 endfunction
 
 "Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
@@ -54,7 +55,7 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+            \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " <Tab> completion:
 " 1. If popup menu is visible, select and insert next item
@@ -62,25 +63,25 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 " 3. Otherwise, if preceding chars are whitespace, insert tab char
 " 4. Otherwise, start manual autocomplete
 imap <silent><expr><Tab> pumvisible() ? "\<C-n>"
-	\ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
-	\ : (<SID>is_whitespace() ? "\<Tab>"
-	\ : deoplete#mappings#manual_complete()))
+            \ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
+            \ : (<SID>is_whitespace() ? "\<Tab>"
+            \ : deoplete#mappings#manual_complete()))
 
 smap <silent><expr><Tab> pumvisible() ? "\<C-n>"
-	\ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
-	\ : (<SID>is_whitespace() ? "\<Tab>"
-	\ : deoplete#mappings#manual_complete()))
+            \ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
+            \ : (<SID>is_whitespace() ? "\<Tab>"
+            \ : deoplete#mappings#manual_complete()))
 
 inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:is_whitespace()
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~? '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~? '\s'
 endfunction
 
 let g:neosnippet#disable_runtime_snippets = {
-\   '_': 1,
-\ }
+            \   '_': 1,
+            \ }
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'
 "============================================================================
 
@@ -89,10 +90,10 @@ let g:neosnippet#snippets_directory='~/.config/nvim/snippets/'
 autocmd! User neomake autocmd! BufWritePost * Neomake
 
 let g:neomake_javascript_jscs_maker = {
-    \ 'exe': 'jscs',
-    \ 'args': ['--no-color', '--preset', 'airbnb', '--reporter', 'inline', '--esnext'],
-    \ 'errorformat': '%f: line %l\, col %c\, %m',
-    \ }
+            \ 'exe': 'jscs',
+            \ 'args': ['--no-color', '--preset', 'airbnb', '--reporter', 'inline', '--esnext'],
+            \ 'errorformat': '%f: line %l\, col %c\, %m',
+            \ }
 let g:neomake_javascript_enabled_makers = ['jshint', 'jscs']
 
 "let g:neomake_javascript_enabled_makers = ['eslint']
@@ -125,9 +126,12 @@ let g:cpp_experimental_template_highlight = 1
 "vim-airline
 "============================================================================
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts=1
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 let g:airline_theme='base16'
 "============================================================================
 
@@ -136,9 +140,9 @@ let g:airline_theme='base16'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
+            \ 'AcceptSelection("e")': ['<c-t>'],
+            \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+            \ }
 "============================================================================
 
 "deocomplete
@@ -197,4 +201,16 @@ nnoremap <leader>*   :Grepper -tool ack -cword -noprompt<cr>
 "============================================================================
 set background=dark
 colorscheme base16-atelierforest
+"============================================================================
+
+"Ctrl-space
+"============================================================================
+let g:CtrlSpaceSymbols = { "CS": "#", "File": "◯", "CTab": "▣", "Tabs": "▢" }
+if executable("ag")
+    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+endif
+let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+let g:CtrlSpaceSaveWorkspaceOnExit = 1
+let g:CtrlSpaceSearchTiming = 1000
 "============================================================================

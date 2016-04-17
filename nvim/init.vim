@@ -10,6 +10,7 @@ set secure "Restrict usage of some commands for security
 "augroup END
 
 set number
+set relativenumber
 
 set so=7 " set 7 lines to the cursors - when moving vertical
 set wildmenu " enhanced command line completion
