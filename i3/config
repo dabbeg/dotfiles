@@ -39,10 +39,10 @@ for_window [title="Messenger"] move window to scratchpad, resize grow width 80 p
 exec --no-startup-id sleep 10; messengerfordesktop
 
 for_window [title="Spotify"] move window to workspace $workspace10
-exec --no-startup-id sleep 10; spotify
+exec --no-startup-id sleep 10; spotify --force-device-scale-factor=1.0000001
 
 for_window [title="Firefox"] move window to workspace $workspace2
-exec --no-startup-id sleep 10; firefox
+#exec --no-startup-id sleep 10; firefox
 
 # Move the current workspace to the screen to the right
 bindsym $mod+ctrl+h move workspace to output left
@@ -325,9 +325,6 @@ exec --no-startup-id unclutter -b --timeout 2
 
 # Starts up dunst, a notification daemon
 exec --no-startup-id dunst
-
-# lock pc at startup
-exec $HOME/.i3/scripts/lock
 
 # Disable display power saver
 exec xset s off -dpms
