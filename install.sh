@@ -2,8 +2,6 @@
 
 echo "Installing dotfiles"
 
-git submodule update --init --recursive
-
 source install/link.sh
 
 source install/pacman.sh

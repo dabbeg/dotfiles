@@ -7,9 +7,11 @@ dir=~/dotfiles
 olddir=~/dotfiles_old
 
 # list of files/folders to symlink
-files_homedir="astylerc compton.conf dircolors fonts gvimrc i3 ideavimrc vim vimperatorrc vimrc zshrc xinitrc xmodmaprc"
+files_homedir="compton.conf dircolors i3 vimperatorrc xinitrc xmodmaprc Xresources zshrc"
 files_configdir="nvim dunst"
 files_atom="config.cson keymap.cson snippets.cson"
+files_mozilla="userChrome.css"
+files_linter="jshintrc"
 
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in the home folder"
