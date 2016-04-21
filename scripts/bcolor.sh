@@ -1,20 +1,20 @@
 #!/bin/bash
 #
-# Picks a random base16 theme from an array to use as the current terminal theme
+# A command line tool for selecting a base16-theme for the shell
 #
 
-base16_path="$HOME/.base16-shell"
-colorschemes=($(find $base16_path | grep \\.sh | cut -d '/' -f5 | cut -d '-' -f2 | cut -d '.' -f1 | sort | uniq))
-colorscheme=`echo $BASE16_SHELL | cut -d '/' -f5 | cut -d '-' -f2 | cut -d '.' -f1`
-background=`echo $BASE16_SHELL | cut -d '/' -f5 | cut -d '-' -f2 | cut -d '.' -f2`
+base16_path="$HOME/.config/base16-shell"
 
-# Randomly select a colorscheme from the array
-# until we get a theme that is not the current theme
+colorschemes=($(find "$base16_path" | grep \\.sh | rev | cut -d '/' -f1 | rev | cut -d '-' -f2 | cut -d '.' -f1 | sort | uniq))
+backgrounds=($(find "$base16_path" | grep \\.sh | rev | cut -d '/' -f1 | rev | cut -d '-' -f2 | cut -d '.' -f2 | sort | uniq))
+colorscheme=`echo "$BASE16_SHELL" | rev | cut -d '/' -f1 | rev | cut -d '-' -f2 | cut -d '.' -f1`
+background=`echo "$BASE16_SHELL" | rev | cut -d '/' -f1 | rev | cut -d '-' -f2 | cut -d '.' -f2`
+
 getRandomTheme() {
     cs="$colorscheme"
     while [ "$cs" = "$colorscheme" ]; do
-        index=$RANDOM
-        index=$(($index%${#colorschemes[@]}))
+        index="$RANDOM"
+        index="$(($index%${#colorschemes[@]}))"
         colorscheme="${colorschemes[@]:$index:1}"
     done
 }
@@ -22,7 +22,7 @@ getRandomTheme() {
 selectTheme() {
     doesThemeExist=false
     for cs in "${colorschemes[@]}"; do
-        if [ $1 = "$cs" ]; then
+        if [ "$1" = "$cs" ]; then
             doesThemeExist=true
             break
         fi
@@ -36,9 +36,15 @@ selectTheme() {
 }
 
 selectBackground() {
-    if [ "$1" = "dark" ]; then
-        background="$1"
-    elif [ "$1" = "light" ]; then
+    doesBackgroundExist=false
+    for bg in "${backgrounds[@]}"; do
+        if [ "$1" = "$bg" ]; then
+            doesBackgroundExist=true
+            break
+        fi
+    done
+
+    if [ "$doesBackgroundExist" = true ]; then
         background="$1"
     else
         echo "This background does not exist"
@@ -47,7 +53,7 @@ selectBackground() {
 
 listThemes() {
     for cs in "${colorschemes[@]}"; do
-        echo $cs
+        echo "$cs"
     done
 }
 
