@@ -55,10 +55,7 @@ fi
 ##### USER CONFIGURATION #####
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-atelierforest.dark.sh"
-#BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
-#BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+source colorscheme -theme atelierforest
 
 #export PATH="/usr/local/bin:/usr/bin:/home/hir.is/$USER/bin:/usr/local/sbin:/usr/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -84,7 +81,7 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-alias vim='nvim'
+alias vim='BASE16_SHELL=$BASE16_SHELL nvim'
 alias matlab-cli='matlab -nodisplay'
 alias term='xfce4-terminal'
 alias spotify='spotify --force-device-scale-factor=1.0000001'
