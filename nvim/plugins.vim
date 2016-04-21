@@ -192,7 +192,9 @@ nnoremap <leader>*   :Grepper -tool ack -cword -noprompt<cr>
 
 " Base-16 {{{
 set background=dark
-colorscheme base16-atelierforest
+
+" Gets the colorscheme from an environment variable
+execute "colorscheme " . GetColorscheme()
 " }}}
 
 " Ctrl-space {{{

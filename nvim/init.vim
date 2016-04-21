@@ -49,10 +49,6 @@ let base16colorspace=256  "Access colors present in 256 colorspace
 
 "Colorscheme is set in plugins.vim
 
-"Transparent background
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-
 "Highlight current line
 set cursorline
 
@@ -121,7 +117,7 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "Put the last word written uppercase
-inoremap <c-y> <esc>vBUWa
+inoremap <c-y> <esc>viwUea
 
 noremap <silent> <C-h> :call WinMove('h')<cr>
 noremap <silent> <C-j> :call WinMove('j')<cr>
@@ -187,6 +183,17 @@ endfunction
 " }}}
 
 " Help functions -------------------- {{{
+
+"Extract colorscheme from environment variable
+function! GetColorscheme()
+    let l:path = $BASE16_SHELL
+    " Getting filename from path
+    let l:filename = split(l:path, "/")[-1]
+
+    " Getting rid of the extension of the filename
+    let l:colorscheme = split(l:filename, "\\.")[0]
+    return l:colorscheme
+endfunction
 
 "Move to the window in the direction shown, or create a new window
 function! WinMove(key)
