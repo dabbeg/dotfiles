@@ -4,6 +4,7 @@
 #
 
 base16_path="$HOME/.config/base16-shell"
+shell_config="$HOME/.zshrc"
 
 colorschemes=($(find "$base16_path" | grep \\.sh | rev | cut -d '/' -f1 | rev | cut -d '-' -f2 | cut -d '.' -f1 | sort | uniq))
 backgrounds=($(find "$base16_path" | grep \\.sh | rev | cut -d '/' -f1 | rev | cut -d '-' -f2 | cut -d '.' -f2 | sort | uniq))
@@ -91,3 +92,6 @@ fi
 # Set the new environment variable and source the script to change the current terminals colorscheme
 export BASE16_SHELL="$base16_path/base16-$colorscheme.$background.sh"
 source $BASE16_SHELL
+
+# Write the new colorscheme into the shell config so the change persits
+sed -i --follow-symlinks "s~export BASE16_SHELL=.*~export BASE16_SHELL='$BASE16_SHELL'~" $shell_config

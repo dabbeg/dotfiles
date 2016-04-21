@@ -62,7 +62,9 @@ if [[ -n $SSH_CONNECTION ]]; then
 fi
 
 # Base16 Shell
-source $HOME/dotfiles/scripts/bcolor.sh -th atelierforest
+export BASE16_SHELL='/home/dabbeg/.config/base16-shell/base16-atelierheath.dark.sh'
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
 alias bcolor='source $HOME/dotfiles/scripts/bcolor.sh'
 alias vim='BASE16_SHELL=$BASE16_SHELL nvim'
 
