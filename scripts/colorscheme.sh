@@ -4,18 +4,15 @@
 #
 
 # Base16 themes I like
-colorschemes=('default' 'atelierforest' 'twilight')
-
-# Randomly select a colorscheme from the array
-function getRandomColorscheme() {
-    index=$RANDOM
-    index=$(($index%${#colorschemes[@]}))
-    echo "${colorschemes[@]:$index:1}"
-}
+colorschemes=('atelierforest' 'default' 'twilight')
 
 if [ "$1" = "-random" ]; then
     #TODO Select a random theme that is not already selected
-    colorscheme=$(getRandomColorscheme)
+
+    # Randomly select a colorscheme from the array
+    index=$RANDOM
+    index=$(($index%${#colorschemes[@]}))
+    colorscheme="${colorschemes[@]:$index:1}"
 elif [ "$1" = "-theme" ]; then
     #TODO check if theme $2 is a theme
     colorscheme="$2"

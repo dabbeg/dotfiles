@@ -54,15 +54,6 @@ fi
 
 ##### USER CONFIGURATION #####
 
-# Base16 Shell
-source colorscheme -theme atelierforest
-
-#export PATH="/usr/local/bin:/usr/bin:/home/hir.is/$USER/bin:/usr/local/sbin:/usr/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
@@ -70,21 +61,10 @@ if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='nvim'
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-
+# Base16 Shell
+source colorscheme -theme atelierforest
+alias colorscheme='source colorscheme'
 alias vim='BASE16_SHELL=$BASE16_SHELL nvim'
-alias matlab-cli='matlab -nodisplay'
-alias term='xfce4-terminal'
-alias spotify='spotify --force-device-scale-factor=1.0000001'
 
 # pacman aliases
 alias pac='sudo pacman -S'
@@ -94,3 +74,9 @@ alias pacs='sudo pacman -Ss'
 alias paci='sudo pacman -Si'
 alias paclo='sudo pacman -Qdt'
 alias pacro='sudo paclo && sudo pacman -Rns $(pacman -Qtdq)'
+
+# Other aliases
+alias matlab-cli='matlab -nodisplay'
+alias term='urxvt'
+alias spotify='spotify --force-device-scale-factor=1.0000001'
+
