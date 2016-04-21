@@ -62,8 +62,8 @@ if [[ -n $SSH_CONNECTION ]]; then
 fi
 
 # Base16 Shell
-source colorscheme -theme atelierforest
-alias colorscheme='source colorscheme'
+source $HOME/dotfiles/scripts/bcolor.sh -th atelierforest
+alias bcolor='source $HOME/dotfiles/scripts/bcolor.sh'
 alias vim='BASE16_SHELL=$BASE16_SHELL nvim'
 
 # pacman aliases
