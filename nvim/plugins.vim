@@ -191,10 +191,9 @@ nnoremap <leader>*   :Grepper -tool ack -cword -noprompt<cr>
 " }}}
 
 " Base-16 {{{
-set background=dark
-
-" Gets the colorscheme from an environment variable
-execute "colorscheme " . GetColorscheme()
+" Setting colorscheme and background
+let &background = GetBackgroundColor()
+execute "colorscheme " . GetColorTheme()
 " }}}
 
 " Ctrl-space {{{

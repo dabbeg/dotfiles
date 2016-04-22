@@ -183,16 +183,28 @@ endfunction
 " }}}
 
 " Help functions -------------------- {{{
+"
+"Extract background color from environment variable
+function! GetBackgroundColor()
+    let l:path = $BASE16_SHELL
 
-"Extract colorscheme from environment variable
-function! GetColorscheme()
+    " Getting filename from path
+    let l:filename = split(l:path, "/")[-1]
+
+    " Getting color from filename
+    let l:background = split(l:filename, "\\.")[1]
+    return l:background
+endfunction
+
+"Extract colortheme from environment variable
+function! GetColorTheme()
     let l:path = $BASE16_SHELL
     " Getting filename from path
     let l:filename = split(l:path, "/")[-1]
 
     " Getting rid of the extension of the filename
-    let l:colorscheme = split(l:filename, "\\.")[0]
-    return l:colorscheme
+    let l:colortheme = split(l:filename, "\\.")[0]
+    return l:colortheme
 endfunction
 
 "Move to the window in the direction shown, or create a new window
