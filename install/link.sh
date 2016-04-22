@@ -1,25 +1,22 @@
 #!/bin/bash
 #
-# This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles_old
+# This script creates symlinks for all config files listed
 #
 
 dir=~/dotfiles
 olddir=~/dotfiles_old
 
 # list of files/folders to symlink
-files_homedir="compton.conf dircolors i3 vimperatorrc xinitrc xmodmaprc Xresources zshrc"
+files_homedir="compton.conf dircolors i3 jshintrc vimperatorrc xinitrc xmodmaprc Xresources zshrc"
 files_configdir="nvim dunst"
-files_atom="config.cson keymap.cson snippets.cson"
 files_mozilla="userChrome.css"
-files_linter="jshintrc"
 
 # create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in the home folder"
 mkdir -p $olddir
 echo "done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
-# from the dotfiles directory to any files in the home directory specified in $files_homedir
+# Linking files in homedir 
 echo "Moving any existing dotfiles from the home folder to $olddir"
 for file in $files_homedir; do
     mv ~/.$file ~/dotfiles_old/
@@ -28,8 +25,7 @@ for file in $files_homedir; do
 done
 echo ""
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
-# from the dotfiles directory to any files in the config directory specified in $files_configdir
+# Linking files in configdir
 echo "Moving any existing config from the config folder to $olddir"
 for file in $files_configdir; do
     mv ~/.config/$file $olddir
@@ -38,18 +34,15 @@ for file in $files_configdir; do
 done
 echo ""
 
+# Linking files in mozilladir
+echo "Moving mozilla config files from the mozilla folder to $olddir"
 
-# move atom config files in the atom dot directory to dotfiles_old and create symlinks
-# from the dotfiles directory to the atom dot directory
-echo "Moving atom config files from the atom folder to $olddir"
-
-if [ ! -d ~/.atom/ ]; then
-    mkdir ~/.atom/
+if [ ! -d ~/.mozilla/ ]; then
+    mkdir ~/.mozilla/
 fi
 
-for file in $files_atom; do
-    mv ~/.atom/$file $olddir
-    echo "Creating symlink to $file in atom directory."
-    ln -s $dir/atom/$file ~/.atom/$file
+for file in $files_mozilla; do
+    mv ~/.mozilla/$file $olddir
+    echo "Creating symlink to $file in mozilla directory."
+    ln -s $dir/mozilla/$file ~/.mozilla/$file
 done
-
