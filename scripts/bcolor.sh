@@ -93,5 +93,9 @@ fi
 export BASE16_SHELL="$base16_path/base16-$colorscheme.$background.sh"
 source $BASE16_SHELL
 
+# Restart the i3bar so it will read the colours again
+killall i3bar
+i3bar --bar_id bar-0 > /dev/null 2> /dev/null &
+
 # Write the new colorscheme into the shell config so the change persits
 sed -i --follow-symlinks "s~export BASE16_SHELL=.*~export BASE16_SHELL='$BASE16_SHELL'~" $shell_config
