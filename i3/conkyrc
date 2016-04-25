@@ -24,40 +24,74 @@ conky.config = {
 conky.text = [[
   [
     {
-      "full_text": "${cpu}%",
+      "full_text": " ${cpu}%",
+      "min_width": " 99%",
       "color": "\#ffffff",
       "border": "${execi 1000 echo $block1}",
       "border_top": 0,
       "border_right": 0,
       "border_bottom": 2,
-      "border_left": 0
+      "border_left": 0,
+      "separator": true,
+      "separator_block_width": 12
     },
     {
-      "full_text": "${wireless_essid} - ${addr wlp2s0}",
+      "full_text": ${if_match "${gw_iface}"=="wlp2s0"}"${wireless_essid} - ${addr wlp2s0}"${else}""${endif},
       "color": "\#ffffff",
       "border": "${execi 1000 echo $block2}",
       "border_top": 0,
       "border_right": 0,
       "border_bottom": 2,
-      "border_left": 0
+      "border_left": 0,
+      "separator": true,
+      "separator_block_width": 12
     },
     {
-      "full_text": "${fs_free /home}",
+      "full_text": " ${fs_free /home}",
       "color": "\#ffffff",
       "border": "${execi 1000 echo $block3}",
       "border_top": 0,
       "border_right": 0,
       "border_bottom": 2,
-      "border_left": 0
+      "border_left": 0,
+      "separator": true,
+      "separator_block_width": 12
     },
     {
-      "full_text": "RAM ${memperc}%",
+      "full_text": " ${memperc}%",
+      "min_width": " 99%",
       "color": ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif},
       "border": "${execi 1000 echo $block4}",
       "border_top": 0,
       "border_right": 0,
       "border_bottom": 2,
-      "border_left": 0
+      "border_left": 0,
+      "separator": true,
+      "separator_block_width": 12
+    },
+    {
+      "full_text": " ${exec setxkbmap -query | grep -o -P '(?<=layout:     ).*(?=)'}",
+      "min_width": " us",
+      "color": ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif},
+      "border": "${execi 1000 echo $block5}",
+      "border_top": 0,
+      "border_right": 0,
+      "border_bottom": 2,
+      "border_left": 0,
+      "separator": true,
+      "separator_block_width": 12
+    },
+    {
+      "full_text": " ${utime %d %b  -  %H:%M}",
+      "min_width": " 23 jan  -  10:20",
+      "color": "\#ffffff",
+      "border": "${execi 1000 echo $block6}",
+      "border_top": 0,
+      "border_right": 0,
+      "border_bottom": 2,
+      "border_left": 0,
+      "separator": true,
+      "separator_block_width": 12
     }
   ],
 ]];

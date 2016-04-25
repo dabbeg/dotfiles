@@ -192,7 +192,7 @@ bar {
     #output LVDS1
     position top
     workspace_buttons yes
-    height 25
+    #height 25
 
     font pango: System San Francisco Display 9
 
@@ -200,7 +200,7 @@ bar {
         # Whole color settings
         background #333333
         statusline #ffffff
-        #separator  #666666
+        separator  #333333
 
         # Type             border  background font
         focused_workspace #333333 #333333 #FFFFFF
