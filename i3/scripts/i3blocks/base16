@@ -1,0 +1,12 @@
+#!/bin/bash
+
+current=`grep "BASE16_SHELL=" $HOME/.zshrc | cut -d "'" -f2`
+export block1="#`$HOME/.config/base16-shell/colortest $current | grep color01 | cut -d ' ' -f3 | uniq`"
+export block2="#`$HOME/.config/base16-shell/colortest $current | grep color02 | cut -d ' ' -f3 | uniq`"
+export block3="#`$HOME/.config/base16-shell/colortest $current | grep color03 | cut -d ' ' -f3 | uniq`"
+export block4="#`$HOME/.config/base16-shell/colortest $current | grep color04 | cut -d ' ' -f3 | uniq`"
+export block5="#`$HOME/.config/base16-shell/colortest $current | grep color05 | cut -d ' ' -f3 | uniq`"
+export block6="#`$HOME/.config/base16-shell/colortest $current | grep color06 | cut -d ' ' -f3 | uniq`"
+export block7="#`$HOME/.config/base16-shell/colortest $current | grep color16 | cut -d ' ' -f3 | uniq`"
+export block8="#`$HOME/.config/base16-shell/colortest $current | grep color17 | cut -d ' ' -f3 | uniq`"
+
