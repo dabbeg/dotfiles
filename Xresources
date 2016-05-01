@@ -1,9 +1,10 @@
 !URxvt*font: xft:monospace:size=12,xft:Terminess\ Powerline:size=12
-URxvt*font: xft:DejaVu Sans Mono for Powerline:Book:size=12
+URxvt*font: xft:DejaVu Sans Mono for Powerline:Book:size=12,xft:FontAwesome:Regular:size=12
 URxvt.scrollBar: false
 
 ! colors
-URxvt*background: #00ff00
+URxvt*background: #161B1D
+urxvt.foreground: #7B9EAF
 URxvt*borderColor: #1B1918
 
 URxvt*letterSpace: 0
@@ -32,3 +33,27 @@ URxvt.keysym.F11: perl:fullscreen:switch
 ! resize-font
 URxvt.resize-font.smaller: C-Down
 URxvt.resize-font.bigger: C-Up
+
+
+!!!!!!! ROFI !!!!!!!
+rofi.lines: 3
+rofi.font: Droid Sans Mono 16
+rofi.width: 50
+rofi.padding: 20
+
+
+!Color             bckg     foreg    bckg alt hi bckg  hi foreg
+rofi.color-normal: #1B1918, #ddd8d5, #1b1918, #1b1918, #f22c40
+rofi.color-urgent: #1B1918, #f1efee, #1b1918, #1b1918, #f22c40
+rofi.color-active: #1B1918, #f1efee, #1b1918, #1b1918, #f22c40
+rofi.color-window: #1B1918, #71635b
+
+! Border width
+rofi.bw: 0
+rofi.eh: 2
+
+rofi.fuzzy: true
+!rofi.auto-select: true
+rofi.hide-scrollbar: true
+rofi.terminal: urxvt
+

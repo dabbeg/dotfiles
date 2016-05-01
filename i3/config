@@ -42,7 +42,7 @@ for_window [title="Spotify"] move window to workspace $workspace10
 exec --no-startup-id sleep 10; spotify --force-device-scale-factor=1.0000001
 
 for_window [title="Firefox"] move window to workspace $workspace2
-#exec --no-startup-id sleep 10; firefox
+exec --no-startup-id sleep 10; firefox
 
 # Move the current workspace to the screen to the right
 bindsym $mod+ctrl+h move workspace to output left
@@ -93,7 +93,8 @@ bindsym $mod+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -show run -terminal urxvt -font 'Droid Sans Mono 16' -lines 3 -eh 2 -width 50 -padding 20 -bw 0 -bc "#1B1918" -bg "#1B1918" -fg "#F1EFEE" -hlbg "#1B1918" -hlfg "#F22C40" -auto-select -fuzzy
+bindsym $mod+d exec rofi -show run
+bindsym $mod+s exec rofi -show ssh
 
 # change focus
 bindsym $mod+h focus left
@@ -117,7 +118,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
