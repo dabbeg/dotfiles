@@ -45,10 +45,10 @@ plugins=(git autojump)
 
 source $ZSH/oh-my-zsh.sh
 
-if [ `which pacman` ]; then
+if hash pacman 2> /dev/null; then
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
-    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 
