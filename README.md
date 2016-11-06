@@ -19,7 +19,7 @@ But to be able to switch workspaces in i3 it needs to be compiled from the sourc
 `cd FreeRDP`
 
 2. Add this addtion to the xf_keyboard_handle_special_keys function in the client/X11/xf_keyboard.c file <br/>
-```
+    ```c
     if (mod.Alt)
     {
         if (!xfc->fullscreen)
@@ -34,7 +34,7 @@ But to be able to switch workspaces in i3 it needs to be compiled from the sourc
             return TRUE;
         }
     }
-```
+    ```
 
 3. Configure RDP for compilation <br/>
 `cmake -DCMAKE_BUILD_TYPE=Debug -DWITH_SSE2=ON -DWITH_CUPS=on -DWITH_WAYLAND=off -DWITH_PULSE=on -DCMAKE_INSTALL_PREFIX:PATH=/opt/remmina_devel/freerdp .`
