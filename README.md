@@ -63,5 +63,11 @@ At work we have to have static ip addresses because it is necessary to give ip a
 To be able to get this ip address the computer needs to authenticate itself with a Client ID.
 They use the hardware address of the interface for a Client ID.
 
-The problem is that the DHCP client on linux uses by default a duid instead of the mac address, so in order for the DHCP client to use the mac address we need to edit the '/etc/dhcpcd.conf' file and uncomment 'clientid' and comment out 'duid'.
+The problem is that the DHCP client on linux uses by default a duid instead of the mac address, so in order for the DHCP client to use the mac address do the following:
+
+##### Arch
+Edit the '/etc/dhcpcd.conf' file and uncomment 'clientid' and comment out 'duid'.
+
+##### Fedora
+Edit the '/etc/dhcp/dhcpclient.conf' file and add 'send dhcp-client-identifier = hardware;'.
 
