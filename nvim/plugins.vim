@@ -5,34 +5,34 @@ Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'janko-m/vim-test'
-Plug 'Shougo/deoplete.nvim', { 'for': ['vim', 'javascript', 'python', 'css', 'html', 'latex', 'bash', 'cpp', 'c', 'cs'] }
-Plug 'benekastah/neomake', { 'for': ['vim', 'javascript', 'python', 'css', 'html', 'latex', 'bash', 'cpp', 'c', 'cs'] }
-Plug 'Valloric/YouCompleteMe', { 'for': [] }
+"Plug 'janko-m/vim-test'
+Plug 'Shougo/deoplete.nvim', { 'for': ['vim', 'javascript', 'python', 'css', 'html', 'latex', 'bash', 'cpp', 'c', 'cs', 'java'] }
+Plug 'benekastah/neomake', { 'for': ['vim', 'javascript', 'python', 'css', 'html', 'latex', 'bash', 'cpp', 'c', 'cs', 'java'] }
+"Plug 'Valloric/YouCompleteMe', { 'for': [] }
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'cohama/lexima.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'chriskempson/base16-vim'
-Plug 'tpope/vim-commentary'
-Plug 'mhinz/vim-grepper'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'wikitopian/hardmode'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'othree/html5.vim'
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'mxw/vim-jsx', { 'for': 'javascript' }
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+"Plug 'tpope/vim-commentary'
+"Plug 'mhinz/vim-grepper'
+"Plug 'jeffkreeftmeijer/vim-numbertoggle'
+"Plug 'wikitopian/hardmode'
+"Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-repeat'
+"Plug 'othree/html5.vim'
+"Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+"Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+"Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
 "Plug 'moll/vim-node', { 'for': 'javascript' }
 "Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+"Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 "Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' }
 "Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 "Plug 'hdima/python-syntax', { 'for': 'python' }
-Plug 'starcraftman/vim-eclim', { 'for': 'java' }
-Plug 'vim-ctrlspace/vim-ctrlspace'
+"Plug 'starcraftman/vim-eclim', { 'for': 'java' }
+"Plug 'vim-ctrlspace/vim-ctrlspace'
 
 function! BuildComposer(info)
     if a:info.status != 'unchanged' || a:info.force
@@ -192,8 +192,12 @@ nnoremap <leader>*   :Grepper -tool ack -cword -noprompt<cr>
 
 " Base-16 {{{
 " Setting colorscheme and background
-let &background = GetBackgroundColor()
-execute "colorscheme " . GetColorTheme()
+"let &background = GetBackgroundColor()
+"execute "colorscheme " . GetColorTheme()
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 " }}}
 
 " Ctrl-space {{{

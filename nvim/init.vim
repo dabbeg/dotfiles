@@ -29,7 +29,7 @@ set mat=2 " how many tenths of a second to blink
 "highlight ColorColumn ctermbg=darkgray
 
 set wrap "turn on line wrapping
-set wrapmargin=8 " wrap lines when coming within n characters from side
+"set wrapmargin=8 " wrap lines when coming within n characters from side
 set linebreak " set soft wrapping
 set showbreak=… " show ellipsis at breaking
 set list listchars=trail:·
@@ -149,11 +149,11 @@ iabbrev fun function
 " }}}
 
 " Custom Java folding -------------- {{{
-augroup folds
-    autocmd!
-    autocmd BufEnter *.java set foldmethod=expr
-    autocmd BufEnter *.java set foldexpr=Fold(v:lnum)
-augroup END
+"augroup folds
+"    autocmd!
+"    autocmd BufEnter *.java set foldmethod=expr
+"    autocmd BufEnter *.java set foldexpr=Fold(v:lnum)
+"augroup END
 
 let g:folding = 0
 function! Fold(lineNumber)
@@ -197,15 +197,15 @@ function! GetBackgroundColor()
 endfunction
 
 "Extract colortheme from environment variable
-function! GetColorTheme()
-    let l:path = $BASE16_SHELL
-    " Getting filename from path
-    let l:filename = split(l:path, "/")[-1]
+"function! GetColorTheme()
+"    let l:path = $BASE16_SHELL
+"    " Getting filename from path
+"    let l:filename = split(l:path, "/")[-1]
 
     " Getting rid of the extension of the filename
-    let l:colortheme = split(l:filename, "\\.")[0]
-    return l:colortheme
-endfunction
+"    let l:colortheme = split(l:filename, "\\.")[0]
+"    return l:colortheme
+"endfunction
 
 "Move to the window in the direction shown, or create a new window
 function! WinMove(key)
@@ -236,6 +236,13 @@ function! ToggleIndent()
     endif
 endfunction
 " }}}
+
+
+augroup filetype
+   au BufRead,BufNewFile *.flex,*.jflex    set filetype=jflex
+augroup END
+au Syntax jflex    so ~/.config/nvim/syntax/jflex.vim
+
 
 "Load plugins from vim-plug
 source ~/.config/nvim/plugins.vim
