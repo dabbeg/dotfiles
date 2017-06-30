@@ -3,7 +3,7 @@
 # A command line tool for selecting a base16-theme for the shell
 #
 
-base16_path="$HOME/.config/base16-shell"
+base16_path="$HOME/.config/base16-shell/scripts"
 shell_config="$HOME/.zshrc"
 
 colorschemes=($(find "$base16_path" | grep \\.sh | rev | cut -d '/' -f1 | rev | cut -d '-' -f2 | cut -d '.' -f1 | sort | uniq))
