@@ -7,27 +7,28 @@ set $workspace5  "5"
 set $workspace6  "6"
 set $workspace7  "7"
 set $workspace8  "8"
-set $workspace9  "9"
-set $workspace10 "10 "
+set $workspace9  "9 "
+set $workspace10 "10 "
 
-workspace $workspace1 output DVI-I-0
-workspace $workspace2 output DVI-D-0
-workspace $workspace10 output HDMI-0
+
+#workspace $workspace1 output DVI-I-0
+#workspace $workspace2 output DVI-D-0
+#workspace $workspace10 output HDMI-0
 
 # lock
-bindsym F6 exec $HOME/.i3/scripts/lock
+#bindsym F6 exec $HOME/.config/i3/scripts/lock
 
 # Binds the Print Scrn button to take a screenshot with scrot and save it to ~/Pictures/screenshots
-bindsym Print exec $HOME/.i3/scripts/screenshot
+bindsym Print exec $HOME/.config/i3/scripts/screenshot
 
 # Binds the windows button to toggle the touchpad on/off
-bindsym F2 exec $HOME/.i3/scripts/i3/toggle_touchpad.sh
+bindsym F2 exec $HOME/.config/i3/scripts/i3/toggle_touchpad.sh
 
 # Binds the mod + Print Scrn button to take a screenshot with scrot -s and save it to ~/Pictures/screenshots
-bindsym $mod+Print exec $HOME/.i3/scripts/screenshot "select"
+bindsym $mod+Print exec $HOME/.config/i3/scripts/screenshot "select"
 
 # Toggle between keyboard layouts
-bindsym $mod+Tab exec /home/dabbeg/.i3/scripts/i3blocks/toggleKeyboardLayout
+bindsym $mod+Tab exec $HOME/.config/i3/scripts/i3blocks/toggleKeyboardLayout
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -38,11 +39,11 @@ bindcode $mod+20 scratchpad show
 for_window [title="Messenger"] move window to scratchpad, resize grow width 80 px
 exec --no-startup-id sleep 10; messengerfordesktop
 
-for_window [title="Spotify"] move window to workspace $workspace10
-exec --no-startup-id sleep 10; spotify --force-device-scale-factor=1.0000001
+#for_window [title="Spotify"] move window to workspace $workspace10
+#exec --no-startup-id sleep 10; spotify --force-device-scale-factor=1.0000001
 
-for_window [title="Firefox"] move window to workspace $workspace2
-exec --no-startup-id sleep 10; firefox
+#for_window [title="Firefox"] move window to workspace $workspace2
+#exec --no-startup-id sleep 10; firefox
 
 # Move the current workspace to the screen to the right
 bindsym $mod+ctrl+h move workspace to output left
@@ -52,14 +53,14 @@ bindsym $mod+ctrl+l move workspace to output right
 
 # change the font
 #font pango: Lucida Grande 9
-font pango: System San Francisco Display 10
+font pango: System San Francisco Display 11
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # Touchpad controls
-bindsym XF86TouchpadToggle exec /home/dabbeg/.i3/scripts/toggletouchpad.sh # toggle touchpad
+bindsym XF86TouchpadToggle exec $HOME/.config/i3/scripts/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
@@ -93,7 +94,7 @@ bindsym $mod+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -run-command "zsh -i -c '{cmd}'" -show run
 bindsym $mod+s exec rofi -show ssh
 
 # change focus
@@ -186,16 +187,16 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    i3bar_command i3bar
+    #i3bar_command i3bar
     #status_command i3blocks -c ~/.i3/i3blocks1366.conf
-    status_command $HOME/.i3/conky-i3bar
+    status_command $HOME/.config/i3/conky-i3bar
 
     #output LVDS1
     position top
-    workspace_buttons yes
-    #height 25
+    #workspace_buttons yes
+    height 38
 
-    font pango: System San Francisco Display 9
+    font pango: System San Francisco Display 14
 
     colors {
         # Whole color settings
@@ -254,10 +255,10 @@ mode "$mode_gaps_outer" {
 }
 
 # Desktop wallpaper
-exec --no-startup-id $HOME/.i3/scripts/wallpaper.sh
+exec --no-startup-id $HOME/.config/i3/scripts/wallpaper.sh
 
 # Start insync for google-drive
-exec --no-startup-id insync start
+#exec --no-startup-id insync start
 
 # Run xmodmap with its config
 exec --no-startup-id xmodmap $HOME/.xmodmaprc
@@ -266,10 +267,10 @@ exec --no-startup-id xmodmap $HOME/.xmodmaprc
 for_window [class="^.*"] border pixel 0
 
 # Starts the compostition manager Compton
-exec --no-startup-id sleep 5; compton -cb --backend glx --vsync opengl --config /home/dabbeg/.compton.conf
+exec --no-startup-id sleep 5; compton -cb --vsync opengl --config $HOME/.compton.conf
 
 # Starts up syndaemon which disables the touchpad when typing
-exec --no-startup-id syndaemon -i 0.6
+#exec --no-startup-id syndaemon -i 0.6
 
 # Starts up unclutter which hides the cursor when not being used
 exec --no-startup-id unclutter -b --timeout 2
