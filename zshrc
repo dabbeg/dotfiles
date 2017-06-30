@@ -80,5 +80,5 @@ alias pacro='sudo paclo && sudo pacman -Rns $(pacman -Qtdq)'
 # Other aliases
 alias matlab-cli='matlab -nodisplay'
 alias term='urxvt'
-alias spotify='spotify --force-device-scale-factor=1.0000001'
+alias spotify='spotify --force-device-scale-factor=1.2'
 

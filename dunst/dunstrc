@@ -1,7 +1,7 @@
 # <- now vim shows colors
 [global]
     #font = Monospace 8
-    font = Droid Sans 10
+    font = Droid Sans 16
 
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -67,7 +67,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "320x5-24+48"
+    geometry = "450x5-24+48"
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -120,10 +120,10 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 8
+    padding = 20
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 28
 
     # Define a color for the separator.
     # possible values are:
@@ -251,4 +251,4 @@
     appname = Spotify
     summary = "*"
     urgency = low
-    new_icon = /home/dabbeg/dotfiles/dunst/icons/spotify.png
+    new_icon = /home/dabbeg/.config/dunst/icons/spotify-client.png
