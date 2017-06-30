@@ -62,8 +62,11 @@ if [[ -n $SSH_CONNECTION ]]; then
 fi
 
 # Base16 Shell
-export BASE16_SHELL='/home/dabbeg/.config/base16-shell/base16-atelierlakeside.dark.sh'
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+#export BASE16_SHELL='/home/dabbeg/.config/base16-shell/scripts/base16-twilight..sh'
+#[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 alias bcolor='source $HOME/dotfiles/scripts/bcolor.sh'
 alias vim='nvim'
