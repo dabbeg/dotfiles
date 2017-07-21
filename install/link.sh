@@ -3,46 +3,49 @@
 # This script creates symlinks for all config files listed
 #
 
-dir=~/dotfiles
-olddir=~/dotfiles_old
+dir=$HOME/dotfiles
+olddir=$HOME/dotfiles_old
+olddir_exists=false
 
 # list of files/folders to symlink
-files_homedir="compton.conf dircolors i3 jshintrc vimperatorrc xinitrc xmodmaprc Xresources zshrc"
-files_configdir="nvim dunst"
+files_homedir="compton.conf dircolors jshintrc vimperatorrc xinitrc xmodmaprc Xresources zshrc"
+files_configdir="i3 nvim dunst"
 files_mozilla="userChrome.css"
 
-# create dotfiles_old in homedir
-echo -n "Creating $olddir for backup of any existing dotfiles in the home folder"
-mkdir -p $olddir
-echo "done"
+symlink() {
+    # checking if symlink does already exist
+    if ! [ "$(realpath $1)" == "$2" ]; then
 
-# Linking files in homedir 
-echo "Moving any existing dotfiles from the home folder to $olddir"
+        # if there is already a config file, move it
+        if [ -f "$1" ]; then
+            if [ "$olddir_exists" == false ]; then
+                echo "Creating $olddir for backup of any existing dotfiles"
+                mkdir -p $olddir
+                olddir_exists=true
+            fi
+
+            echo "Moving $1 to $olddir"
+            mv "$1" "$olddir"
+        fi
+
+        echo "Creating symlink from $2 to $1."
+        ln -s $2 $1
+    fi
+}
+
+# Linking files in homedir
 for file in $files_homedir; do
-    mv ~/.$file ~/dotfiles_old/
-    echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+    symlink "$HOME/.$file" "$dir/$file"
 done
-echo ""
 
 # Linking files in configdir
-echo "Moving any existing config from the config folder to $olddir"
+mkdir -p $HOME/.config
 for file in $files_configdir; do
-    mv ~/.config/$file $olddir
-    echo "Creating symlink to $file in config directory."
-    ln -s $dir/$file ~/.config/$file
+    symlink $HOME/.config/$file $dir/$file
 done
-echo ""
 
 # Linking files in mozilladir
-echo "Moving mozilla config files from the mozilla folder to $olddir"
-
-if [ ! -d ~/.mozilla/ ]; then
-    mkdir ~/.mozilla/
-fi
-
+mkdir -p $HOME/.mozilla/
 for file in $files_mozilla; do
-    mv ~/.mozilla/$file $olddir
-    echo "Creating symlink to $file in mozilla directory."
-    ln -s $dir/mozilla/$file ~/.mozilla/$file
+    symlink $HOME/.mozilla/$file $dir/mozilla/$file
 done
