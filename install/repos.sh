@@ -12,3 +12,6 @@ git clone https://github.com/powerline/fonts.git /tmp/fonts
 # base16
 git clone https://github.com/chriskempson/base16-shell.git $HOME/.config/base16-shell
 
+# vimperator colorscheme
+mkdir -p $HOME/.vimperator
+git clone https://github.com/vimpr/vimperator-colors.git $HOME/.vimperator/colors

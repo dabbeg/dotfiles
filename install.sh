@@ -4,7 +4,7 @@ echo "Installing dotfiles"
 
 source install/link.sh
 
-source install/pacman.sh
+source install/packages.sh
 
 source install/repos.sh
 
