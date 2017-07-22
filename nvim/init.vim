@@ -237,6 +237,8 @@ function! ToggleIndent()
 endfunction
 " }}}
 
+colorscheme gruvbox
+set background=dark
 
 augroup filetype
    au BufRead,BufNewFile *.flex,*.jflex    set filetype=jflex

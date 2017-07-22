@@ -14,7 +14,8 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'cohama/lexima.vim'
 "Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'chriskempson/base16-vim'
+"Plug 'chriskempson/base16-vim'
+"
 "Plug 'tpope/vim-commentary'
 "Plug 'mhinz/vim-grepper'
 "Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -98,6 +99,7 @@ let g:neomake_javascript_enabled_makers = ['jshint', 'jscs']
 
 "let g:neomake_javascript_enabled_makers = ['eslint']
 "let g:neomake_verbose=3
+"let g:neomake_logfile="/tmp/neomake.log"
 " }}}
 
 " Latex {{{
@@ -188,16 +190,6 @@ nnoremap <leader>gbl :Gblame
 nnoremap <leader>git :Grepper -tool git<cr>
 nnoremap <leader>ag  :Grepper -tool ag  -grepprg ag --vimgrep -G '^.+\.txt'<cr>
 nnoremap <leader>*   :Grepper -tool ack -cword -noprompt<cr>
-" }}}
-
-" Base-16 {{{
-" Setting colorscheme and background
-"let &background = GetBackgroundColor()
-"execute "colorscheme " . GetColorTheme()
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
 " }}}
 
 " Ctrl-space {{{
