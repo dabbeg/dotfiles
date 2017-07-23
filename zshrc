@@ -9,7 +9,8 @@ export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="pure"
 #ZSH_THEME="dabbeg"
 #ZSH_THEME="zhann"
-ZSH_THEME="Soliah"
+#ZSH_THEME="Soliah"
+ZSH_THEME="refined"
 
 #Specify default user to make zsh not display the current user
 DEFAULT_USER=dabbeg
