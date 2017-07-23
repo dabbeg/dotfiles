@@ -10,7 +10,7 @@ done
 
 echo "installing aur packages..."
 for app in $aur; do
-    packer -S $app
+    yaourt -S $app
 done
 
 
