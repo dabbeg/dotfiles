@@ -9,7 +9,7 @@ olddir_exists=false
 
 # list of files/folders to symlink
 files_homedir="compton.conf dircolors jshintrc vimperatorrc xinitrc xmodmaprc Xresources zshrc"
-files_configdir="i3 nvim dunst"
+files_configdir="i3 nvim dunst polybar"
 files_mozilla="userChrome.css"
 
 symlink() {
