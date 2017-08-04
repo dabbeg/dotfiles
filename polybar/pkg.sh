@@ -1,6 +1,6 @@
 #!/bin/bash
 pac=$(checkupdates | wc -l)
-aur=$(yaourt -Syu | wc -l)
+aur=$(cower -u | wc -l)
 
 check=$((pac + aur))
 if [[ "$check" != "0" ]]
