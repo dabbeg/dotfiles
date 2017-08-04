@@ -1,6 +1,6 @@
 #!/bin/bash
 
-official="alsa-utils dunst awesome-terminal-fonts conky i3status zsh wget feh neovim python python-neovim python2-neovim tree xorg xorg-xinit xclip rxvt-unicode rofi zsh-syntax-highlighting"
+official="alsa-utils dunst awesome-terminal-fonts conky i3status zsh feh neovim python python-neovim python2-neovim tree xorg xorg-xinit xclip rxvt-unicode rofi zsh-syntax-highlighting"
 aur="i3-gaps-next-git polybar-git"
 
 echo "installing essential packages..."
