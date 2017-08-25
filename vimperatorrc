@@ -4,10 +4,10 @@ colorscheme indigo
 set gui=nonavigation
 
 " navigate the tabs with control-q and control-w"
-map <C-w> <C-Tab>
-map <C-q> <C-S-Tab>
-imap <C-w> <ESC><C-Tab>
-imap <C-q> <ESC><C-S-Tab>
+map <C-j> <C-Tab>
+map <C-k> <C-S-Tab>
+imap <C-j> <ESC><C-Tab>
+imap <C-k> <ESC><C-S-Tab>
 
 " Scroll 3 times faster"
 nnoremap j 3j
