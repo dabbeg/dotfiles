@@ -1,45 +1,58 @@
-=====================================================================================
-d and c serve the same purpose but after commands with c you go into insert mode.
+After appending ** to path we can use :find from current directory to search for a file
+- :find
 
-dd
-D
-de
-dw
+Buffers
+- <leader>h previous buffer
+- <leader>l next buffer
+- <leader>t new buffer
+- <leader>d delete buffer
+- :b {substring} goto buffer that matches substring
 
-cc
-C
-ce
-cw
+TAGS - does not work perfectly with python
+to generate tags run `ctags -R .` inside the root of the project.
+- <C-]> to jump to next tag
+- <C-t> to jump back
+- g<C-]> to list all tags of same type as under curosor
 
-f and t jump to a character in the current row
+Navigation
+<C-o> back to previous place
+<C-i> forward to place
 
-f= jumps at =
-t= jumps one character before =
+FZF
+<C-b> open fuzzy finder
+<C-n> <C-p> navigate
+<C-g> close
 
-so using these together
+Autocompletion
+<C-n> <C-p> when typing a word.
+For python-jedi to work I need to learn more about pyhton modules
 
-df= removes every character where the cursor is at to and with =
-df= removes every character where the cursor is at to =
-=====================================================================================
+GOTO file under cursor
+- :gf
 
+Using different registers
+- "add delete and save in register a
+- "ap paste from register a
 
+Using the help pages
+- :help ^n find out what <C-n> does
+- :help i_^n find out what <C-n> does in insertmode
+- :help c_^n find out what <C-n> does in commandmode
 
-=====================================================================================
-H(high) moves the cursor to the bottom of the screen
-M(middle) moves the cursor to the middle of the screen
-L(low) moves cursor to the bottom of the screen
+Commenting out code
+- gcc to comment out current line
+- gc4j to comment out current line and the next 4 lines
 
-zt moves the view so the place the cursor is, is moved to the top
-zm moves the view so the place the cursor is, is moved to the middle
-zb moves the view so the place the cursor is, is moved to the bottom
-=====================================================================================
+Moving around
+- ^e move one down
+- ^y move one up
+- ^d move many down
+- ^u move many up
 
-=====================================================================================
-o opens a line below the cursor
-O opens a line over the cursor
-p pastes from buffer below the cursor
-P pastes from buffer over the cursor
+- H(high) moves the cursor to the bottom of the screen
+- M(middle) moves the cursor to the middle of the screen
+- L(low) moves cursor to the bottom of the screen
 
-,t next buffer
-,r prev buffer
-=====================================================================================
+- zt moves the view so the place the cursor is, is moved to the top
+- zm moves the view so the place the cursor is, is moved to the middle
+- zb moves the view so the place the cursor is, is moved to the bottom
