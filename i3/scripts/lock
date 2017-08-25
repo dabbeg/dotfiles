@@ -1,9 +1,11 @@
 #!/bin/bash
 
+rm /tmp/lock.png
 scrot 'lock.png' -e 'mv lock.png /tmp/'
 #convert /tmp/lock.png -scale 10% -scale 1000% /tmp/lock.png
 convert /tmp/lock.png -blur 0x4 /tmp/lock.png
 #convert -composite /tmp/lock.png ~/.i3/pictures/lock.png -gravity center /tmp/lock.png
-composite -gravity center ~/.i3/pictures/lock77.png /tmp/lock.png /tmp/lock.png
-dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+#composite -gravity center ~/.i3/pictures/lock77.png /tmp/lock.png /tmp/lock.png
 i3lock -i /tmp/lock.png -p default -n
+
+dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop

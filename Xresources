@@ -3,7 +3,7 @@ Xcursor.size: 16
 !
 !
 !URxvt*font: xft:monospace:size=12,xft:Terminess\ Powerline:size=12
-URxvt*font: xft:DejaVu Sans Mono for Powerline:Book:size=12,xft:FontAwesome:Regular:size=12
+URxvt*font: xft:DejaVu Sans Mono for Powerline:Book:size=14,xft:FontAwesome:Regular:size=12
 URxvt.scrollBar: false
 
 ! colors

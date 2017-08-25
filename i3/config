@@ -12,11 +12,11 @@ set $workspace10 "10 "
 
 
 #workspace $workspace1 output DVI-I-0
-#workspace $workspace2 output DVI-D-0
-#workspace $workspace10 output HDMI-0
+workspace $workspace2 output DP-3-2
+workspace $workspace3 output DP-3-1
 
 # lock
-#bindsym F6 exec $HOME/.config/i3/scripts/lock
+bindsym Mod4+l exec $HOME/.config/i3/scripts/lock
 
 # Binds the Print Scrn button to take a screenshot with scrot and save it to ~/Pictures/screenshots
 bindsym Print exec $HOME/.config/i3/scripts/screenshot
@@ -56,8 +56,8 @@ bindsym $mod+ctrl+l move workspace to output right
 font pango: System San Francisco Display 11
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec $HOME/.config/i3/scripts/toggletouchpad.sh # toggle touchpad
@@ -67,15 +67,15 @@ bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer
 bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2%- unmute
 bindsym XF86AudioMute exec amixer -q -D pulse set Master toggle
 
 bindsym $mod+space exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 bindsym $mod+Left exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym $mod+Right exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
-bindsym $mod+Up exec amixer -q set Master 2dB+ unmute && pkill -RTMIN+1 i3blocks
-bindsym $mod+Down exec amixer -q set Master 2dB- unmute && pkill -RTMIN+1 i3blocks
+bindsym $mod+Up exec amixer -q set Master 2%+ unmute
+bindsym $mod+Down exec amixer -q set Master 2%- unmute
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -184,11 +184,14 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id MONITOR=eDP-1 $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id MONITOR=DP-3-1 $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id MONITOR=DP-3-2 $HOME/.config/polybar/launch.sh
 
 # Desktop wallpaper
 #exec --no-startup-id $HOME/.config/i3/scripts/wallpaper.sh
-exec --no-startup-id feh --no-xinerama --bg-scale $HOME/.config/i3/pictures/wallpaper/1366x768/moon.jpg
+#exec --no-startup-id feh --no-xinerama --bg-scale $HOME/.config/i3/pictures/wallpaper/1366x768/moon.jpg
+exec --no-startup-id feh --bg-center $HOME/.config/i3/pictures/wallpaper/1920x1080/Firewatch_20160205030459.png
 
 # Start insync for google-drive
 #exec --no-startup-id insync start
