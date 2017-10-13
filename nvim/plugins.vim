@@ -36,6 +36,7 @@ let g:neomake_javascript_jscs_maker = {
             \ 'errorformat': '%f: line %l\, col %c\, %m',
             \ }
 let g:neomake_javascript_enabled_makers = ['jshint', 'jscs']
+let g:neomake_python_enabled_makers = ['pep8']
 " }}}
 
 " deocomplete {{{
