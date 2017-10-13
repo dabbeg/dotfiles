@@ -1,7 +1,32 @@
 #!/bin/bash
 
-official="alsa-utils dunst awesome-terminal-fonts conky imagemagick i3status zsh feh neovim python python-neovim python2-neovim tree xorg xorg-xinit xclip rxvt-unicode rofi zsh-syntax-highlighting"
-aur="i3-gaps-next-git polybar-git"
+official="""
+alsa-utils
+dunst
+awesome-terminal-fonts
+conky
+imagemagick
+i3status
+zsh
+feh
+neovim
+python
+python-neovim
+python2-neovim
+tree
+xorg
+xorg-xinit
+xclip
+rofi
+terminator
+zsh-syntax-highlighting
+"""
+
+aur="""
+i3-gaps-next-git
+polybar-git
+"""
+
 
 echo "installing essential packages..."
 for app in $official; do
