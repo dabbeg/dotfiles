@@ -22,6 +22,9 @@ command! -description="Open firefox settings" settings tabopen about:preferences
 " Hide status bar when fullscreen mode is detected
 autocmd Fullscreen .* js updateBottomBar()
 
+" Use alphanumerals as hintchars
+set hintchars = abcdefghijklmnopqrstuvwxyz
+
 :js << EOF
 
 let hlContentSepValue = highlight.get('ContentSeparator').value
