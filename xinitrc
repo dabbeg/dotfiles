@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$HOME/dotfiles/scripts/adjust_monitors.sh
+$HOME/dotfiles/scripts/adjust_monitors.sh work
 
 DEFAULTSESSION=i3
 
