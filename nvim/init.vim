@@ -1,11 +1,9 @@
 " Basic Settings --------- {{{
-filetype plugin indent on
 set exrc "Forces vim to source .vimrc file if it is present in the working directory.
 set secure "Restrict usage of some commands for security
 
 set number
 set relativenumber
-set foldlevelstart=0
 
 set so=7 " set 7 lines to the cursors - when moving vertical
 set wildmenu " enhanced command line completion
@@ -152,14 +150,19 @@ noremap <silent> <C-l> :call WinMove('l')<cr>
 nnoremap <silent> <leader>i :call ToggleIndent()<cr>
 
 "Keys I want to stop using
-inoremap <up>    <nop>
-inoremap <left>  <nop>
-inoremap <right> <nop>
-inoremap <down>  <nop>
-nnoremap <up>    <nop>
-nnoremap <left>  <nop>
-nnoremap <right> <nop>
-nnoremap <down>  <nop>
+inoremap <up>     <nop>
+inoremap <left>   <nop>
+inoremap <right>  <nop>
+inoremap <down>   <nop>
+nnoremap <up>     <nop>
+nnoremap <left>   <nop>
+nnoremap <right>  <nop>
+nnoremap <down>   <nop>
+inoremap <S-up>   <nop>
+inoremap <S-down> <nop>
+nnoremap <S-up>   <nop>
+nnoremap <S-down> <nop>
+
 
 "Movement maps
 "<c-u>normal! gets past having to start changing at cursor
@@ -237,6 +240,21 @@ function! ToggleIndent()
         echo "indent=2"
     endif
 endfunction
+" }}}
+
+" Let's save undo info! -------------------- {{{
+let nvim_dir = $HOME."/.config/nvim"
+if !isdirectory(nvim_dir)
+    call mkdir(nvim_dir, "", 0770)
+endif
+
+let undo_dir = nvim_dir."/undo-dir"
+if !isdirectory(undo_dir)
+    call mkdir(undo_dir, "", 0700)
+endif
+
+let &undodir=undo_dir
+set undofile
 " }}}
 
 "Load plugins from vim-plug
