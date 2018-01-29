@@ -1,11 +1,61 @@
 #!/bin/bash
 
-rm /tmp/lock.png
-scrot 'lock.png' -e 'mv lock.png /tmp/'
-#convert /tmp/lock.png -scale 10% -scale 1000% /tmp/lock.png
-convert /tmp/lock.png -blur 0x4 /tmp/lock.png
-#convert -composite /tmp/lock.png ~/.i3/pictures/lock.png -gravity center /tmp/lock.png
-#composite -gravity center ~/.i3/pictures/lock77.png /tmp/lock.png /tmp/lock.png
-i3lock -i /tmp/lock.png -p default -n
+stop-spotify() {
+    dbus-send \
+        --print-reply \
+        --dest=org.mpris.MediaPlayer2.spotify \
+        /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+}
 
-dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+lock() {
+    RED=EE4760FF
+    GREEN=06C991FF
+    BLUE=2F8BA0FF
+    LIGHTDARK=00000055
+    WHITE=FFFFFFFF
+    REGULAR=EE8510FF
+    NONE=00000000
+    if [ "$1" = "" ]; then
+        i3lock \
+            --screen 2 \
+            --blur 9 \
+            --clock --timesize=36 \
+            --textcolor=$WHITE --timecolor=$WHITE \
+            --linecolor=$REGULAR \
+            --ringcolor=$REGULAR --ringwrongcolor=$RED --ringvercolor=$BLUE \
+            --insidecolor=$LIGHTDARK --insidewrongcolor=$LIGHTDARK --insidevercolor=$LIGHTDARK \
+            --separatorcolor=$NONE \
+            --keyhlcolor=$GREEN --bshlcolor=$RED \
+            --line-uses-ring
+    else
+        i3lock \
+            -i $1
+            --screen 2 \
+            --blur 9 \
+            --clock --timesize=36 \
+            --linecolor=$REGULAR \
+            --ringcolor=$REGULAR --ringwrongcolor=$RED --ringvercolor=$BLUE \
+            --insidecolor=$NONE --insidewrongcolor=$NONE --insidevercolor=$NONE \
+            --separatorcolor=$NONE \
+            --keyhlcolor=$GREEN --bshlcolor=$RED \
+            --line-uses-ring
+    fi
+}
+
+main() {
+    if [ "$1" == "wallpaper" ]; then
+        convert +append \
+            $HOME/.config/i3/pictures/wallpaper/2560x1440/heman.jpg \
+            $HOME/.config/i3/pictures/wallpaper/1920x1080/heman.jpg \
+            $HOME/.config/i3/pictures/wallpaper/1920x1080/heman.jpg \
+            /tmp/lock.png
+
+        #stop-spotify
+        lock /tmp/lock.png
+    else
+        #stop-spotify
+        lock
+    fi
+}
+
+main $1
