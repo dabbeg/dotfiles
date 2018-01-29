@@ -13,7 +13,7 @@
     # <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
     # If markup is not allowed, those tags will be stripped out of the
     # message.
-    allow_markup = yes
+    markup = yes
 
     # The format of the message.  Possible variables are:
     #   %a  appname
@@ -97,7 +97,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = no
+    follow = mouse
 
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
@@ -146,15 +146,14 @@
 
     # Align icons left/right/off
     icon_position = left
+    max_icon_size = 130
 
     # Paths to default icons.
-    icon_folders = /home/dabbeg/.config/dunst/icons/
-
-[frame]
+    icon_path = ~/.config/dunst/icons/
     #width = 3
     #color = "#aaaaaa"
-    width = 1
-    color = "#777777"
+    frame_width = 1
+    frame_color = "#777777"
 
 [shortcuts]
 
@@ -247,8 +246,8 @@
 
 # The name in the brackets is only for naming purposes
 # Only notifications with the appname spotify will be called by this script
-[spotify]
-    appname = Spotify
-    summary = "*"
-    urgency = low
-    new_icon = /home/dabbeg/.config/dunst/icons/spotify-client.png
+# [spotify]
+#     appname = Spotify
+#     summary = "*"
+#     urgency = low
+#     new_icon = /home/davidh/.config/dunst/icons/spotify-client.png
