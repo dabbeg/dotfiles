@@ -169,16 +169,10 @@ bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym j resize shrink width 5 px or 5 ppt
-        bindsym k resize grow height 5 px or 5 ppt
-        bindsym l resize shrink height 5 px or 5 ppt
-        bindsym semicolon resize grow width 5 px or 5 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -194,7 +188,7 @@ exec_always --no-startup-id MONITOR=DP-3-2 $HOME/.config/polybar/launch.sh
 # Desktop wallpaper
 #exec --no-startup-id $HOME/.config/i3/scripts/wallpaper.sh
 #exec --no-startup-id feh --no-xinerama --bg-scale $HOME/.config/i3/pictures/wallpaper/1366x768/moon.jpg
-exec --no-startup-id feh --bg-center $HOME/.config/i3/pictures/wallpaper/1920x1080/Firewatch_20160205030459.png
+exec --no-startup-id feh --bg-center $HOME/.config/i3/pictures/wallpaper/1920x1080/heman.jpg
 
 # Start insync for google-drive
 #exec --no-startup-id insync start
@@ -203,10 +197,11 @@ exec --no-startup-id feh --bg-center $HOME/.config/i3/pictures/wallpaper/1920x10
 exec --no-startup-id xmodmap $HOME/.xmodmaprc
 
 # Removes the titlebars over every window
-for_window [class="^.*"] border pixel 0
+#for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 
 # Starts the compostition manager Compton
-exec --no-startup-id sleep 5; compton -cb --vsync opengl --config $HOME/.compton.conf
+#exec --no-startup-id sleep 5; compton --config $HOME/.compton.conf
 
 # Starts up syndaemon which disables the touchpad when typing
 #exec --no-startup-id syndaemon -i 0.6

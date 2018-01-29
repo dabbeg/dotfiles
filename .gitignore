@@ -7,3 +7,4 @@
 /nvim/plugged/*
 /nvim/.init.vim-rplugin~
 /nvim/.netrwhist
+/nvim/undo-dir/

@@ -25,6 +25,7 @@ zsh-syntax-highlighting
 aur="""
 i3-gaps-next-git
 polybar-git
+i3lock-color
 """
 
 

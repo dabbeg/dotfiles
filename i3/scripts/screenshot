@@ -5,10 +5,10 @@
 NAME=`date +"screenshot-%Y-%m-%d_%H:%M:%S.png"`
 
 if [ "$1" == "select" ]; then
-    scrot $NAME -s -e 'mv $f ~/pictures/screenshots/'
+    scrot $NAME -s -e 'mv $f ~/screenshots/'
 else
-    scrot $NAME -e 'mv $f ~/pictures/screenshots/'
+    scrot $NAME -e 'mv $f ~/screenshots/'
 fi
 
-convert "/home/dabbeg/pictures/screenshots/$NAME" -resize 4096@ "/tmp/screenshot-notification.png"
+convert "/home/dabbeg/screenshots/$NAME" -resize 4096@ "/tmp/screenshot-notification.png"
 notify-send "Screenshot taken" -i "/tmp/screenshot-notification.png"

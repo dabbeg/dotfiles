@@ -16,3 +16,15 @@ statuspanel[type="status"] .statuspanel-label[value^="Looking"]
 statuspanel[type="status"] .statuspanel-label[value^="Connect"]
 statuspanel[type="status"] .statuspanel-label[value^="Waiting"]
 statuspanel[type="status"] .statuspanel-label[value^="Transfer"]
+
+#TabsToolbar {
+    visibility: collapse !important;
+}
+
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+  display: none;
+}
+
+menubar {
+  background-color: red;
+}
