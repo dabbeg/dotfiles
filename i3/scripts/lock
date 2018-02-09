@@ -12,18 +12,20 @@ lock() {
     GREEN=06C991FF
     BLUE=2F8BA0FF
     LIGHTDARK=00000055
+    DARK=000000
     WHITE=FFFFFFFF
     REGULAR=EE8510FF
     NONE=00000000
     if [ "$1" = "" ]; then
         i3lock \
             --screen 2 \
-            --blur 9 \
             --clock --timesize=36 \
+            --color=$DARK \
             --textcolor=$WHITE --timecolor=$WHITE \
             --linecolor=$REGULAR \
             --ringcolor=$REGULAR --ringwrongcolor=$RED --ringvercolor=$BLUE \
             --insidecolor=$LIGHTDARK --insidewrongcolor=$LIGHTDARK --insidevercolor=$LIGHTDARK \
+            --datecolor=$WHITE \
             --separatorcolor=$NONE \
             --keyhlcolor=$GREEN --bshlcolor=$RED \
             --line-uses-ring
@@ -31,11 +33,12 @@ lock() {
         i3lock \
             -i $1
             --screen 2 \
-            --blur 9 \
             --clock --timesize=36 \
+            --color=$DARK \
             --linecolor=$REGULAR \
             --ringcolor=$REGULAR --ringwrongcolor=$RED --ringvercolor=$BLUE \
             --insidecolor=$NONE --insidewrongcolor=$NONE --insidevercolor=$NONE \
+            --datecolor=$WHITE \
             --separatorcolor=$NONE \
             --keyhlcolor=$GREEN --bshlcolor=$RED \
             --line-uses-ring
