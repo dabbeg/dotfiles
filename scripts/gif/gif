@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# LEFT_SCREEN=2560
+# TREE_TABS=230
+# X=$((LEFT_SCREEN + TREE_TABS))
+
+# ADDRESS_BAR=88
+# Y=$((ADDRESS_BAR))
+
+# WIDTH=1690
+# HEIGHT=1110
+
+# echo $X
+# echo $Y
+
+
+
+byzanz-record -d 5 -c -x $X -y $Y -w $WIDTH -h $HEIGHT -v out.gif
