@@ -1,14 +1,15 @@
 call plug#begin()
 
 " NERDTree {{{
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle', 'for': ['vim', 'javascript', 'python', 'css', 'html', 'bash', 'java'] }
 
-let g:NERDTreeWinSize=25
+let g:NERDTreeWinSize=30
 let NERDTreeShowBookmarks=1
 let NERDTreeHijackNetrw = 0
 let NERDTreeIgnore=['\.meta$', '\.pyc$']
 
 nnoremap <leader>n :NERDTreeToggle<cr>
+nnoremap <leader>f :NERDTreeFind<cr>
 " }}}
 
 " vim-airline {{{
@@ -60,7 +61,6 @@ let g:deoplete#enable_at_startup = 1
 let g:python3_host_prog = '/usr/bin/python'
 " }}}
 
-
 " fzf {{{
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzyfinder
 
@@ -79,5 +79,9 @@ Plug 'tpope/vim-fugitive'
 " vim-grepper {{{
 Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
 map <C-g> :Grepper -tool git<cr>
+" }}}
+
+" vim-test {{{
+Plug 'janko-m/vim-test', { 'for': ['javascript'] }
 " }}}
 call plug#end()

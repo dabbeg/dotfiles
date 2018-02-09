@@ -123,6 +123,9 @@ nmap <leader>d :bp <BAR> bd #<CR>
 nnoremap <C-w> gt
 nnoremap <C-q> gT
 
+" Opposite of <S-j>
+nnoremap <S-k> f,a<CR><ESC>l
+
 "Surround word with brackets
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
@@ -136,6 +139,7 @@ vnoremap <leader>{ <esc>`>a}<esc>`<i{<esc>`>ll
 vnoremap <leader>[ <esc>`>a]<esc>`<i[<esc>`>ll
 
 "Work with vimrc file
+nnoremap <leader>ep :vsplit $HOME/.config/nvim/plugins.vim<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
