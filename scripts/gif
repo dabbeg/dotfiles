@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Records gif
+
+DELAY=3 #Delay before starting
+DURATION=100 #Default recording duration
+TIME=$(date +"%Y-%m-%d_%H%M%S") #Timestamp
+FOLDER="$HOME/gifs" #Default output directory
+
+function ctrl_c() {
+    FILE=$1
+    if [[ $FILE = *$HOME* ]]; then
+        FILE=$(echo $FILE | cut -c $((${#HOME}+2))-${#FILE})
+        FILE="~/$FILE"
+    fi
+    notify-send "GIFRecorder" "Screencast saved in $FILE"
+    exit 0
+}
+
+GIF_NAME=$(gdialog --title "Gif name?" --inputbox "Please enter the gif name" 200 100 2>&1)
+
+if [ "$GIF_NAME" != "" ]; then
+    NAME="$FOLDER/$GIF_NAME.gif"
+else
+    NAME="$FOLDER/unamed-recording-$TIME.gif"
+fi
+
+#Get coordinates using xrectsel from https://github.com/lolilolicon/xrectsel
+REGION=$(xrectsel "--x=%x --y=%y --width=%w --height=%h") || exit -1
+
+for (( i=$DELAY; i>0; --i )) ; do
+    echo $i
+    sleep 1
+done
+
+notify-send "GIFRecorder" "Recording started."
+trap "{ ctrl_c $NAME; }" SIGINT
+byzanz-record --cursor \
+              --verbose \
+              --delay=0 \
+              ${REGION} \
+              --duration=$DURATION \
+              "$NAME"
+

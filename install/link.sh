@@ -11,6 +11,7 @@ olddir_exists=false
 files_homedir="compton.conf dircolors jshintrc vimperatorrc xinitrc xmodmaprc Xresources zshrc"
 files_configdir="i3 nvim dunst polybar"
 files_mozilla="userChrome.css"
+files_scripts_bin="gif"
 
 symlink() {
     # checking if symlink does already exist
@@ -48,4 +49,9 @@ done
 mkdir -p $HOME/.mozilla/
 for file in $files_mozilla; do
     symlink $HOME/.mozilla/$file $dir/mozilla/$file
+done
+
+# Linking files in bin
+for file in $files_scripts_bin; do
+    symlink /usr/local/bin/$file $dir/scripts/$file
 done
