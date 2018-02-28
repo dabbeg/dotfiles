@@ -51,7 +51,7 @@ case "$1" in
     tv-extend)
         xrandr --current -d :0 \
                --output eDP-1 --auto \
-               --output DP-2 --auto --right-of eDP-1
+               --output HDMI-1 --auto --right-of eDP-1
     ;;
 
     tv-mirror)

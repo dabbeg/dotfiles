@@ -261,5 +261,15 @@ let &undodir=undo_dir
 set undofile
 " }}}
 
+" Open git unstaged files {{{
+nnoremap <leader>u :call OpenUnstaged()<cr>
+function! OpenUnstaged()
+    let unstaged = system("git status --short | awk '{print $2}'")
+    for file in split(unstaged)
+        execute 'edit' file
+    endfor
+endfunction
+" }}}
+
 "Load plugins from vim-plug
 source ~/.config/nvim/plugins.vim
