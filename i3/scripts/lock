@@ -21,7 +21,7 @@ lock() {
             --screen 2 \
             --clock --timesize=36 \
             --color=$DARK \
-            --textcolor=$WHITE --timecolor=$WHITE \
+            --layoutcolor=$WHITE --timecolor=$WHITE \
             --linecolor=$REGULAR \
             --ringcolor=$REGULAR --ringwrongcolor=$RED --ringvercolor=$BLUE \
             --insidecolor=$LIGHTDARK --insidewrongcolor=$LIGHTDARK --insidevercolor=$LIGHTDARK \

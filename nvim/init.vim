@@ -43,7 +43,7 @@ set softtabstop=4
 " }}}
 
 " Apperance {{{
-colorscheme gruvbox
+"colorscheme gruvbox
 set background=dark
 
 syntax on

@@ -1,8 +1,10 @@
 !!!!!!! ROFI !!!!!!!
-rofi.lines: 3
+rofi.lines: 4
 rofi.font: Droid Sans Mono 16
 rofi.width: 50
 rofi.padding: 20
+rofi.show-icons: true
+rofi.drun-icon-theme: Numix-Circle
 
 
 !Color             bckg     foreg    bckg alt hi bckg  hi foreg
@@ -19,4 +21,4 @@ rofi.fuzzy: true
 !rofi.auto-select: true
 rofi.hide-scrollbar: true
 rofi.terminal: urxvt
-
+rofi.modi: window,run,ssh,drun

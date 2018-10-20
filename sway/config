@@ -1,0 +1,227 @@
+## alt = Mod1
+## win = Mod4
+
+#set $mod Mod4
+#set $workspace1  "1 "
+#set $workspace2  "2 "
+#set $workspace3  "3 "
+#set $workspace4  "4"
+#set $workspace5  "5"
+#set $workspace6  "6"
+#set $workspace7  "7"
+#set $workspace8  "8"
+#set $workspace9  "9"
+#set $workspace10 "10 "
+
+#output eDP-1 pos 0 0 res 2560x1440
+#output DP-4 pos 2560 0 res 1920x1080
+#output DP-5 pos 4480 0 res 1920x1080
+
+##workspace $workspace1 output DVI-I-0
+#workspace $workspace2 output DP-3-2
+#workspace $workspace3 output DP-3-1
+
+## lock
+#bindsym XF86AudioPause exec $HOME/.config/i3/scripts/lock
+
+## Binds the Print Scrn button to take a screenshot with scrot and save it to ~/Pictures/screenshots
+#bindsym Print exec $HOME/.config/i3/scripts/screenshot
+
+## Binds the windows button to toggle the touchpad on/off
+#bindsym F2 exec $HOME/.config/i3/scripts/i3/toggle_touchpad.sh
+
+## Binds the mod + Print Scrn button to take a screenshot with scrot -s and save it to ~/Pictures/screenshots
+#bindsym $mod+Print exec $HOME/.config/i3/scripts/screenshot "select"
+
+## Toggle between keyboard layouts
+#bindsym $mod+Tab exec $HOME/.config/i3/scripts/i3blocks/toggleKeyboardLayout
+
+## Make the currently focused window a scratchpad
+#bindsym $mod+Shift+minus move scratchpad
+
+## Show the first scratchpad window [keycode 20 == key right of 0]
+#bindcode $mod+20 scratchpad show
+
+#for_window [title="Messenger"] move window to scratchpad, resize grow width 80 px
+##exec --no-startup-id sleep 10; messengerfordesktop
+
+##for_window [title="Spotify"] move window to workspace $workspace10
+##exec --no-startup-id sleep 10; spotify --force-device-scale-factor=1.0000001
+
+##for_window [title="Firefox"] move window to workspace $workspace2
+##exec --no-startup-id sleep 10; firefox
+
+## Move the current workspace to the screen to the right
+#bindsym $mod+ctrl+h move workspace to output left
+
+## Move the current workspace to the screen to the left
+#bindsym $mod+ctrl+l move workspace to output right
+
+## change the font
+##font pango: Lucida Grande 9
+#font pango: System San Francisco Display 11
+
+## Sreen brightness controls
+#bindsym XF86MonBrightnessUp exec light -A 10
+#bindsym XF86MonBrightnessDown exec light -U 10
+
+## Touchpad controls
+#bindsym XF86TouchpadToggle exec $HOME/.config/i3/scripts/toggletouchpad.sh # toggle touchpad
+
+## Media player controls
+#bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+#bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+#bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+#bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+#bindsym XF86AudioRaiseVolume exec amixer -q set Master 2%+ unmute
+#bindsym XF86AudioLowerVolume exec amixer -q set Master 2%- unmute
+#bindsym XF86AudioMute exec amixer -q -D pulse set Master toggle
+
+#bindsym $mod+space exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+#bindsym $mod+Left exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+#bindsym $mod+Right exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+#bindsym $mod+Up exec amixer -q set Master 2%+ unmute
+#bindsym $mod+Down exec amixer -q set Master 2%- unmute
+
+## Use Mouse+$mod to drag floating windows to their wanted position
+#floating_modifier $mod
+
+## start a terminal
+##bindsym $mod+Return exec i3-sensible-terminal
+##bindsym $mod+Return exec xfce4-terminal
+#bindsym $mod+Return exec terminator
+
+## kill focused window
+#bindsym $mod+q kill
+
+## start dmenu (a program launcher)
+##bindsym $mod+d exec dmenu_run
+## There also is the (new) i3-dmenu-desktop which only displays applications
+## shipping a .desktop file. It is a wrapper around dmenu, so you need that
+## installed.
+##bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec rofi -run-command "zsh -i -c '{cmd}'" -show drun
+#bindsym $mod+s exec rofi -show ssh
+
+## change focus
+#bindsym $mod+h focus left
+#bindsym $mod+j focus down
+#bindsym $mod+k focus up
+#bindsym $mod+l focus right
+
+## move focused window
+#bindsym $mod+Shift+h move left
+#bindsym $mod+Shift+j move down
+#bindsym $mod+Shift+k move up
+#bindsym $mod+Shift+l move right
+
+## split in horizontal orientation
+#bindsym $mod+b split h
+
+## split in vertical orientation
+#bindsym $mod+v split v
+
+## enter fullscreen mode for the focused container
+#bindsym $mod+f fullscreen
+
+## change container layout (stacked, tabbed, toggle split)
+##bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
+
+## toggle tiling / floating
+#bindsym $mod+Shift+space floating toggle
+
+## change focus between tiling / floating windows
+##bindsym $mod+space focus mode_toggle
+
+## focus the parent container
+#bindsym $mod+a focus parent
+
+## focus the child container
+##bindsym $mod+d focus child
+
+## switch to workspace
+#bindsym $mod+1 workspace $workspace1
+#bindsym $mod+2 workspace $workspace2
+#bindsym $mod+3 workspace $workspace3
+#bindsym $mod+4 workspace $workspace4
+#bindsym $mod+5 workspace $workspace5
+#bindsym $mod+6 workspace $workspace6
+#bindsym $mod+7 workspace $workspace7
+#bindsym $mod+8 workspace $workspace8
+#bindsym $mod+9 workspace $workspace9
+#bindsym $mod+0 workspace $workspace10
+
+## move focused container to workspace
+#bindsym $mod+Shift+1 move container to workspace $workspace1
+#bindsym $mod+Shift+2 move container to workspace $workspace2
+#bindsym $mod+Shift+3 move container to workspace $workspace3
+#bindsym $mod+Shift+4 move container to workspace $workspace4
+#bindsym $mod+Shift+5 move container to workspace $workspace5
+#bindsym $mod+Shift+6 move container to workspace $workspace6
+#bindsym $mod+Shift+7 move container to workspace $workspace7
+#bindsym $mod+Shift+8 move container to workspace $workspace8
+#bindsym $mod+Shift+9 move container to workspace $workspace9
+#bindsym $mod+Shift+0 move container to workspace $workspace10
+
+## reload the configuration file
+#bindsym $mod+Shift+c reload
+## restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+#bindsym $mod+Shift+r restart
+
+## resize window (you can also use the mouse for that)
+#mode "resize" {
+#        bindsym h resize shrink width 5 px or 5 ppt
+#        bindsym j resize grow height 5 px or 5 ppt
+#        bindsym k resize shrink height 5 px or 5 ppt
+#        bindsym l resize grow width 5 px or 5 ppt
+
+#        # back to normal: Enter or Escape
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
+
+#bindsym $mod+r mode "resize"
+
+##exec_always --no-startup-id MONITOR=eDP-1 $HOME/.config/polybar/launch.sh
+##exec_always --no-startup-id MONITOR=DP-3-1 $HOME/.config/polybar/launch.sh
+##exec_always --no-startup-id MONITOR=DP-3-2 $HOME/.config/polybar/launch.sh
+
+### Desktop wallpaper
+###exec --no-startup-id $HOME/.config/i3/scripts/wallpaper.sh
+###exec --no-startup-id feh --no-xinerama --bg-scale $HOME/.config/i3/pictures/wallpaper/1366x768/moon.jpg
+##exec --no-startup-id feh --bg-center $HOME/.config/i3/pictures/wallpaper/1920x1080/green_sunrise.png
+
+### Start insync for google-drive
+###exec --no-startup-id insync start
+
+### Run xmodmap with its config
+##exec --no-startup-id xmodmap $HOME/.xmodmaprc
+
+### Removes the titlebars over every window
+###for_window [class="^.*"] border pixel 0
+##for_window [class="^.*"] border pixel 1
+
+### Starts the compostition manager Compton
+###exec --no-startup-id sleep 5; compton --config $HOME/.compton.conf
+
+### Starts up syndaemon which disables the touchpad when typing
+###exec --no-startup-id syndaemon -i 0.6
+
+### Starts up unclutter which hides the cursor when not being used
+##exec --no-startup-id unclutter -b --timeout 2
+
+### Starts up dunst, a notification daemon
+##exec --no-startup-id dunst
+
+### Startup xss-lock which locks on certain acpi events
+##exec --no-startup-id xss-lock -- $HOME/.config/i3/scripts/lock
+
+### Disable display power saver
+##exec xset s off -dpms
+
+###Read Xresources
+##exec xrdb $HOME/.Xresources
+
+##gaps inner 10

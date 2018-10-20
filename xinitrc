@@ -6,5 +6,6 @@ DEFAULTSESSION=i3
 
 case "$1" in
      i3) exec i3 ;;
+     sway) exec sway ;;
      *) exec $DEFAULTSESSION ;;
 esac
