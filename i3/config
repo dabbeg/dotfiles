@@ -38,8 +38,8 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window [keycode 20 == key right of 0]
 bindcode $mod+20 scratchpad show
 
-for_window [title="Messenger"] move window to scratchpad, resize grow width 80 px
-exec --no-startup-id sleep 10; messengerfordesktop
+for_window [title="Messenger"] move window to scratchpad
+exec --no-startup-id sleep 10; caprine
 
 #for_window [title="Spotify"] move window to workspace $workspace10
 #exec --no-startup-id sleep 10; spotify --force-device-scale-factor=1.0000001
@@ -190,7 +190,7 @@ exec_always --no-startup-id MONITOR=DP-3-2 $HOME/.config/polybar/launch.sh
 exec --no-startup-id feh --bg-center $HOME/.config/i3/pictures/wallpaper/1920x1080/green_sunrise.png
 
 # Start insync for google-drive
-#exec --no-startup-id insync start
+exec --no-startup-id insync start
 
 # Run xmodmap with its config
 exec --no-startup-id xmodmap $HOME/.xmodmaprc
@@ -220,4 +220,4 @@ exec xset s off -dpms
 #Read Xresources
 exec xrdb $HOME/.Xresources
 
-gaps inner 10
+#gaps inner 10

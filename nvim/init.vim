@@ -24,7 +24,7 @@ set magic " Set magic on, for regex
 set showmatch " show matching braces
 set mat=2 " how many tenths of a second to blink
 "Highlight the column of the 110 line too see if your lines are too long
-set colorcolumn=79
+set colorcolumn=81
 highlight ColorColumn ctermbg=darkgray
 
 set wrap "turn on line wrapping

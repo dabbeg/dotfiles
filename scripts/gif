@@ -3,7 +3,7 @@
 # Records gif
 
 DELAY=3 #Delay before starting
-DURATION=100 #Default recording duration
+DURATION=200 #Default recording duration
 TIME=$(date +"%Y-%m-%d_%H%M%S") #Timestamp
 FOLDER="$HOME/gifs" #Default output directory
 

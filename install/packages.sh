@@ -9,6 +9,7 @@ imagemagick
 i3status
 zsh
 feh
+lxappearance
 neovim
 python
 python-neovim

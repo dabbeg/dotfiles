@@ -5,7 +5,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle', 'for': ['vim', 'javascript
 let g:NERDTreeWinSize=30
 let NERDTreeShowBookmarks=1
 let NERDTreeHijackNetrw = 0
-let NERDTreeIgnore=['\.meta$', '\.pyc$']
+let NERDTreeIgnore=['\.meta$', '\.pyc$', '__pycache__$']
 
 nnoremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
@@ -49,6 +49,7 @@ else
 endif
 let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_logfile='/tmp/neomake.log'
+let g:neomake_verbose=3
 " }}}
 
 " deocomplete {{{
@@ -63,7 +64,7 @@ let g:python3_host_prog = '/usr/bin/python'
 " fzf {{{
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fuzzyfinder
 
-let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag -l --ignore "target/" --ignore "build/dist" --ignore "node_modules/" -g ""'
 map <C-b> :FZF<cr>
 "}}}
 
@@ -159,11 +160,32 @@ nmap <silent> <leader>, :call PrevHunkAllBuffers()<CR>
 " Ale {{{
 Plug 'w0rp/ale'
 let g:airline#extensions#ale#enabled = 1
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'python': ['pyflakes']
+\}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier', 'eslint'],
+\   'python': ['black']
 \}
 nmap <silent> <leader>x :call ALEFix
+" }}}
+
+" Prettier {{{
+Plug 'prettier/vim-prettier'
+"nmap <leader>p :Prettier<cr>
+" }}}
+"
+" Python {{{
+Plug 'vim-python/python-syntax'
+let g:python_highlight_all = 1
+
+Plug 'ambv/black'
+let g:black_linelength = 100
+let g:black_py37 = 1
+
+Plug 'darrikonn/vim-isort'
 " }}}
 call plug#end()
 

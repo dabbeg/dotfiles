@@ -25,8 +25,8 @@ case "$1" in
         xrandr --newmode "2048x1152_60.00"  197.00  2048 2184 2400 2752  1152 1155 1160 1195 -hsync +vsync
         xrandr --addmode eDP-1 2048x1152_60.00
         xrandr --output eDP-1 --auto \
-               --output DP-3-2 --auto --right-of eDP-1 \
-               --output DP-3-1 --auto --right-of DP-3-2 --rotate left
+               --output DP-3-2 --mode 2560x1440 --right-of eDP-1 \
+               --output DP-3-1 --mode 2560x1440 --right-of DP-3-2 --rotate right
         sleep 2
         xrandr --output eDP-1 --mode 2048x1152_60.00
     ;;
@@ -39,7 +39,7 @@ case "$1" in
         xrandr --current -d :0 \
                --output eDP-1 --crtc 0 --auto \
                --output DP-3-2 --crtc 1 --auto --right-of eDP-1 \
-               --output DP-3-1 --crtc 2 --auto --rotate left --right-of DP-3-2
+               --output DP-3-1 --crtc 2 --auto --rotate right --right-of DP-3-2
         sleep 2
         xrandr --current -d :0 \
                --output eDP-1 --mode 2048x1152_60.00
