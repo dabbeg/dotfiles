@@ -20,6 +20,7 @@ xorg-xinit
 xclip
 rofi
 terminator
+git
 zsh-syntax-highlighting
 """
 
@@ -36,10 +37,14 @@ for app in $official; do
     sudo pacman -S $app
 done
 
+echo "installing yay"
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ..
+rm -rf yay
+
 echo "installing aur packages..."
 for app in $aur; do
-    yaourt -S $app
+    yay -S $app
 done
-
-
-
