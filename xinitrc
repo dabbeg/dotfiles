@@ -1,6 +1,7 @@
 #!/bin/bash
 
 $HOME/dotfiles/scripts/adjust_monitors.sh work
+dbus-update-activation-environment --systemd DISPLAY
 
 DEFAULTSESSION=i3
 
