@@ -1,0 +1,100 @@
+#!/bin/bash
+#
+# A command line tool for selecting a random base16-theme
+#
+
+BASE16_THEME=$HOME/.base16_theme
+CANDIDATE="/tmp/.base16_candidate"
+SCRIPTS_PATH="$BASE16_SHELL/scripts"
+
+get_theme_name() {
+    THEME=$1
+    echo $(echo $THEME | rev | cut -d '/' -f 1 | rev)
+}
+
+store_theme() {
+    THEME_NAME=$1
+    echo "$THEME_NAME" > $CANDIDATE
+}
+
+activate_theme() {
+    THEME=$1
+    THEME_NAME=$(get_theme_name $THEME)
+    echo "Activated $THEME_NAME"
+    store_theme $THEME_NAME
+    source $THEME
+}
+
+select_theme() {
+    shift
+    PARTIAL_THEME_NAME=$1
+    THEMES=($(find $SCRIPTS_PATH/*$PARTIAL_THEME_NAME*))
+    case "${#THEMES[@]}" in
+        0)
+            echo "No theme found with that name"
+        ;;
+        1)
+            activate_theme ${THEMES[0]}
+        ;;
+        *)
+            echo "Multiple themes found:"
+            for THEME in ${THEMES[@]}; do
+                echo $(get_theme_name $THEME)
+            done
+    esac
+}
+
+randomize() {
+    THEMES=($(find $SCRIPTS_PATH))
+    INDEX="$RANDOM"
+    INDEX="$(($INDEX%${#THEMES[@]}))"
+    THEME="${THEMES[@]:$INDEX:1}"
+
+    activate_theme $THEME
+}
+
+save() {
+    THEME_NAME=$(cat $CANDIDATE)
+    rm $BASE16_THEME
+    ln -s $SCRIPTS_PATH/$THEME_NAME $BASE16_THEME
+    echo "Saved $THEME_NAME"
+}
+
+restore() {
+    THEME=$(readlink -f $BASE16_THEME)
+    THEME_NAME=$(get_theme_name $THEME)
+    store_theme $THEME_NAME
+
+    source $BASE16_THEME
+    echo "Restored $THEME_NAME"
+}
+
+help() {
+    echo "Usage: base16 sel|rand|save|res"
+    echo "       sel THEME - select a theme"
+    echo "       rand - randomize to some theme"
+    echo "       save - save the current theme"
+    echo "       res - restore to the last saved theme"
+
+}
+
+main() {
+    case "$1" in
+        sel)
+            select_theme "$@"
+        ;;
+        rand)
+            randomize
+        ;;
+        save)
+            save
+        ;;
+        res)
+            restore
+        ;;
+        *)
+            help
+    esac
+}
+
+main "$@"
