@@ -52,7 +52,7 @@ case "$1" in
                --addmode eDP-1 2048x1152_60.00
         xrandr --current -d :0 \
                --output eDP-1 --auto \
-               --output DP-3-2 --auto --right-of eDP-1
+               --output DP-3-1 --auto --left-of eDP-1
         sleep 2
         xrandr --current -d :0 \
                --output eDP-1 --mode 2048x1152_60.00
