@@ -28,6 +28,7 @@ files="
 .mozilla/userChrome.css:mozilla/userChrome.css
 
 .local/bin/gif:scripts/gif
+.local/bin/base16_rand:scripts/base16_rand
 "
 
 symlink() {

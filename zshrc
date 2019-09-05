@@ -32,7 +32,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 fi
 
 # Base16 Shell
-BASE16_SHELL=$HOME/.config/base16-shell/
+export BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # Execute neofetch
@@ -58,7 +58,7 @@ alias pacro='sudo paclo && sudo pacman -Rns $(pacman -Qtdq)'
 alias spotify='spotify --force-device-scale-factor=1.2'
 alias k='kubectl'
 alias git-commmmit='git commit -m "$(curl "whatthecommit.com"|egrep "<p>"|sed "s/<p>//")"'
-alias se='ag -l --ignore "node_modules" --ignore "target"'
+alias se='ag -l --ignore "node_modules" --ignore "target" --ignore "venv"'
 alias ts='tempoc stop && tempoc clean && tempoc start --recent'
 
 # Tempo specific env variables

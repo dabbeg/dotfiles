@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# A command line tool for selecting a random base16-theme
+#
+
+SCRIPTS_PATH="$BASE16_SHELL/scripts"
+
+randomize() {
+    THEMES=($(find $SCRIPTS_PATH))
+    INDEX="$RANDOM"
+    INDEX="$(($INDEX%${#THEMES[@]}))"
+    THEME="${THEMES[@]:$INDEX:1}"
+
+    THEME_NAME=$(echo $THEME | rev | cut -d '/' -f 1 | rev)
+    echo "Selecting theme $THEME_NAME"
+    source $THEME
+}
+
+main() {
+    randomize
+}
+
+main "$@"
