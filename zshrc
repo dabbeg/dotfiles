@@ -65,7 +65,6 @@ alias ts='tempoc stop && tempoc clean && tempoc start --recent'
 export PATH=/home/davidh/.tempo/dolly/tempoc/bin:$PATH # Tempo CLI
 export PATH=/home/davidh/.tempo/tempo-server/tserver/bin:$PATH # tserver CLI
 export PATH=/opt/atlassian-plugin-sdk/bin:$PATH # atlassian CLI
-export NPM_KEY="a70c9855-c453-49a4-93d0-4cc29f694aee"
 export COMPOSE_ENV_LOCAL=/home/davidh/.tempo/config/zendesk-defaults-generated.yaml
 
 export NVM_DIR="$HOME/.nvm"
