@@ -7,5 +7,7 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Launch top
-polybar top &
+for monitor in $(polybar --list-monitors | cut -d ':' -f1); do
+    MONITOR=$monitor polybar top &
+done
 

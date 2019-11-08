@@ -1,0 +1,8 @@
+#/usr/bin/env bash
+
+ONELOGIN_ID="8348923104897834169"
+PASSWORD=$(lpass show --password $ONELOGIN_ID)
+
+echo "$PASSWORD" | xclip
+
+sudo openvpn /etc/openvpn/client/tempo.conf

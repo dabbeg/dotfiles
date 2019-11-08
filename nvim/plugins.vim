@@ -160,21 +160,21 @@ nmap <silent> <leader>, :call PrevHunkAllBuffers()<CR>
 " Ale {{{
 Plug 'w0rp/ale'
 let g:airline#extensions#ale#enabled = 1
+let g:ale_python_black_options = '--skip-string-normalization --line-length 79 --py36'
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'python': ['pyflakes']
+\   'python': ['flake8']
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier', 'eslint'],
 \   'python': ['black']
 \}
-nmap <silent> <leader>x :call ALEFix
+nmap <silent> <leader>p :ALEFix<cr>
 " }}}
 
 " Prettier {{{
-Plug 'prettier/vim-prettier'
-"nmap <leader>p :Prettier<cr>
+"Plug 'prettier/vim-prettier'
 " }}}
 "
 " Python {{{

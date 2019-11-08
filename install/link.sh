@@ -29,6 +29,7 @@ files="
 
 .local/bin/gif:scripts/gif
 .local/bin/base:scripts/base
+.local/bin/tempovpn:scripts/tempovpn
 "
 
 symlink() {

@@ -180,9 +180,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-exec_always --no-startup-id MONITOR=eDP-1 $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id MONITOR=DP-3-1 $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id MONITOR=DP-3-2 $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Desktop wallpaper
 #exec --no-startup-id $HOME/.config/i3/scripts/wallpaper.sh
