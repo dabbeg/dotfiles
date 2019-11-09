@@ -2,32 +2,36 @@
 
 official="""
 alsa-utils
-dunst
+autojump
 awesome-terminal-fonts
+aws-cli
 conky
-imagemagick
-i3status
-zsh
+dunst
 feh
+git
+i3status
+imagemagick
 lxappearance
 neovim
+openssh
 python
 python-neovim
 python2-neovim
-tree
-xorg
-xorg-xinit
-xclip
 rofi
 terminator
-git
+tree
+xclip
+xorg
+xorg-xinit
+zsh
 zsh-syntax-highlighting
 """
 
 aur="""
+direnv
 i3-gaps-next-git
-polybar-git
 i3lock-color
+polybar-git
 xrectsel
 """
 
