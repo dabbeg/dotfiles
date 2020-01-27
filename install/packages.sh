@@ -2,7 +2,6 @@
 
 official="""
 alsa-utils
-autojump
 awesome-terminal-fonts
 aws-cli
 conky
@@ -19,6 +18,7 @@ python-neovim
 python2-neovim
 rofi
 terminator
+the_silver_searcher
 tree
 xclip
 xorg
