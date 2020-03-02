@@ -89,6 +89,7 @@ augroup END
 au Syntax jflex    so ~/.config/nvim/syntax/jflex.vim
 " }}}
 
+
 " Mappings {{{
 " set a map leader for more key combos
 let mapleader = ' '

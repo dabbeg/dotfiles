@@ -37,7 +37,7 @@ font-3 = FontAwesome:size=11:antialias=false;2
 
 modules-left = i3
 modules-center = date
-modules-right = pkg filesystem volume xkeyboard wlan eth battery powermenu
+modules-right = filesystem volume xkeyboard wlan eth battery powermenu
 
 tray-position = right
 tray-padding = 2
