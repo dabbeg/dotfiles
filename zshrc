@@ -44,6 +44,11 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# This is all to bind Ctrl-o to run lopen
+function lopen_func() { lopen }
+zle -N lopen_widget lopen_func
+bindkey '^o' lopen_widget
+
 # Alias
 alias vim='nvim'
 alias bcolor='source $HOME/dotfiles/scripts/bcolor.sh'
