@@ -54,9 +54,11 @@ randomize() {
 }
 
 save() {
-    THEME_NAME=$(cat $CANDIDATE)
-    rm $BASE16_THEME
-    ln -s $SCRIPTS_PATH/$THEME_NAME $BASE16_THEME
+    SCRIPT_NAME=$(cat $CANDIDATE)
+    THEME_NAME=$(echo $SCRIPT_NAME | cut -d "-" -f2- | cut -d "." -f1)
+
+    eval "$($BASE16_SHELL/profile_helper.sh)"
+    _base16 "$SCRIPTS_PATH/$SCRIPT_NAME" $THEME_NAME
     echo "Saved $THEME_NAME"
 }
 
@@ -69,12 +71,20 @@ restore() {
     echo "Restored $THEME_NAME"
 }
 
+list_themes() {
+    for SCRIPT in $(find $SCRIPTS_PATH); do
+        SCRIPT_NAME=$(echo $SCRIPT | rev | cut -d "/" -f1 | rev)
+        echo $SCRIPT_NAME
+    done
+}
+
 help() {
     echo "Usage: base16 sel|rand|save|res"
     echo "       sel THEME - select a theme"
-    echo "       rand - randomize to some theme"
-    echo "       save - save the current theme"
-    echo "       res - restore to the last saved theme"
+    echo "       rand      - randomize to some theme"
+    echo "       save      - save the current theme"
+    echo "       res       - restore to the last saved theme"
+    echo "       lst       - list all available themes"
 
 }
 
@@ -91,6 +101,9 @@ main() {
         ;;
         res)
             restore
+        ;;
+        lst)
+            list_themes
         ;;
         *)
             help

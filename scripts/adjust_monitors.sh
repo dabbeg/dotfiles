@@ -46,16 +46,7 @@ case "$1" in
     ;;
 
     home)
-        xrandr --current -d :0 \
-               --newmode "2048x1152_60.00"  197.00  2048 2184 2400 2752  1152 1155 1160 1195 -hsync +vsync
-        xrandr --current -d :0 \
-               --addmode eDP-1 2048x1152_60.00
-        xrandr --current -d :0 \
-               --output eDP-1 --auto \
-               --output DP-3-1 --auto --left-of eDP-1
-        sleep 2
-        xrandr --current -d :0 \
-               --output eDP-1 --mode 2048x1152_60.00
+        xrandr --output DVI-D-1 --rotate left --right-of HDMI-1
     ;;
 
     tv-extend)
