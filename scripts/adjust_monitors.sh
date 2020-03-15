@@ -45,6 +45,16 @@ case "$1" in
                --output eDP-1 --mode 2048x1152_60.00
     ;;
 
+    home-work)
+        xrandr --newmode "2048x1152_60.00"  197.00  2048 2184 2400 2752  1152 1155 1160 1195 -hsync +vsync
+        xrandr --addmode eDP-1 2048x1152_60.00
+        xrandr --output eDP-1 --auto \
+               --output DP-3-1 --mode 1920x1080 --right-of eDP-1 \
+               --output DP-3-2 --mode 1920x1080 --right-of DP-3-1 --rotate left
+        sleep 2
+        xrandr --output eDP-1 --mode 2048x1152_60.00
+    ;;
+
     home)
         xrandr --output DVI-D-1 --rotate left --right-of HDMI-1
     ;;
