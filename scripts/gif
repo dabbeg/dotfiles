@@ -17,13 +17,14 @@ function ctrl_c() {
     exit 0
 }
 
-GIF_NAME=$(gdialog --title "Gif name?" --inputbox "Please enter the gif name" 200 100 2>&1)
+# GIF_NAME=$(gdialog --title "Gif name?" --inputbox "Please enter the gif name" 200 100 2>&1)
 
-if [ "$GIF_NAME" != "" ]; then
-    NAME="$FOLDER/$GIF_NAME.gif"
-else
+# if [ "$GIF_NAME" != "" ]; then
+#     NAME="$FOLDER/$GIF_NAME.gif"
+# else
     NAME="$FOLDER/unamed-recording-$TIME.gif"
-fi
+# fi
+echo $NAME
 
 #Get coordinates using xrectsel from https://github.com/lolilolicon/xrectsel
 REGION=$(xrectsel "--x=%x --y=%y --width=%w --height=%h") || exit -1

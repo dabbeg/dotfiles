@@ -78,7 +78,7 @@ Plug 'tpope/vim-fugitive'
 
 " vim-grepper {{{
 Plug 'mhinz/vim-grepper', { 'on': ['Grepper', '<plug>(GrepperOperator)'] }
-map <C-g> :Grepper -tool git<cr>
+map <C-g> :Grepper -tool rg -grepprg rg --vimgrep --ignore-case<cr>
 " }}}
 
 " React {{{
