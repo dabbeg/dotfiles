@@ -1,0 +1,4 @@
+#!/bin/bash
+# TODO something cool
+
+aws lambda invoke --function-name db-query-loftbru_read --payload '{"database": "air_discount_scheme_backend", "query": "select * from flight"}' --cli-binary-format raw-in-base64-out /dev/stdout | jq

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+AWS_PROFILES=`python <<END
+
+import configparser
+import os
+
+config = configparser.ConfigParser()
+config_file = os.path.join(os.getenv('HOME'), '.aws/config')
+config.read(config_file)
+
+# Print the last word in the section name
+sso_profiles = []
+for section in config.sections():
+  if 'sso' in section:
+    sso_profiles.append(section)
+
+for sso_profile in sso_profiles:
+  print(sso_profile.split()[-1])
+
+END
+`
+
+SELECTED_PROFILE=`echo $AWS_PROFILES | tr " " "\n" | fzf`
+
+aws-vault exec "$SELECTED_PROFILE" 
+

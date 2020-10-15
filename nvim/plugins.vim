@@ -1,6 +1,8 @@
 call plug#begin()
 " NERDTree {{{
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle', 'for': ['vim', 'javascript', 'python', 'css', 'html', 'bash', 'java'] }
+Plug 'ryanoasis/vim-devicons'
+
 
 let g:NERDTreeWinSize=30
 let NERDTreeShowBookmarks=1
@@ -52,9 +54,13 @@ let g:neomake_logfile='/tmp/neomake.log'
 let g:neomake_verbose=3
 " }}}
 
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+
 " deocomplete {{{
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete
 Plug 'zchee/deoplete-jedi'
+Plug 'Shougo/denite.nvim'
 Plug 'Shougo/neco-vim'
 
 let g:deoplete#enable_at_startup = 1
@@ -84,6 +90,7 @@ map <C-g> :Grepper -tool rg -grepprg rg --vimgrep --ignore-case<cr>
 " React {{{
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'peitalin/vim-jsx-typescript'
 " }}}
 
 " vim-test {{{
@@ -160,14 +167,16 @@ nmap <silent> <leader>, :call PrevHunkAllBuffers()<CR>
 " Ale {{{
 Plug 'w0rp/ale'
 let g:airline#extensions#ale#enabled = 1
-let g:ale_python_black_options = '--skip-string-normalization --line-length 79 --py36'
+let g:ale_python_mypy_options = '--strict'
+let g:ale_python_black_options = '--line-length 79 --py38'
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'python': ['flake8']
+\   'python': ['flake8', 'mypy']
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier', 'eslint'],
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
 \   'python': ['black']
 \}
 nmap <silent> <leader>p :ALEFix<cr>
@@ -186,6 +195,10 @@ let g:black_linelength = 100
 let g:black_py37 = 1
 
 Plug 'darrikonn/vim-isort'
+" }}}
+
+" vim-terraform {{{
+Plug 'hashivim/vim-terraform'
 " }}}
 call plug#end()
 

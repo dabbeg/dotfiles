@@ -1,0 +1,8 @@
+#/usr/bin/env bash
+
+HOME_VPN_ID="4324927230399960327"
+PASSWORD=$(lpass show --password $HOME_VPN_ID)
+
+echo "$PASSWORD" | xclip
+
+sudo openvpn /etc/openvpn/client/home.ovpn
