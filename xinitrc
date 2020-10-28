@@ -1,6 +1,8 @@
 #!/bin/bash
 
-$HOME/.screenlayout/home.sh
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+$HOME/.screenlayout/work.sh
+
 dbus-update-activation-environment --systemd DISPLAY
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK

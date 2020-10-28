@@ -6,7 +6,6 @@ ZSH_THEME="zhann" # random frisk agnoster pure dabbeg Soliah refined
 
 export PATH=$HOME/.local/bin:$PATH
 export PATH=/opt/istio-1.4.5/bin:$PATH
-export PATH="$HOME/.poetry/bin:$PATH"
 
 eval `dircolors ~/.dircolors/dircolors.256dark`
 eval "$(direnv hook zsh)"
@@ -14,7 +13,7 @@ eval "$(direnv hook zsh)"
 #
 ##### PLUGINS #####
 #
-plugins=(git autojump kube-ps1 poetry)
+plugins=(git autojump kube-ps1)
 
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -42,7 +41,9 @@ export BASE16_SHELL=$HOME/.config/base16-shell/
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /usr/share/nvm/init-nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Source pyenv
 if [ -d $HOME/.pyenv ] ; then
@@ -77,3 +78,4 @@ alias git-commmmit='git commit -m "$(curl "whatthecommit.com"|egrep "<p>"|sed "s
 alias se='ag -l --ignore "node_modules" --ignore "target" --ignore "venv"'
 alias dc='docker-compose'
 alias po='poetry'
+alias tf='terraform'

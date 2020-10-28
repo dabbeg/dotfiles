@@ -54,9 +54,6 @@ let g:neomake_logfile='/tmp/neomake.log'
 let g:neomake_verbose=3
 " }}}
 
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-
 " deocomplete {{{
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete
 Plug 'zchee/deoplete-jedi'
@@ -91,6 +88,8 @@ map <C-g> :Grepper -tool rg -grepprg rg --vimgrep --ignore-case<cr>
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 " }}}
 
 " vim-test {{{
@@ -171,14 +170,24 @@ let g:ale_python_mypy_options = '--strict'
 let g:ale_python_black_options = '--line-length 79 --py38'
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'python': ['flake8', 'mypy']
+\   'python': ['flake8', 'mypy'],
+\   'markdown': ['prettier', 'write-good']
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
-\   'python': ['black']
+\   'python': ['black'],
+\   'markdown': ['prettier']
 \}
+
+" Because prettier is used for typescript as well we need to use this
+" to only apply these options to prettier when viewing markdown files
+let g:ale_pattern_options_enabled = 1
+let g:ale_pattern_options = {
+\ '\.md$': {'ale_javascript_prettier_options': '--parser markdown --prose-wrap always --print-width 79'}
+\}
+
 nmap <silent> <leader>p :ALEFix<cr>
 " }}}
 
@@ -189,10 +198,6 @@ nmap <silent> <leader>p :ALEFix<cr>
 " Python {{{
 Plug 'vim-python/python-syntax'
 let g:python_highlight_all = 1
-
-Plug 'ambv/black'
-let g:black_linelength = 100
-let g:black_py37 = 1
 
 Plug 'darrikonn/vim-isort'
 " }}}

@@ -17,6 +17,7 @@ files="
 .xmodmaprc:xmodmaprc
 .Xresources:Xresources
 .zshrc:zshrc
+.screenlayout:screenlayout
 
 .config/i3:i3
 .config/nvim:nvim
@@ -31,6 +32,7 @@ files="
 .local/bin/base:scripts/base
 .local/bin/vpn:scripts/vpn
 .local/bin/lopen:scripts/lopen
+.local/bin/aws-sso:scripts/aws-sso
 "
 
 symlink() {
