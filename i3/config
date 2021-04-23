@@ -184,9 +184,9 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Desktop wallpaper
-#exec --no-startup-id $HOME/.config/i3/scripts/wallpaper.sh
+exec --no-startup-id $HOME/.config/i3/scripts/wallpaper.sh
 #exec --no-startup-id feh --no-xinerama --bg-scale $HOME/.config/i3/pictures/wallpaper/1366x768/moon.jpg
-exec --no-startup-id feh --bg-center $HOME/.config/i3/pictures/wallpaper/1920x1080/green_sunrise.png
+#exec --no-startup-id feh --bg-center $HOME/.config/i3/pictures/wallpaper/1920x1080/green_sunrise.png
 
 # Start insync for google-drive
 exec --no-startup-id insync start
@@ -199,7 +199,7 @@ exec --no-startup-id xmodmap $HOME/.xmodmaprc
 for_window [class="^.*"] border pixel 1
 
 # Starts the compostition manager Compton
-#exec --no-startup-id sleep 5; compton --config $HOME/.compton.conf
+exec --no-startup-id sleep 5; compton --config $HOME/.compton.conf
 
 # Starts up syndaemon which disables the touchpad when typing
 #exec --no-startup-id syndaemon -i 0.6
@@ -216,4 +216,7 @@ exec xset s off -dpms
 #Read Xresources
 exec xrdb $HOME/.Xresources
 
-#gaps inner 10
+gaps inner 15
+gaps top 45
+
+exec_always --no-startup-id autotiling

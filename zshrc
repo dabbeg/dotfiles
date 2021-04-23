@@ -26,7 +26,7 @@ export PROMPT=$PROMPT'$(kube_ps1) '
 export menu=rofi
 export term=terminator
 export AWS_SDK_LOAD_CONFIG=1
-export KUBECONFIG=$HOME/.kube/viceversa:$HOME/.kube/dev-cluster01:$HOME/.kube/staging-cluster01:$HOME/.kube/smaug
+export KUBECONFIG=$HOME/.kube/viceversa:$HOME/.kube/dev-cluster01:$HOME/.kube/staging-cluster01:$HOME/.kube/smaug:$HOME/.kube/shared-cluster01
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -50,6 +50,10 @@ if [ -d $HOME/.pyenv ] ; then
   eval "$(pyenv init -)"
 fi
 
+# Gcloud
+if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/google-cloud-sdk/completion.zsh.inc'; fi
+
 # This is all to bind Ctrl-o to run lopen
 function lopen_func() { lopen }
 zle -N lopen_widget lopen_func
@@ -69,6 +73,7 @@ alias paclo='sudo pacman -Qdt'
 alias pacro='sudo paclo && sudo pacman -Rns $(pacman -Qtdq)'
 
 alias gca='git commit --amend --all --no-edit'
+alias ggprush="ggpush; gh pr create; gh pr view -w"
 
 alias spotify='spotify --force-device-scale-factor=1.2'
 alias k='kubectl'

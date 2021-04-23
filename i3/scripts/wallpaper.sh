@@ -10,8 +10,6 @@ IMAGES=""
 
 for RESOLUTION in "${RESOLUTIONS[@]}"; do
   PATHTOIMAGES="$WALLPAPER$RESOLUTION/*"
-  echo $PATHTOIMAGES
-  echo ""
   if [ "$IMAGES" == "" ]; then
     IMAGES=$(ls $PATHTOIMAGES | shuf -n 1)
   else
@@ -19,5 +17,6 @@ for RESOLUTION in "${RESOLUTIONS[@]}"; do
   fi
 done
 
+echo "$IMAGES"
 convert +append $IMAGES "/tmp/wallpaper.jpg"
 feh --no-xinerama --bg-scale "/tmp/wallpaper.jpg"
