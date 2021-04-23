@@ -74,12 +74,12 @@ alias pacro='sudo paclo && sudo pacman -Rns $(pacman -Qtdq)'
 
 alias gca='git commit --amend --all --no-edit'
 alias ggprush="ggpush; gh pr create; gh pr view -w"
+alias git-commmmit='git commit -m "$(curl "whatthecommit.com"|egrep "<p>"|sed "s/<p>//")"'
 
 alias spotify='spotify --force-device-scale-factor=1.2'
 alias k='kubectl'
 alias kc='kubectx'
 alias kn='kubens'
-alias git-commmmit='git commit -m "$(curl "whatthecommit.com"|egrep "<p>"|sed "s/<p>//")"'
 alias se='ag -l --ignore "node_modules" --ignore "target" --ignore "venv"'
 alias dc='docker-compose'
 alias po='poetry'
