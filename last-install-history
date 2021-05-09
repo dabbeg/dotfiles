@@ -1,0 +1,36 @@
+ln -sf /usr/share/zoneinfo/GMT-0 /etc/localtime
+hwclock --systohc
+
+vim /etc/locale.gen 
+locale-gen
+
+vim /etc/locale.conf
+vim /etc/hostname
+vim /etc/hosts
+
+pacman -S iwd
+systemctl start iwd
+systemctl enable iwd
+iwctl
+vim /etc/iwd/main.conf
+systemctl start systemd-resolved
+systemctl enable systemd-resolved
+systemctl restart iwd
+ping google.com
+
+vim /etc/mkinitcpio.conf 
+mkinitcpio -P
+
+passwd
+
+pacman -S grub efibootmgr
+grub-install --target=x86_64-efi --efi-directory /boot --bootloader-id=GRUB
+sudo blkid | grep "/dev/nvme0n1p2" >> /etc/default/grub 
+vim /etc/default/grub 
+grub-mkconfig -o /boot/grub/grub.cfg
+
+pacman -S sudo
+EDITOR=vim visudo
+useradd -m dabbeg
+passwd dabbeg
+usermod -aG wheel dabbeg

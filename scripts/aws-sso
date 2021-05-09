@@ -1,7 +1,7 @@
 #!/bin/bash
 
-AWS_PROFILES=`python <<END
-
+function get_profiles() {
+  echo $(python <<END
 import configparser
 import os
 
@@ -12,16 +12,32 @@ config.read(config_file)
 # Print the last word in the section name
 sso_profiles = []
 for section in config.sections():
-  if 'sso' in section:
+  if 'sso_start_url' in config[section]:
     sso_profiles.append(section)
 
 for sso_profile in sso_profiles:
   print(sso_profile.split()[-1])
 
 END
-`
+  )
+}
 
-SELECTED_PROFILE=`echo $AWS_PROFILES | tr " " "\n" | fzf`
+function main() {
+  local AWS_PROFILES=$(get_profiles)
+  local SELECTED_PROFILE=`echo $AWS_PROFILES | tr " " "\n" | fzf`
 
-aws-vault exec "$SELECTED_PROFILE" 
+  if [[ ! -z "$SELECTED_PROFILE" ]]; then
+    local CREDENTIALS=$(aws-vault exec "$SELECTED_PROFILE" --json)
 
+    export AWS_SELECTED_PROFILE="$SELECTED_PROFILE"
+    export AWS_ACCESS_KEY_ID=$(echo $CREDENTIALS | jq -r '.AccessKeyId')
+    export AWS_SECRET_ACCESS_KEY=$(echo $CREDENTIALS | jq -r '.SecretAccessKey')
+    export AWS_SESSION_TOKEN=$(echo $CREDENTIALS | jq -r '.SessionToken')
+
+    echo "export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
+    echo "export AWS_SECRET_ACCESS_TOKEN=***"
+    echo "export AWS_SESSION_TOKEN=***"
+  fi
+}
+
+main "$@"

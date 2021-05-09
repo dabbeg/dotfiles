@@ -5,7 +5,6 @@ DEFAULT_USER=dabbeg
 ZSH_THEME="zhann" # random frisk agnoster pure dabbeg Soliah refined
 
 export PATH=$HOME/.local/bin:$PATH
-export PATH=/opt/istio-1.4.5/bin:$PATH
 
 eval `dircolors ~/.dircolors/dircolors.256dark`
 eval "$(direnv hook zsh)"
@@ -18,6 +17,16 @@ plugins=(git autojump kube-ps1)
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+aws_profile() {
+  local AWS_PROFILE_PROMPT
+  if [[ ! -z "$AWS_SELECTED_PROFILE" ]]; then
+    AWS_PROFILE_PROMPT="[$AWS_SELECTED_PROFILE]"
+  fi
+  echo "%F{3}$AWS_PROFILE_PROMPT%F{7}"
+}
+
+export PROMPT=$PROMPT'$(aws_profile)'
 export PROMPT=$PROMPT'$(kube_ps1) '
 
 #
@@ -27,6 +36,7 @@ export menu=rofi
 export term=terminator
 export AWS_SDK_LOAD_CONFIG=1
 export KUBECONFIG=$HOME/.kube/viceversa:$HOME/.kube/dev-cluster01:$HOME/.kube/staging-cluster01:$HOME/.kube/smaug:$HOME/.kube/shared-cluster01
+export DOCKER_BUILDKIT=1
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -41,23 +51,12 @@ export BASE16_SHELL=$HOME/.config/base16-shell/
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -f "/usr/share/nvm/init-nvm.sh" ] && source "/usr/share/nvm/init-nvm.sh"
 
 # Source pyenv
 if [ -d $HOME/.pyenv ] ; then
   eval "$(pyenv init -)"
 fi
-
-# Gcloud
-if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/google-cloud-sdk/path.zsh.inc'; fi
-if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/google-cloud-sdk/completion.zsh.inc'; fi
-
-# This is all to bind Ctrl-o to run lopen
-function lopen_func() { lopen }
-zle -N lopen_widget lopen_func
-bindkey '^o' lopen_widget
 
 # Alias
 alias vim='nvim'
@@ -82,5 +81,7 @@ alias kc='kubectx'
 alias kn='kubens'
 alias se='ag -l --ignore "node_modules" --ignore "target" --ignore "venv"'
 alias dc='docker-compose'
+alias py='python'
 alias po='poetry'
 alias tf='terraform'
+alias sso='source aws-sso'
