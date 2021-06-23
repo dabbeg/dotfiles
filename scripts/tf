@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+config_file=".aws_profile.tfstate"
+path=$(pwd)
+while [[ "$path" != / ]];
+do
+    config_file_path=$(find "$path" -maxdepth 1 -mindepth 1 -name "$config_file")
+    if [[ -f "$config_file_path" ]]; then
+        break
+    fi
+    path="$(readlink -f "$path"/..)"
+done
+
+if [[ "$config_file_path" = "" ]]; then
+    echo "No profile found"
+    exit 1
+fi
+
+AWS_PROFILE=$(cat "$config_file_path")
+aws-vault exec $AWS_PROFILE terraform "$@"

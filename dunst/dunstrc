@@ -1,7 +1,7 @@
 # <- now vim shows colors
 [global]
     #font = Monospace 8
-    font = Droid Sans 12
+    font = Droid Sans 15
 
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -67,7 +67,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "350x5-24+48"
+    geometry = "1000x5-48+96"
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -146,7 +146,7 @@
 
     # Align icons left/right/off
     icon_position = left
-    max_icon_size = 130
+    max_icon_size = 300
 
     # Paths to default icons.
     icon_path = ~/.config/dunst/icons/

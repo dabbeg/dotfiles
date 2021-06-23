@@ -19,9 +19,8 @@ lock() {
     if [ "$1" = "" ]; then
         i3lock \
             --screen 2 \
-            --clock --timesize=36 \
+            --clock \
             --color=$DARK \
-            --layoutcolor=$WHITE --timecolor=$WHITE \
             --linecolor=$REGULAR \
             --ringcolor=$REGULAR --ringwrongcolor=$RED --ringvercolor=$BLUE \
             --insidecolor=$LIGHTDARK --insidewrongcolor=$LIGHTDARK --insidevercolor=$LIGHTDARK \
@@ -33,7 +32,7 @@ lock() {
         i3lock \
             -i $1
             --screen 2 \
-            --clock --timesize=36 \
+            --clock \
             --color=$DARK \
             --linecolor=$REGULAR \
             --ringcolor=$REGULAR --ringwrongcolor=$RED --ringvercolor=$BLUE \

@@ -1,7 +1,9 @@
+Xft.dpi: 200
+
 !!!!!!! ROFI !!!!!!!
 rofi.lines: 4
-rofi.font: Droid Sans Mono 16
-rofi.width: 50
+rofi.font: Droid Sans Mono 32
+rofi.width: 60
 rofi.padding: 20
 rofi.show-icons: true
 rofi.drun-icon-theme: Numix-Circle

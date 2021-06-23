@@ -14,8 +14,8 @@ set $workspace9  "9"
 set $workspace10 "10 "
 
 workspace $workspace1 output eDP-1-1
-workspace $workspace2 output DP-1.2
-workspace $workspace3 output DP-1.3
+workspace $workspace2 output DP-3-2
+workspace $workspace3 output DP-3-1
 
 # lock
 bindsym XF86AudioPause exec $HOME/.config/i3/scripts/lock
@@ -217,6 +217,6 @@ exec xset s off -dpms
 exec xrdb $HOME/.Xresources
 
 gaps inner 15
-gaps top 45
+gaps top 40
 
 exec_always --no-startup-id autotiling

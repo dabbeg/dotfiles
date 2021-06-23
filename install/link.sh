@@ -33,6 +33,7 @@ files="
 .local/bin/vpn:scripts/vpn
 .local/bin/lopen:scripts/lopen
 .local/bin/aws-sso:scripts/aws-sso
+.local/bin/ecs:scripts/ecs
 "
 
 symlink() {

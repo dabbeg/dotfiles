@@ -12,9 +12,9 @@ alert = #bd2c40
 monitor = ${env:MONITOR}
 
 width = 92%
-height = 27
+height = 67
 offset-x = 4%
-offset-y = 10
+offset-y = 25
 ;radius = 4.0
 fixed-center = true
 
@@ -33,7 +33,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
+font-0 = fixed:pixelsize=24;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = FontAwesome:size=11:antialias=false;2

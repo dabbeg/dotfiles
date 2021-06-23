@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [[ -z "$AWS_PROFILE" ]]; then
+  echo "AWS credentials not found"
+  exit 1
+fi
+
+CLUSTERS=$(aws ecs list-clusters | jq -r ".clusterArns[]")
+CLUSTER=$(echo "$CLUSTERS" | fzf)
+echo "CLUSTER:   $CLUSTER"
+
+SERVICES=$(aws ecs list-services --cluster "$CLUSTER" | jq -r ".serviceArns[]")
+SERVICE=$(echo "$SERVICES" | fzf)
+echo "SERVICE:   $SERVICE"
+
+TASKS=$(aws ecs list-tasks --cluster "$CLUSTER" --service-name "$SERVICE" | jq -r ".taskArns[]")
+TASK=$(echo "$TASKS" | fzf)
+echo "TASK:      $TASK"
+
+CONTAINER_STATUS="RUNNING"
+CONTAINERS=$(aws ecs describe-tasks --cluster "$CLUSTER" --tasks "$TASK" | jq -r --arg container_status "$CONTAINER_STATUS" '.tasks[0].containers[] | select(.lastStatus == $container_status) | .name')
+CONTAINER=$(echo "$CONTAINERS" | fzf)
+echo "CONTAINER: $CONTAINER"
+
+aws ecs execute-command --cluster "$CLUSTER" --container "$CONTAINER" --command "/bin/sh" --interactive --task "$TASK"

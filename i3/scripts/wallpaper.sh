@@ -1,8 +1,8 @@
 #!/bin/bash
 
-xrandr --noprimary
+MONITORS=$(xrandr --listmonitors | tail -n +2 | cut -d ' ' -f6)
 # Getting resolutions and screen positions from xrandr
-RESOLUTIONS=$(xrandr | grep " connected" | cut -d ' ' -f3)
+RESOLUTIONS=$(xrandr | grep "$MONITORS" | grep -o "\w*x\w*+\w*+\w*")
 # Sorting resolutions according to position of screens
 RESOLUTIONS=($(echo "${RESOLUTIONS//"+"/" "}" | sort -k 2 | cut -d ' ' -f1))
 WALLPAPER="$HOME/.config/i3/pictures/wallpaper/"

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 function get_profiles() {
   echo $(python <<END
 import configparser
@@ -27,16 +29,8 @@ function main() {
   local SELECTED_PROFILE=`echo $AWS_PROFILES | tr " " "\n" | fzf`
 
   if [[ ! -z "$SELECTED_PROFILE" ]]; then
-    local CREDENTIALS=$(aws-vault exec "$SELECTED_PROFILE" --json)
-
-    export AWS_SELECTED_PROFILE="$SELECTED_PROFILE"
-    export AWS_ACCESS_KEY_ID=$(echo $CREDENTIALS | jq -r '.AccessKeyId')
-    export AWS_SECRET_ACCESS_KEY=$(echo $CREDENTIALS | jq -r '.SecretAccessKey')
-    export AWS_SESSION_TOKEN=$(echo $CREDENTIALS | jq -r '.SessionToken')
-
-    echo "export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
-    echo "export AWS_SECRET_ACCESS_TOKEN=***"
-    echo "export AWS_SESSION_TOKEN=***"
+    export AWS_PROFILE=$SELECTED_PROFILE
+    OUTPUT=$(aws sso login)
   fi
 }
 
