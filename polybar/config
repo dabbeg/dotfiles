@@ -36,11 +36,11 @@ module-margin-right = 2
 font-0 = fixed:pixelsize=24;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
-font-3 = FontAwesome:size=11:antialias=false;2
+font-3 = FontAwesome:size=20:antialias=false;2
 
 modules-left = i3
 modules-center = date
-modules-right = filesystem volume xkeyboard wlan eth battery
+modules-right = vpn filesystem volume xkeyboard eth wlan battery
 
 ;tray-position = right
 ;tray-padding = 2
@@ -168,11 +168,12 @@ interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
-label-connected = On
+;label-connected = On
+label-connected = %local_ip%
 label-disconnected = Off
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
+;format-disconnected =
+format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
@@ -186,11 +187,11 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = net0
+interface = ethmon0
 interval = 3.0
 
 format-connected-underline = #55aa55
-format-connected-prefix = "d "
+format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
@@ -302,6 +303,14 @@ format-underline = #dc322f
 label = "%output%"
 exec = $HOME/.config/polybar/pkg.sh
 exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
+
+[module/vpn]
+type = custom/script
+interval = 5
+format = <label>
+format-underline = #dc322f
+label = "%output%"
+exec = $HOME/.config/polybar/openvpn.sh
 
 [settings]
 screenchange-reload = true

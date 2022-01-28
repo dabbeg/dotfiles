@@ -18,7 +18,7 @@ workspace $workspace2 output DP-3-2
 workspace $workspace3 output DP-3-1
 
 # lock
-bindsym XF86AudioPause exec $HOME/.config/i3/scripts/lock
+bindsym XF86AudioPause exec i3lock -c "27292d" #$HOME/.config/i3/scripts/lock
 
 # Binds the Print Scrn button to take a screenshot with scrot and save it to ~/Pictures/screenshots
 bindsym Print exec $HOME/.config/i3/scripts/screenshot
@@ -73,6 +73,7 @@ bindsym XF86AudioRaiseVolume exec amixer -q set Master 2%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2%- unmute
 bindsym XF86AudioMute exec amixer -q -D pulse set Master toggle
 bindsym XF86AudioMicMute exec amixer set Capture toggle
+bindsym XF86AddFavorite exec amixer -q set Master 2%- unmute
 
 bindsym $mod+space exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 bindsym $mod+Left exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"

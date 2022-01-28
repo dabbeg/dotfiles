@@ -20,8 +20,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 aws_profile() {
   local AWS_PROFILE_PROMPT
-  if [[ ! -z "$AWS_SELECTED_PROFILE" ]]; then
-    AWS_PROFILE_PROMPT="[$AWS_SELECTED_PROFILE]"
+  if [[ ! -z "$AWS_PROFILE" ]]; then
+    AWS_PROFILE_PROMPT="[$AWS_PROFILE]"
   fi
   echo "%F{3}$AWS_PROFILE_PROMPT%F{7}"
 }
@@ -35,7 +35,7 @@ export PROMPT=$PROMPT'$(kube_ps1) '
 export menu=rofi
 export term=terminator
 export AWS_SDK_LOAD_CONFIG=1
-export KUBECONFIG=$HOME/.kube/is-dev-cluster01:$HOME/.kube/is-staging-cluster01:$HOME/.kube/is-prod-cluster01
+export KUBECONFIG=$HOME/.kube/is-shared-cluster01:$HOME/.kube/is-dev-cluster01:$HOME/.kube/is-staging-cluster01:$HOME/.kube/is-prod-cluster01
 export DOCKER_BUILDKIT=1
 
 # Preferred editor for local and remote sessions
@@ -58,6 +58,11 @@ if [ -d $HOME/.pyenv ] ; then
   eval "$(pyenv init -)"
 fi
 
+function sso (){
+  export AWS_PROFILE=$1
+  aws-sso-util login --profile $AWS_PROFILE-sso
+}
+
 # Alias
 alias vim='nvim'
 alias bcolor='source $HOME/dotfiles/scripts/bcolor.sh'
@@ -75,7 +80,7 @@ alias gca='git commit --amend --all --no-edit'
 alias ggprush="ggpush; gh pr create; gh pr view -w"
 alias git-commmmit='git commit -m "$(curl "whatthecommit.com"|egrep "<p>"|sed "s/<p>//")"'
 
-alias spotify='spotify --force-device-scale-factor=2'
+#alias spotify='spotify --force-device-scale-factor=2'
 alias k='kubectl'
 alias kc='kubectx'
 alias kn='kubens'
@@ -84,4 +89,6 @@ alias dc='docker-compose'
 alias py='python'
 alias po='poetry'
 alias tf='terraform'
-alias sso='eval $(source aws-sso; echo AWS_PROFILE="$AWS_PROFILE";) && export AWS_PROFILE && echo "Sourced profile \e[92m[$AWS_PROFILE]\e[0m"'
+alias ssh='TERM=xterm-256color ssh'
+alias firefox='MOZ_ENABLE_WAYLAND=1 firefox'
+#alias sso='eval $(source aws-sso; echo AWS_PROFILE="$AWS_PROFILE";) && export AWS_PROFILE && echo "Sourced profile \e[92m[$AWS_PROFILE]\e[0m"'

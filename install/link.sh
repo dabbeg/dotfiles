@@ -20,7 +20,12 @@ files="
 .screenlayout:screenlayout
 
 .config/i3:i3
-.config/nvim:nvim
+.config/sway:sway
+.config/waybar:waybar
+.config/alacritty:alacritty
+.config/spotifyd:spotifyd
+.config/wofi:wofi
+.config/nvim:nvim-lua
 .config/dunst:dunst
 .config/polybar:polybar
 .config/tridactylrc:tridactylrc
