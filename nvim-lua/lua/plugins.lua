@@ -22,8 +22,15 @@ return require('packer').startup(function()
 
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate', -- On first setup we need to run :TSInstall maintained
-    config = function() require('nvim-treesitter.configs').setup {} end
+    run = ':TSUpdate',
+    config = function() require('nvim-treesitter.configs').setup {
+      ensure_installed = "all",
+      sync_install = false,
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+      },
+    } end
   }
 
   use {
@@ -63,7 +70,12 @@ return require('packer').startup(function()
   }
 
   -- LSP and completion
-  use 'neovim/nvim-lspconfig'
+  use {
+    'neovim/nvim-lspconfig',
+    config = function() 
+      map('n', '<leader>p', '<cmd>lua vim.lsp.buf.formatting()<cr>')
+    end
+  }
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip'
