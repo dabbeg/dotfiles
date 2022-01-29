@@ -1,3 +1,6 @@
+local function conf(name)
+  return require(string.format('modules.remote-plugins.config.%s', name))
+end
 
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
@@ -7,86 +10,56 @@ return require('packer').startup(function()
   use {
     'kyazdani42/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons' },
-    config = function()
-      require('nvim-tree').setup {}
-      map('n', '<leader>n', ':NvimTreeToggle<cr>')
-      map('n', '<leader>f', ':NvimTreeFindFile<cr>')
-    end
+    config = conf('nvim-tree')
   }
 
   use {
     'tjdevries/colorbuddy.vim',
     requires = { 'tjdevries/gruvbuddy.nvim' },
-    config = function() require('colorbuddy').colorscheme('gruvbuddy') end
+    config = conf('colorbuddy')
   }
 
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = function() require('nvim-treesitter.configs').setup {
-      ensure_installed = "all",
-      sync_install = false,
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-    } end
+    config = conf('nvim-treesitter')
   }
 
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = function() require('lualine').setup {
-      options = { theme = 'ayu_mirage' },
-      tabline = {
-        lualine_a = {'buffers'},
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {'tabs'}
-      }
-    } end
+    config = conf('lualine')
   }
 
   use {
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      map('n', '<C-b>', ':Telescope buffers<cr>')
-      map('n', '<C-p>', ':Telescope git_files<cr>')
-      map('n', '<C-[>', ':Telescope lsp_references<cr>')
-      map('n', '<C-]>', ':Telescope lsp_implementations<cr>')
-      map('n', '<C-g>', ':Telescope live_grep<cr>')
-      map('n', '<C-i>', '<cmd>lua vim.lsp.buf.hover()<cr>')
-    end
+    config = conf('telescope')
   }
 
   -- TODO can I make the signs thicker?
   use {
     'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
-    config = function() require('gitsigns').setup() end
+    config = conf('gitsigns')
   }
 
   -- LSP and completion
   use {
     'neovim/nvim-lspconfig',
-    config = function() 
-      map('n', '<leader>p', '<cmd>lua vim.lsp.buf.formatting()<cr>')
-    end
+    config = conf('nvim-lspconfig')
   }
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip'
   use { 
     'hrsh7th/nvim-cmp',
-    config = function () require('plugin-config.nvim-cmp').setup {} end
+    config = conf('nvim-cmp')
   }
   use {
     'williamboman/nvim-lsp-installer',
     requires = { 'hrsh7th/cmp-nvim-lsp' },
-    config = function() require('plugin-config.nvim-lsp-installer').setup {
+    config = conf('nvim-lsp-installer').setup {
       servers = {
         'bashls',
         'cmake',
@@ -96,12 +69,10 @@ return require('packer').startup(function()
         'terraformls',
         'tsserver',
       },
-    } end
+    }
   }
 end)
 
-
--- Plug 'chrisbra/unicode.vim'
 
 -- " Ale {{{
 -- " Plug 'w0rp/ale'
@@ -141,44 +112,17 @@ end)
 -- Plug 'tpope/vim-fugitive'
 -- " }}}
 
--- " React {{{
--- " Plug 'pangloss/vim-javascript'
--- " Plug 'mxw/vim-jsx'
--- " Plug 'peitalin/vim-jsx-typescript'
--- " Plug 'HerringtonDarkholme/yats.vim'
--- "Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
--- " }}}
-
 -- " vim-test {{{
 -- " Plug 'janko-m/vim-test', { 'for': ['javascript'] }
 -- " }}}
-
--- " Colorscheme {{{
--- Plug 'chriskempson/base16-vim'
--- " }}}
-
--- " vim-surround {{{
--- " Plug 'tpope/vim-surround'
--- " }}}
-
--- " vim-gitgutter {{{
--- Plug 'airblade/vim-gitgutter'
--- set updatetime=100
--- let g:gitgutter_map_keys = 0
-
--- " Always show signcolumn
--- if exists('&signcolumn')  " Vim 7.4.2201
---   set signcolumn=yes
--- else
---   let g:gitgutter_sign_column_always = 1
--- endif
 
 -- " Prettier {{{
 -- "Plug 'prettier/vim-prettier'
 -- " }}}
 
--- " vim-terraform {{{
--- " Plug 'hashivim/vim-terraform'
+
+-- " Colorscheme {{{
+-- Plug 'chriskempson/base16-vim'
 -- " }}}
 
 -- " This needs to be run after plug#end() so that base16-vim has loaded

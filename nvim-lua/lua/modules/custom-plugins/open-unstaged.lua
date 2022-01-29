@@ -1,6 +1,7 @@
 --
 -- Open git unstaged files
 --
+local map = require('core.utils').map
 
 function OpenUnstaged()
     local unstaged = io.popen("git status --short | awk '{print $2}'")

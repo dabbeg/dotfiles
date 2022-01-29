@@ -1,6 +1,6 @@
-local lsp_installer_servers = require('nvim-lsp-installer.servers')
-
 function setup(opts)
+  local lsp_installer_servers = require('nvim-lsp-installer.servers')
+
   -- Copied from https://github.com/williamboman/nvim-lsp-installer
   -- Loop through the servers listed above.
   for _, server_name in pairs(opts.servers) do

@@ -1,7 +1,7 @@
 --
 -- Toggle indent 2 and 4 spaces
 --
-
+local map = require('core.utils').map
 local indent = 2
 
 opt.autoindent  = true

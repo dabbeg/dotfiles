@@ -1,3 +1,5 @@
+local map = require('core.utils').map
+
 -- set a map leader for more key combos
 g.mapleader = ' '
 g.maplocalleader = ' '

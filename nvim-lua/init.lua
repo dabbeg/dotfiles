@@ -2,18 +2,18 @@
 -- TODO Lua migration
 -- * Fix all todos in vim-options
 -- * Find a way to run prettier / lsp offers formatting not sure how good it is
--- * Fix terraform syntax highlighting and linting
 --
 
--- Vim options and mappings
-require('util')
-require('vim-options')
-require('mappings')
+cmd = vim.cmd
+env = vim.env
+opt = vim.opt
+g   = vim.g
 
--- Custom plugins
-require('custom-plugins.win-move')
-require('custom-plugins.toggle-indent')
-require('custom-plugins.open-unstaged')
+-- Core settings
+require('core.utils')
+require('core.options')
+require('core.keymaps')
 
--- Load all plugins
-require('plugins')
+-- Plugins
+require('modules.custom-plugins')
+require('modules.remote-plugins')

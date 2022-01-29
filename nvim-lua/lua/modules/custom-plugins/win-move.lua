@@ -1,6 +1,7 @@
 --
 -- Move to the window in the direction shown, or create a new split
 --
+local map = require('core.utils').map
 
 function WinMove(key)
   local curwin = vim.api.nvim_call_function("winnr", {})
