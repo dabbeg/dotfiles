@@ -13,10 +13,19 @@ return require('packer').startup(function()
     config = conf('nvim-tree')
   }
 
+  -- Nice colorscheme but having a hard time parting with base16
+  -- use {
+  --   'tjdevries/colorbuddy.vim',
+  --   requires = { 'tjdevries/gruvbuddy.nvim' },
+  --   config = function() require('colorbuddy').colorscheme('gruvbuddy') end
+  -- }
+
   use {
-    'tjdevries/colorbuddy.vim',
-    requires = { 'tjdevries/gruvbuddy.nvim' },
-    config = conf('colorbuddy')
+    'norcalli/nvim-base16.lua',
+    config = function()
+      local base16 = require('base16')
+      base16(base16.themes[env.BASE16_THEME or '3024'], true)
+    end
   }
 
   use {
@@ -119,14 +128,3 @@ end)
 -- " Prettier {{{
 -- "Plug 'prettier/vim-prettier'
 -- " }}}
-
-
--- " Colorscheme {{{
--- Plug 'chriskempson/base16-vim'
--- " }}}
-
--- " This needs to be run after plug#end() so that base16-vim has loaded
--- if filereadable(expand("~/.vimrc_background"))
---     let base16colorspace=256
---     source ~/.vimrc_background
--- endif
