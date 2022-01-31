@@ -1,6 +1,5 @@
 --
 -- TODO Lua migration
--- * Fix all todos in vim-options
 -- * Find a way to run prettier / lsp offers formatting not sure how good it is
 --
 
