@@ -5,6 +5,7 @@ end
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
+  use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
 
   use {
@@ -80,51 +81,13 @@ return require('packer').startup(function()
       },
     }
   }
+
+  use {
+    'sbdchd/neoformat',
+    after = 'nvim-lspconfig', -- nvim-lspconfig maps <leader>p for other files
+    config = function()
+      cmd[[autocmd FileType javascript,typescript nnoremap <leader>p <Cmd>Neoformat<CR>]]
+      g.neoformat_try_node_exe = 1
+    end
+  }
 end)
-
-
--- " Ale {{{
--- " Plug 'w0rp/ale'
--- " let g:airline#extensions#ale#enabled = 1
--- " let g:ale_python_mypy_options = '--strict'
--- " let g:ale_python_black_options = '--line-length 79 --py38'
--- " let g:ale_linters = {
--- " \   'javascript': ['eslint'],
--- " \   'typescript': [],
--- " \   'python': ['flake8', 'mypy'],
--- " \   'markdown': ['prettier', 'write-good']
--- " \}
--- " let g:ale_fixers = {
--- " \   '*': ['remove_trailing_lines', 'trim_whitespace'],
--- " \   'javascript': ['prettier'],
--- " \   'typescript': ['prettier'],
--- " \   'css': ['prettier'],
--- " \   'scss': ['prettier'],
--- " \   'python': ['black'],
--- " \   'markdown': ['prettier'],
--- " \   'terraform': ['terraform']
--- " \}
-
--- " " Because prettier is used for typescript as well we need to use this
--- " " to only apply these options to prettier when viewing markdown files
--- " let g:ale_pattern_options_enabled = 1
--- " let g:ale_pattern_options = {
--- " \ '\.md$': {'ale_javascript_prettier_options': '--parser markdown --prose-wrap always --print-width 79'},
--- " \ '\.css$': {'ale_javascript_prettier_options': '--parser css'},
--- " \ '\.scss$': {'ale_javascript_prettier_options': '--parser scss'}
--- " \}
-
--- " nmap <silent> <leader>p :ALEFix<cr>
--- " }}}
-
--- " vim-fugitive {{{
--- Plug 'tpope/vim-fugitive'
--- " }}}
-
--- " vim-test {{{
--- " Plug 'janko-m/vim-test', { 'for': ['javascript'] }
--- " }}}
-
--- " Prettier {{{
--- "Plug 'prettier/vim-prettier'
--- " }}}
