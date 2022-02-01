@@ -9,10 +9,10 @@ export PATH=$HOME/.local/bin:$PATH
 #
 ##### PLUGINS #####
 #
-export NVM_LAZY=1
 plugins=(
   archlinux
   autojump
+  aws
   colored-man-pages
   direnv
   fzf
@@ -26,16 +26,6 @@ plugins=(
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-aws_profile() {
-  local AWS_PROFILE_PROMPT
-  if [[ ! -z "$AWS_PROFILE" ]]; then
-    AWS_PROFILE_PROMPT="[$AWS_PROFILE]"
-  fi
-  echo "%F{3}$AWS_PROFILE_PROMPT%F{7}"
-}
-
-export PROMPT=$PROMPT'$(aws_profile)'
 export PROMPT=$PROMPT'$(kube_ps1) '
 
 #

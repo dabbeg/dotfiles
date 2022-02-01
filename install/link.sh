@@ -3,58 +3,55 @@
 # This script creates symlinks for all config files listed
 #
 
-dir=$HOME/dotfiles
-olddir=$HOME/dotfiles_old
-olddir_exists=false
+SCRIPT_DIR=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd)
+DIR=$(git -C "$SCRIPT_DIR" rev-parse --show-toplevel)
+DOT_DIR="${DIR}/src"
+OLD_DIR="${DIR}_old"
 
-# list of files/folders to symlink
-# left side is relatice to $HOME while right side is relative to dotfiles dir
-files="
-.zshrc:src/.zshrc
+files=(
+  .zshrc
 
-.config/sway:src/.config/sway
-.config/waybar:src/.config/waybar
-.config/alacritty:src/.config/alacritty
-.config/wofi:src/.config/wofi
-.config/nvim:src/.config/nvim
-.config/dunst:src/.config/dunst
+  .config/sway
+  .config/waybar
+  .config/alacritty
+  .config/wofi
+  .config/nvim
+  .config/dunst
 
-.local/bin/gif:src/.local/bin/gif
-.local/bin/base:src/.local/bin/base
-.local/bin/aws-sso:src/.local/bin/aws-sso
-.local/bin/ecs:src/.local/bin/ecs
-"
+  .local/bin/gif
+  .local/bin/base
+  .local/bin/aws-sso
+  .local/bin/ecs
+)
 
 symlink() {
-    # checking if symlink does already exist
-    if ! [ "$(realpath $1)" == "$2" ]; then
+  src="$1"
+  dest="$2"
 
-        # if there is already a config file, move it
-        if [ -f "$1" ]; then
-            if [ "$olddir_exists" == false ]; then
-                echo "Creating $olddir for backup of any existing dotfiles"
-                mkdir -p $olddir
-                olddir_exists=true
-            fi
+  if [ "$(realpath $dest)" == "$src" ]; then
+    echo "Symlink for $src already exists"
+    return
+  fi
 
-            echo "Moving $1 to $olddir"
-            mv "$1" "$olddir"
-        fi
-
-        echo "Creating symlink from $2 to $1."
-        ln -s $2 $1
-    else
-        echo "Symlink for $1 already exists"
+  # if there is already a config file, move it
+  if [ -f "$dest" ]; then
+    if [ ! -d "$OLD_DIR" ]; then
+      echo "Creating $OLD_DIR for backup of any existing dotfiles"
+      mkdir -p $OLD_DIR
     fi
+
+    echo "Moving $dest to $OLD_DIR"
+    mv "$dest" "$OLD_DIR"
+  fi
+
+  echo "Creating symlink from $src to $dest."
+  ln -s $src $dest
 }
 
 main() {
-    for file in $files; do
-        IFS=":" read -ra split_files <<< "$file"
-        original=${split_files[0]}
-        dotfile=${split_files[1]}
-        symlink $HOME/$original $dir/$dotfile
-    done
+  for file in ${files[@]}; do
+    symlink "$DOT_DIR/$file" "$HOME/$file"
+  done
 }
 
 main "$@"

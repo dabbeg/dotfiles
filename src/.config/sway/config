@@ -23,7 +23,7 @@ for_window [shell="xwayland"] title_format "%title [XWayland]"
 
 ### Output configuration
 #
-output * bg $HOME/.config/i3/pictures/wallpaper/3840x2400/wilderness.jpg fill
+output * bg $HOME/.config/sway/wallpaper/3840x2400/wilderness.jpg fill
 output eDP-1 scale 2
 output eDP-1 pos 0 0 res 3840x2400
 output DP-2 pos 1920 0 res 3440x1440
