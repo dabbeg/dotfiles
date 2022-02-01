@@ -10,21 +10,14 @@ olddir_exists=false
 # list of files/folders to symlink
 # left side is relatice to $HOME while right side is relative to dotfiles dir
 files="
-.dircolors:dircolors
-.xinitrc:xinitrc
-.Xresources:Xresources
 .zshrc:zshrc
 
-.config/i3:i3
 .config/sway:sway
 .config/waybar:waybar
 .config/alacritty:alacritty
-.config/spotifyd:spotifyd
 .config/wofi:wofi
 .config/nvim:nvim-lua
 .config/dunst:dunst
-.config/polybar:polybar
-.config/terminator:terminator
 
 .mozilla/userChrome.css:mozilla/userChrome.css
 
