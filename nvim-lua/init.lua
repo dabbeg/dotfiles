@@ -1,8 +1,4 @@
---
--- TODO Lua migration
--- * Find a way to run prettier / lsp offers formatting not sure how good it is
---
-
+-- Global variables
 cmd = vim.cmd
 env = vim.env
 opt = vim.opt

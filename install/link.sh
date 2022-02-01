@@ -10,14 +10,10 @@ olddir_exists=false
 # list of files/folders to symlink
 # left side is relatice to $HOME while right side is relative to dotfiles dir
 files="
-.compton.conf:compton.conf
 .dircolors:dircolors
-.jshintrc:jshintrc
 .xinitrc:xinitrc
-.xmodmaprc:xmodmaprc
 .Xresources:Xresources
 .zshrc:zshrc
-.screenlayout:screenlayout
 
 .config/i3:i3
 .config/sway:sway
@@ -28,15 +24,12 @@ files="
 .config/nvim:nvim-lua
 .config/dunst:dunst
 .config/polybar:polybar
-.config/tridactylrc:tridactylrc
 .config/terminator:terminator
 
 .mozilla/userChrome.css:mozilla/userChrome.css
 
 .local/bin/gif:scripts/gif
 .local/bin/base:scripts/base
-.local/bin/vpn:scripts/vpn
-.local/bin/lopen:scripts/lopen
 .local/bin/aws-sso:scripts/aws-sso
 .local/bin/ecs:scripts/ecs
 "

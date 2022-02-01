@@ -1,9 +1,0 @@
-#!/bin/bash 
-
-UPDATES=`checkupdates | wc -l`
-
-if [ "$UPDATES" -ne "0" ]; then
-    echo ""
-else
-    echo ""
-fi

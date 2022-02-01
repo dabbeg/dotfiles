@@ -1,2 +1,0 @@
-#!/bin/sh
-feh --no-fehbg --bg-center '/home/davidh/.config/i3/pictures/wallpaper/1920x1080/green_sunrise.png' 
