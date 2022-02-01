@@ -6,7 +6,7 @@ For anyone who is reading this: This is more of a documentation of linux program
 ## Install
 Clone the repository and run the install script:
 
-`./install.sh`
+`./install/install.sh`
 
 ## How to manage what dotfiles are used
 Simply open the 'install/link.sh' script and add the filename in the appropriate file list.

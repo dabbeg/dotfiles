@@ -10,21 +10,19 @@ olddir_exists=false
 # list of files/folders to symlink
 # left side is relatice to $HOME while right side is relative to dotfiles dir
 files="
-.zshrc:zshrc
+.zshrc:src/.zshrc
 
-.config/sway:sway
-.config/waybar:waybar
-.config/alacritty:alacritty
-.config/wofi:wofi
-.config/nvim:nvim-lua
-.config/dunst:dunst
+.config/sway:src/.config/sway
+.config/waybar:src/.config/waybar
+.config/alacritty:src/.config/alacritty
+.config/wofi:src/.config/wofi
+.config/nvim:src/.config/nvim
+.config/dunst:src/.config/dunst
 
-.mozilla/userChrome.css:mozilla/userChrome.css
-
-.local/bin/gif:scripts/gif
-.local/bin/base:scripts/base
-.local/bin/aws-sso:scripts/aws-sso
-.local/bin/ecs:scripts/ecs
+.local/bin/gif:src/.local/bin/gif
+.local/bin/base:src/.local/bin/base
+.local/bin/aws-sso:src/.local/bin/aws-sso
+.local/bin/ecs:src/.local/bin/ecs
 "
 
 symlink() {

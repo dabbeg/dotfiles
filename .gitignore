@@ -4,9 +4,4 @@
 *.pyc
 
 # ignore plugin files
-/nvim/plugged/*
-/nvim/.init.vim-rplugin~
-/nvim/.netrwhist
-/nvim/undo-dir/
-
-/nvim-lua/plugin/
+/src/.config/nvim/plugin/
