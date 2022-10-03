@@ -37,7 +37,7 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "sway/language": {
-        "format": "<span font='20' rise='-4000'></span>  {}"
+        "format": "<span font='18' rise='-4000'></span>  {}"
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -115,7 +115,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "<span font='20' rise='-4000'>{icon}</span>  {capacity}%",
+        "format": "<span font='18' rise='-4000'>{icon}</span>  {capacity}%",
         "format-charging": "  {capacity}%",
         "format-plugged": "  {capacity}%",
         "format-alt": "{time} {icon}",
@@ -137,7 +137,7 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "<span font='20' rise='-1000'>{icon}</span>  {volume}%  |  {format_source}",
+        "format": "<span font='18' rise='-1000'>{icon}</span>  {volume}%  |  {format_source}",
         "format-bluetooth": "{icon}   {volume}%  |  {format_source}",
         "format-bluetooth-muted": " {icon}   |  {format_source}",
         "format-muted": " {format_source}",

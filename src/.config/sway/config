@@ -24,7 +24,7 @@ for_window [shell="xwayland"] title_format "%title [XWayland]"
 ### Output configuration
 #
 output * bg $HOME/.config/sway/wallpaper/3840x2400/wilderness.jpg fill
-output eDP-1 scale 2
+#output eDP-1 scale 2
 output eDP-1 pos 0 0 res 3840x2400
 output DP-2 pos 1920 0 res 3440x1440
 
@@ -77,7 +77,7 @@ bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2%- unmute
-bindsym XF86AudioMute exec amixer -q -D pulse set Master toggle
+bindsym XF86AudioMute exec amixer -q set Master toggle
 bindsym XF86AudioMicMute exec amixer set Capture toggle
 bindsym XF86Favorites exec swaylock -f -c 000000
 

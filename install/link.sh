@@ -17,6 +17,7 @@ files=(
   .config/wofi
   .config/nvim
   .config/dunst
+  .config/pypoetry
 
   .local/bin/gif
   .local/bin/base
@@ -50,6 +51,7 @@ symlink() {
 
 main() {
   for file in ${files[@]}; do
+    mkdir -p "$(dirname $HOME/$file)"
     symlink "$DOT_DIR/$file" "$HOME/$file"
   done
 }

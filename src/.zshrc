@@ -21,12 +21,13 @@ plugins=(
   nvm
   pyenv
   terraform
+  ssh-agent
 )
 
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export PROMPT=$PROMPT'$(kube_ps1) '
+#export PROMPT=$PROMPT'$(kube_ps1) '
 
 #
 ##### USER CONFIGURATION #####
@@ -52,6 +53,8 @@ function sso (){
   aws-sso-util login --profile $AWS_PROFILE-sso
 }
 
+export MOZ_ENABLE_WAYLAND=1 
+
 # Alias
 alias vim='nvim'
 alias bcolor='source $HOME/dotfiles/scripts/bcolor.sh'
@@ -69,4 +72,4 @@ alias dc='docker-compose'
 alias py='python'
 alias po='poetry'
 alias ssh='TERM=xterm-256color ssh'
-alias firefox='MOZ_ENABLE_WAYLAND=1 firefox'
+export PATH=$PATH:/home/dabbeg/repos/reepay/reepay-cli/bin

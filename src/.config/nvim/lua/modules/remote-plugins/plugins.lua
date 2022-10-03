@@ -14,6 +14,12 @@ return require('packer').startup(function()
     config = conf('nvim-tree')
   }
 
+  use {
+    'iamcco/markdown-preview.nvim',
+    run = function() vim.fn['mkdp#util#install']() end,
+    ft = {'markdown'}
+  }
+
   -- Nice colorscheme but having a hard time parting with base16
   -- use {
   --   'tjdevries/colorbuddy.vim',
@@ -56,8 +62,8 @@ return require('packer').startup(function()
 
   -- LSP and completion
   use {
-    'neovim/nvim-lspconfig',
-    config = conf('nvim-lspconfig')
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
   }
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
@@ -67,19 +73,13 @@ return require('packer').startup(function()
     config = conf('nvim-cmp')
   }
   use {
-    'williamboman/nvim-lsp-installer',
-    requires = { 'hrsh7th/cmp-nvim-lsp' },
-    config = conf('nvim-lsp-installer').setup {
-      servers = {
-        'bashls',
-        'cmake',
-        'dockerls',
-        'jdtls',
-        'pyright',
-        'terraformls',
-        'tsserver',
-      },
-    }
+    'neovim/nvim-lspconfig',
+    after = {
+      'mason.nvim',
+      'mason-lspconfig.nvim',
+      'cmp-nvim-lsp',
+    },
+    config = conf('nvim-lspconfig')
   }
 
   use {
